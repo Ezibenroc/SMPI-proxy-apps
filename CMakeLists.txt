@@ -14,6 +14,7 @@ ADD_TEST(Trinity_ZiaTest bin/Trinity_ZiaTest.sh)
 ADD_TEST(Trinity_MPIMemu bin/Trinity_MPIMemu.sh)
 ADD_TEST(Trinity_OMB_MPI bin/Trinity_OMB_MPI_pt2pt.sh)
 ADD_TEST(Trinity_OMB_MPI bin/Trinity_OMB_MPI_one-sided.sh)
+ADD_TEST(Trinity_OMB_MPI bin/Trinity_OMB_MPI_collective.sh)
 ADD_TEST(Trinity_GTC     bin/Trinity_GTC.sh)
 ADD_TEST(Trinity_MiniFE  bin/Trinity_MiniFE.sh)
 
