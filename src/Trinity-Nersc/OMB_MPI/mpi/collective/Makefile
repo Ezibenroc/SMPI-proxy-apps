@@ -141,10 +141,10 @@ AUTOCONF = ${SHELL} /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI
 AUTOHEADER = ${SHELL} /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI/missing --run automake-1.12
 AWK = gawk
-CC = mpicc
+CC = smpicc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
-CPP = mpicc -E
+CPP = smpicc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"OSU-Micro-Benchmarks\" -DPACKAGE_TARNAME=\"osu-micro-benchmarks\" -DPACKAGE_VERSION=\"3.8\" -DPACKAGE_STRING=\"OSU-Micro-Benchmarks\ 3.8\" -DPACKAGE_BUGREPORT=\"mvapich-discuss@cse.ohio-state.edu\" -DPACKAGE_URL=\"\" -DPACKAGE=\"osu-micro-benchmarks\" -DVERSION=\"3.8\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_UNISTD_H=1 -DHAVE_STDLIB_H=1 -DHAVE_MALLOC=1 -DHAVE_GETPAGESIZE=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_MEMSET=1 -DHAVE_SQRT=1 -DFIELD_WIDTH=18 -DFLOAT_PRECISION=2
@@ -183,7 +183,7 @@ abs_builddir = /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI/mpi/
 abs_srcdir = /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI/mpi/collective
 abs_top_builddir = /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI
 abs_top_srcdir = /home/boubehziz/Downloads/SMPI-benchmarks/Benchmarks/OMB_MPI
-ac_ct_CC = mpicc
+ac_ct_CC = smpicc
 am__include = include
 am__leading_dot = .
 am__quote = 
