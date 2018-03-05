@@ -72,6 +72,12 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prng][Monte_carlo_methods (prng)]] | NONE | unknown | MPI, OpenMP | C++ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-body_methods (dyn sparse data ex)]] | NONE | unknown | MPI | C++ | :white_check_mark: :wrench: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
+* [[http://proxyapps.exascaleproject.org/ecp-suite/][ECP]] Proxy Applications 
+
+| Benchmark  | Ref | Lines of code | paral | Lang | Build with MPI | Run with MPI | Build with SMPI | Run with SMPI |
+|------------+-----+---------------+-------+------+----------------+--------------+-----------------+-----------------|
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C++ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
+
 * Not valid benchmarks 
 ** CORAL 
 *** For dependency 

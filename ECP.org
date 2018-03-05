@@ -1,0 +1,36 @@
+* Apps  
+** CoMD
+#+BEGIN_SRC sh :tangle bin/ECP_CoMD.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place" 
+     set -exu
+     mkdir -p Benchmarks/ 
+     cd Benchmarks
+     echo "Checkout or update the git containing the source code"
+     if [ -e CoMD ] ; then
+        cd CoMD ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/ECP-copa/CoMD.git
+     fi
+
+     echo "show me"
+     ls
+     echo "Install the modified sources"
+     cd CoMD/src-mpi/
+     cp Makefile.vanilla Makefile
+
+     echo "Compile it" 
+     cp ../../../src/ECP/CoMD/* ./
+     make
+     cd ../bin/
+     cp ../../../src/common/* ./
+
+     echo "Run it"
+     smpirun -np 1 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./CoMD-mpi
+
+ #+END_SRC
+
+ #+RESULTS:
