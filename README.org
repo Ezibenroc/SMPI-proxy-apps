@@ -76,7 +76,7 @@ their support by the SMPI implementation. This is tested nightly on a
 
 | Benchmark  | Ref | Lines of code | paral | Lang | Build with MPI | Run with MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+--------------+-----------------+-----------------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C++ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
 
 * Not valid benchmarks 
 ** CORAL 
@@ -138,5 +138,8 @@ CoMD.
 n-body_methods (bhtree_mpi) : issue with Body.cpp
 
 ** [[http://proxyapps.exascaleproject.org/ecp-suite/][ECP Proxy Applications]]
+| Benchmark | Ref | Lines of code | Dependency |
+|-----------|-----|---------------|------------|
+| XSBench | / | unknown | OpenMP |
 *** For programming language 
 python : CANDLE benchmarks 
