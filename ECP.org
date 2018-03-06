@@ -16,14 +16,12 @@
         git clone --depth=1 https://github.com/ECP-copa/CoMD.git
      fi
 
-     echo "show me"
-     ls
      echo "Install the modified sources"
      cd CoMD/src-mpi/
      cp Makefile.vanilla Makefile
+     cp ../../../src/ECP/CoMD/* ./
 
      echo "Compile it" 
-     cp ../../../src/ECP/CoMD/* ./
      make
      cd ../bin/
      cp ../../../src/common/* ./
@@ -32,5 +30,3 @@
      smpirun -np 1 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./CoMD-mpi
 
  #+END_SRC
-
- #+RESULTS:
