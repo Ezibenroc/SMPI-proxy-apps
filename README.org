@@ -145,6 +145,7 @@ n-body_methods (bhtree_mpi) : issue with Body.cpp
 | sw4lite | / | unknown | lblas, Lapack |
 | SWFFT | / | unknown | FFTW3 |
 | Laghos | / | unknown | HYPRE, METIS, MFEM |
+| MACSio | / | unknown | json-c |
 *** For programming language 
 python : CANDLE benchmarks 
 *** Not available 
