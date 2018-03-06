@@ -144,6 +144,7 @@ n-body_methods (bhtree_mpi) : issue with Body.cpp
 | XSBench | / | unknown | OpenMP |
 | sw4lite | / | unknown | lblas, Lapack |
 | SWFFT | / | unknown | FFTW3 |
+| Laghos | / | unknown | HYPRE, METIS, MFEM |
 *** For programming language 
 python : CANDLE benchmarks 
 *** Not available 
