@@ -1,4 +1,4 @@
-* Apps  
+* Apps
 ** CoMD
 #+BEGIN_SRC sh :tangle bin/ECP_CoMD.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -28,5 +28,37 @@
 
      echo "Run it"
      smpirun -np 1 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./CoMD-mpi
+
+ #+END_SRC
+
+** AMG
+#+BEGIN_SRC sh :tangle bin/ECP_AMG.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place" 
+     set -exu
+     mkdir -p Benchmarks/ 
+     cd Benchmarks
+     echo "Checkout or update the git containing the source code"
+     if [ -e AMG ] ; then
+        cd AMG ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/LLNL/AMG.git
+     fi
+
+     echo "Install the modified sources"
+     cp ../src/ECP/AMG/* ./AMG/
+
+     echo "Compile it" 
+     cd AMG/
+     make veryclean
+     make
+     cp ../../src/common/* ./test/
+     cd test/
+
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./amg
 
  #+END_SRC

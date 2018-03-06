@@ -40,5 +40,7 @@ ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
 
 # ECP benchmarks 
 ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
+ADD_TEST(ECP_CoMD      bin/ECP_AMG.sh)
+
 
 
