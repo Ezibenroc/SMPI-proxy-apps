@@ -5,7 +5,7 @@ export SIMGRID_PATH=/builds/simgrid_install
 set -exu
 rm -rf bin
 mkdir -p bin
-for org in CodeVault.org  Coral.org  Mantevo.org  Trinity-Nersc.org ; do 
+for org in CodeVault.org  Coral.org ECP.org Mantevo.org  Trinity-Nersc.org ; do 
   emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "'${org}'")'
 done
 chmod +x bin/*.sh
