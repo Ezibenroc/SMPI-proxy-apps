@@ -70,3 +70,21 @@ systems for various 3-dimensional problems.
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./amg
 
  #+END_SRC
+
+
+
+* Emacs settings
+# Local Variables:
+# eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
+# eval:    (setq org-confirm-babel-evaluate nil)
+# eval:    (setq org-alphabetical-lists t)
+# eval:    (setq org-src-fontify-natively t)
+# eval:    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
+# eval:    (add-hook 'org-mode-hook 'org-display-inline-images)
+# eval:    (add-hook 'org-mode-hook 'org-babel-result-hide-all)
+# eval:    (setq org-babel-default-header-args:R '((:session . "org-R")))
+# eval:    (setq org-export-babel-evaluate nil)
+# eval:    (setq ispell-local-dictionary "american")
+# eval:    (setq org-export-latex-table-caption-above nil)
+# eval:    (eval (flyspell-mode t))
+# End:
