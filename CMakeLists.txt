@@ -8,7 +8,6 @@ ENABLE_TESTING()
 # Trinity-Nersc benchmarks
 ADD_TEST(Trinity_MDTest  bin/Trinity_MDTest.sh)
 ADD_TEST(Trinity_stream  bin/Trinity_stream.sh)
-ADD_TEST(Trinity_PSNAP   bin/Trinity_PSNAP.sh)
 ADD_TEST(Trinity_SMB     bin/Trinity_SMB.sh)
 ADD_TEST(Trinity_ZiaTest bin/Trinity_ZiaTest.sh)
 ADD_TEST(Trinity_MPIMemu bin/Trinity_MPIMemu.sh)
@@ -43,4 +42,5 @@ ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
 ADD_TEST(ECP_AMG       bin/ECP_AMG.sh)
 
 
-
+# This test is very long. Keep it last in this file
+ADD_TEST(Trinity_PSNAP   bin/Trinity_PSNAP.sh)
