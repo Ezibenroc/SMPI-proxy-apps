@@ -1,5 +1,8 @@
 * Apps
 ** CoMD
+*** Brief description 
+CoMD is a reference implementation of typical classical molecular dynamics algorithms and workloads.
+*** Build and run  
 #+BEGIN_SRC sh :tangle bin/ECP_CoMD.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
      export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
@@ -32,6 +35,11 @@
  #+END_SRC
 
 ** AMG
+*** Brief description 
+AMG is a parallel algebraic multigrid solver for linear systems arising from
+problems on unstructured grids.  The driver provided with AMG builds linear 
+systems for various 3-dimensional problems.
+*** Build and run 
 #+BEGIN_SRC sh :tangle bin/ECP_AMG.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
      export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
