@@ -141,5 +141,6 @@ n-body_methods (bhtree_mpi) : issue with Body.cpp
 | Benchmark | Ref | Lines of code | Dependency |
 |-----------|-----|---------------|------------|
 | XSBench | / | unknown | OpenMP |
+| sw4lite | / | unknown | lblas, Lapack |
 *** For programming language 
 python : CANDLE benchmarks 
