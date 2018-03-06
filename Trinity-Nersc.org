@@ -225,6 +225,10 @@ The Ohio MicroBenchmark suite is a collection of independent MPI message passing
 It includes traditional benchmarks and performance measures such as latency, bandwidth and host overhead and can be used for both traditional and GPU-enhanced nodes.
 **** Pt2pt
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_pt2pt.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/OMB_MPI
@@ -267,6 +271,10 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
 **** One-sided
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_one-sided.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/OMB_MPI
@@ -325,6 +333,10 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
 **** Collective
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_collective.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/OMB_MPI
@@ -392,6 +404,10 @@ It includes traditional benchmarks and performance measures such as latency, ban
 GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burning Plasmas.
 **** Build and run  
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_GTC.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/GTC
@@ -421,6 +437,10 @@ FE is a Finite Element mini-application which implements a couple of kernels rep
 It assembles a sparse linear-system from the steady-state conduction equation on a brick-shaped problem domain of linear 8-node hex elements.
 **** Build and run  
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_MiniFE.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/MiniFE
