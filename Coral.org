@@ -29,8 +29,10 @@ AMG is a parallel algebraic multigrid solver for linear systems arising from pro
      cd test/
 
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./amg2013 -pooldist 1 -r 12 12 12
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/privatize_global_variables:yes ./amg2013 -pooldist 1 -r 12 12 12
 #+END_SRC
+
+#+RESULTS:
 
 ** [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][HACC_IO]]
 *** Brief description  
