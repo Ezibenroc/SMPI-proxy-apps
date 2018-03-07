@@ -21,16 +21,15 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
 
      echo "Install the modified sources"
      cd CoMD/src-mpi/
-     cp Makefile.vanilla Makefile
      cp ../../../src/ECP/CoMD/* ./
 
      echo "Compile it" 
-     make
-     cd ../bin/
+     make 
+     cd ../examples/
      cp ../../../src/common/* ./
 
      echo "Run it"
-     smpirun -np 1 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./CoMD-mpi
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../bin/CoMD-mpi -e -i 4 -j 2 -k 1 -x 40 -y 40 -z 40
 
  #+END_SRC
 
