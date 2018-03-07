@@ -30,6 +30,7 @@
 libgmp-dev
 *** Integral-basic
 #+BEGIN_SRC sh :tangle bin/CodeVault_IntegralBasic.sh
+     set -exu
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/integral_basic/
      mkdir build
@@ -46,6 +47,7 @@ libgmp-dev
 
 *** Prime
 #+BEGIN_SRC sh :tangle bin/CodeVault_Prime.sh
+     set -exu
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prime
      mkdir build
@@ -62,6 +64,7 @@ libgmp-dev
 
 *** Pi
 #+BEGIN_SRC sh :tangle bin/CodeVault_Pi.sh
+     set -exu
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/pi 
      mkdir build
@@ -78,6 +81,7 @@ libgmp-dev
 
 *** Prng
 #+BEGIN_SRC sh :tangle bin/CodeVault_Prng.sh
+     set -exu
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prng 
      mkdir build
@@ -96,6 +100,7 @@ libgmp-dev
 *** Brief description 
 *** Dynamic sparse data exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_DynSparse.sh
+     set -exu
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/n-body_methods/dynamic_sparse_data_exchange/
      mkdir build
@@ -114,6 +119,7 @@ libgmp-dev
 *** Brief description 
 *** Halo exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_UnstructedGrid.sh
+     set -exu
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/unstructured_grids/halo_exchange/
      mkdir build
@@ -133,6 +139,7 @@ libgmp-dev
 This code demonstrate the basic usage of MPI parallel I/O.
 **** Build and run  
 #+BEGIN_SRC sh
+     set -exu
      echo "Compile it"
      cd CodeVault/hpc_kernel_samples/parallel_io/
      mkdir build
