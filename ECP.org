@@ -67,7 +67,7 @@ systems for various 3-dimensional problems.
      cd test/
 
      echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/privatize_global_variables:yes --cfg=smpi/host-speed:100 ./amg
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./amg
 
  #+END_SRC
 
