@@ -90,8 +90,6 @@ PSNAP (PAL System Noise Activity Program) consists of a spin loop that is calibr
 It executes a new proposed standard benchmark method for MPI startup that is intended to provide a realistic assessment of
 both launch and wireup requirements. Accordingly, it exercises both the launch system of the environment and the interconnect subsystem in a specified pattern.
 **** Build and run 
-To run the code one has to give 3 args as inputs.
-It's required by MPI-2, this is currently not supported by SMPI.
 #+BEGIN_SRC sh :tangle bin/Trinity_ZiaTest.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
