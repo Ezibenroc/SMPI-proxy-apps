@@ -248,9 +248,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Compile it"
+     cd mpi/pt2pt
      make 
 
-     cd mpi/pt2pt
      echo "Run osu_bibw"
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_bibw
      
@@ -294,9 +294,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
      cp -f ../../src/common/* ./mpi/one-sided
 
      echo "Compile it"
+     cd mpi/one-sided
      make 
 
-      cd mpi/one-sided
       echo "Run osu_acc_latency"
       smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_acc_latency
      
@@ -329,6 +329,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
  #+END_SRC
 
+ #+RESULTS:
+
 **** Collective
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_collective.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -356,9 +358,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
      cp -f ../../src/common/* ./mpi/collective
 
      echo "Compile it"
+     cd mpi/collective
      make 
 
-     cd mpi/collective
      echo "Run osu_allgather"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./osu_allgather
 
