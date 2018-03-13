@@ -239,13 +239,13 @@ It includes traditional benchmarks and performance measures such as latency, ban
      mkdir OMB_MPI && tar -xvf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
 
      cd OMB_MPI/
+     
+     echo "Configure it"
+     SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/OMB_MPI/mpi/pt2pt/* ./mpi/pt2pt
      cp -f ../../src/common/* ./mpi/pt2pt
-     
-     echo "Configure it"
-     SMPI_PRETEND_CC=1 ./configure
 
      echo "Compile it"
      cd mpi/pt2pt
