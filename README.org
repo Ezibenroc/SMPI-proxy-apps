@@ -65,7 +65,7 @@ their support by the SMPI implementation. This is tested nightly on a
 | Benchmark  | Ref | Lines of code | paral | Lang | Build with MPI | Run with MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+--------------+-----------------+-----------------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] | NONE | unknown | MPI, PTHREAD | C++ | :white_check_mark: :wrench: | :white_check_mark: | :x: :construction: | / |
-| Parallel_io | NONE | unknown | MPI | C++ | :white_check_mark: | :white_check_mark: | :x: | some features are currently unavailable with SMPI |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | NONE | unknown | MPI | C++ | :white_check_mark: | :white_check_mark: | :x: :construction: | / |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][Monte_carlo_methods (integral_basic)]] | NONE | unknown | MPI, OpenMP | C++ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prime][Monte_carlo_methods (prime)]] | NONE | unknown | MPI, OpenMP | C++ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][Monte_carlo_methods (pi)]] | NONE | unknown | MPI, OpenMP | C++ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
