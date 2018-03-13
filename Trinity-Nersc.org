@@ -181,7 +181,7 @@ STREAM is a simple, synthetic benchmark designed to measure sustainable memory b
      make
 
      echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./stream_c.exe
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./stream_c.exe
  #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mpimemu/][MPIMemu]]
