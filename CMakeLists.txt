@@ -36,6 +36,7 @@ ADD_TEST(CodeVault_IntegralBasic  bin/CodeVault_IntegralBasic.sh)
 ADD_TEST(CodeVault_Pi             bin/CodeVault_Pi.sh)
 ADD_TEST(CodeVault_Prng           bin/CodeVault_Prng.sh)
 ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
+ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
 
 # ECP benchmarks 
 ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)

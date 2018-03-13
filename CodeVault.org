@@ -141,7 +141,7 @@ libgmp-dev
 **** Brief description  
 This code demonstrate the basic usage of MPI parallel I/O.
 **** Build and run  
-#+BEGIN_SRC sh
+#+BEGIN_SRC sh :tangle bin/CodeVault_parallelio.sh
      set -exu
 
      echo "Install the modified sources"
