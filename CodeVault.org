@@ -121,7 +121,7 @@ libgmp-dev
      set -exu
 
      echo "Install the modified sources"
-     cp src/CodeVault/unstructured_grids/halo_exchange/* Benchmarks/CodeVault/hpc_kernel_samples/unstructured_grids/halo_exchange/
+     cp src/CodeVault/Unstructred_grids/halo_exchange/* Benchmarks/CodeVault/hpc_kernel_samples/unstructured_grids/halo_exchange/
 
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/unstructured_grids/halo_exchange/
@@ -130,7 +130,7 @@ libgmp-dev
      cmake ..
      make 
      
-#      cp ../../../../../../src/common/* ./
+     cp ../../../../../../src/common/* ./
 
       echo "Run it"
 #     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_ 
