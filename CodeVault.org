@@ -14,12 +14,12 @@
      else
         git clone --depth=1 https://repository.prace-ri.eu/git/PRACE/CodeVault.git
      fi
-     echo "Install the modified sources"
-     for file in `find ../src/CodeVault/ -type f` ; do 
-         dst=`echo $file|sed 's|../src/||'`
-         mkdir -p `dirname $dst`
-         cp -v $file $dst 
-     done
+    #  echo "Install the modified sources"
+    #  for file in `find ../src/CodeVault/ -type f` ; do 
+    #      dst=`echo $file|sed 's|../src/||'`
+    #      mkdir -p `dirname $dst`
+    #      cp -v $file $dst 
+    #  done
 
  #+END_SRC
  
@@ -31,11 +31,15 @@ libgmp-dev
 *** Integral-basic
 #+BEGIN_SRC sh :tangle bin/CodeVault_IntegralBasic.sh
      set -exu
+     
+     echo "Install the modified sources"
+     cp src/CodeVault/monte_carlo_methods/integral_basic/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/integral_basic/
+
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/integral_basic/
-     mkdir build
+     mkdir -p build
      cd build/
-     cmake -Denable_smpi=ON ..
+     cmake ..
      make 
      cp ../../../../../../src/common/* ./
 
@@ -45,31 +49,18 @@ libgmp-dev
 
  #+END_SRC
 
-*** Prime
-#+BEGIN_SRC sh :tangle bin/CodeVault_Prime.sh
-     set -exu
-     echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prime
-     mkdir build
-     cd build/
-     cmake -Denable_smpi=ON ..
-     make 
-
-     cp ../../../../../../src/common/* ./
-
-     echo "Run it"
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_prime 100 
-
- #+END_SRC
-
 *** Pi
 #+BEGIN_SRC sh :tangle bin/CodeVault_Pi.sh
      set -exu
+
+     echo "Install the modified sources"
+     cp src/CodeVault/monte_carlo_methods/pi/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/pi/
+
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/pi 
-     mkdir build
+     mkdir -p build
      cd build/
-     cmake -Denable_smpi=ON ..
+     cmake ..
      make 
 
      cp ../../../../../../src/common/* ./
@@ -82,11 +73,15 @@ libgmp-dev
 *** Prng
 #+BEGIN_SRC sh :tangle bin/CodeVault_Prng.sh
      set -exu
+
+     echo "Install the modified sources"
+     cp src/CodeVault/monte_carlo_methods/prng/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prng/
+
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prng 
-     mkdir build
+     mkdir -p build
      cd build/
-     cmake -Denable_smpi=ON ..
+     cmake ..
      make 
 
      cp ../../../../../../src/common/* ./
@@ -101,11 +96,15 @@ libgmp-dev
 *** Dynamic sparse data exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_DynSparse.sh
      set -exu
+
+     echo "Install the modified sources"
+     cp src/CodeVault/n-body_methods/dynamic_sparse_data_exchange/* Benchmarks/CodeVault/hpc_kernel_samples/n-body_methods/dynamic_sparse_data_exchange/
+
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/n-body_methods/dynamic_sparse_data_exchange/
-     mkdir build
+     mkdir -p build
      cd build/
-     cmake -Denable_smpi=ON ..
+     cmake ..
      make 
      
      cp ../../../../../../src/common/* ./
@@ -120,9 +119,13 @@ libgmp-dev
 *** Halo exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_UnstructedGrid.sh
      set -exu
+
+     echo "Install the modified sources"
+     cp src/CodeVault/unstructured_grids/halo_exchange/* Benchmarks/CodeVault/hpc_kernel_samples/unstructured_grids/halo_exchange/
+
      echo "Compile it"
      cd Benchmarks/CodeVault/hpc_kernel_samples/unstructured_grids/halo_exchange/
-     mkdir build
+     mkdir -p build
      cd build/
      cmake ..
      make 
@@ -140,9 +143,13 @@ This code demonstrate the basic usage of MPI parallel I/O.
 **** Build and run  
 #+BEGIN_SRC sh
      set -exu
+
+     echo "Install the modified sources"
+     cp src/CodeVault/parallel_io/* Benchmarks/CodeVault/hpc_kernel_samples/parallel_io/
+
      echo "Compile it"
      cd CodeVault/hpc_kernel_samples/parallel_io/
-     mkdir build
+     mkdir -p build
      cd build/
      cmake ..
      make 

@@ -15,21 +15,14 @@ set(NAME ${DWARF_PREFIX}_dsde)
 
 # C compiler settings
 
-option(enable_smpi "Enable SMPI")
-
-if (enable_smpi)
-    set(CMAKE_C_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicc")
-    include_directories(BEFORE "~/simgrid/include/smpi")
-    cmake_policy(SET CMP0003 OLD)
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-    add_executable(${NAME} main.c configuration.c mpicomm.c mpitypes.c particles.c random.c simulation.c vector.c)
-    target_link_libraries(${NAME} ${MPI_LIBRARIES} -lm stdc++)
-    install(TARGETS ${NAME} DESTINATION bin)
-    message("** Enabling '${NAME}': with SMPI")
-else()
-    message("## Skipping '${NAME}': no SMPI support found")
-#    dummy_install(${NAME} "SMPI")
-endif()
+set(CMAKE_C_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicc")
+include_directories(BEFORE "~/simgrid/include/smpi")
+cmake_policy(SET CMP0003 OLD)
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+add_executable(${NAME} main.c configuration.c mpicomm.c mpitypes.c particles.c random.c simulation.c vector.c)
+target_link_libraries(${NAME} ${MPI_LIBRARIES} -lm stdc++)
+install(TARGETS ${NAME} DESTINATION bin)
+message("** Enabling '${NAME}': with SMPI")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${C_FLAGS}")
 
