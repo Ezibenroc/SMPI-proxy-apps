@@ -10,6 +10,7 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
      
      echo "Clean up the place" 
      set -exu
+     rm -rf Benchmarks/CoMD
      mkdir -p Benchmarks/ 
      cd Benchmarks
      echo "Checkout or update the git containing the source code"
@@ -46,6 +47,7 @@ systems for various 3-dimensional problems.
      
      echo "Clean up the place" 
      set -exu
+     rm -rf Benchmarks/AMG
      mkdir -p Benchmarks/ 
      cd Benchmarks
      echo "Checkout or update the git containing the source code"
