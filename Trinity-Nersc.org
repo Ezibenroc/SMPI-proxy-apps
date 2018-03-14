@@ -162,7 +162,7 @@ STREAM is a simple, synthetic benchmark designed to measure sustainable memory b
 
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/steam
+     rm -rf Benchmarks/stream
      mkdir -p Benchmarks/stream || true
      cd Benchmarks
      echo "Download the source"
