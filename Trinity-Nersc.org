@@ -225,8 +225,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_pt2pt.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
-  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
-
+  
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/OMB_MPI
@@ -271,10 +270,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_one-sided.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
-  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
 
      echo "Clean up the place" 
-     set -xeu
+     set -xeu 
      rm -rf Benchmarks/OMB_MPI
      mkdir -p Benchmarks/
      cd Benchmarks
@@ -335,7 +333,6 @@ It includes traditional benchmarks and performance measures such as latency, ban
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_collective.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
-  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
 
      echo "Clean up the place" 
      set -xeu
