@@ -30,14 +30,14 @@ their support by the SMPI implementation. This is tested nightly on a
 | :loop: | Deadlock | | |
 
 * [[https://asc.llnl.gov/CORAL-benchmarks/][CORAL]] benchmark codes 
-| Benchmark  | Ref | Lines of code | paral | Lang | Build and run with MPI | Build with SMPI | Run with SMPI |
+| Benchmark  | Ref | Lines of code | paral | Lang | MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+-----------------+-----------------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#amg2013][amg2013]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/AMG2013_Summary_v2.3.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/amg20130624.tgz][:package:]] | 75,000 | MPI-OPENMP | C | :gear: :wrench: :sunny: | :white_check_mark: | :white_check_mark: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :partly_sunny: :sunny: | :x: :construction: | / |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#kmi_hash][KMI_HASH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]| unknown | MPI | C | :gear: :partly_sunny: :sunny: | :white_check_mark: | :white_check_mark: :warning: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :sunny: | :x: :construction: | / |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#kmi_hash][KMI_HASH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]| unknown | MPI | C | :gear: :sunny: | :white_check_mark: | :white_check_mark: :warning: |
 
 * [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/][Trinity-Nersc]] benchmark codes
-| Benchmark  | Ref | Lines of code | paral | Lang | Build and run with MPI | Build with SMPI | Run with SMPI |
+| Benchmark  | Ref | Lines of code | paral | Lang | MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+--------------+-----------------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#smb][SMB - mpiheader]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/smb/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/smb1.0-1.tar][:package:]] | unknown | MPI | C | :gear: :sunny: | :white_check_mark: | :loop: |
 | SMB - msgrate | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/smb/][:book:]] | unknown | MPI | C | :gear: :x: | :x: | /|
@@ -53,7 +53,7 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#stream][Stream]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/stream/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/stream.tar][:package:]] | unknown | MPI, OPENMP | C,F90 | :gear: :sunny: | :white_check_mark: | :white_check_mark: | 
 
 * [[https://mantevo.org/download/][Mantevo]] benchmark codes
-| Benchmark  | Ref | Lines of code | paral | Lang | Build and run with MPI | Build with SMPI | Run with SMPI |
+| Benchmark  | Ref | Lines of code | paral | Lang | MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+--------------+-----------------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | NONE [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | unknown       | MPI, OpenMP | C,F90     | :gear: :wrench: :sunny: | :x: | / |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | NONE [[http://mantevo.org/downloads/miniSMAC2D_2.0.html][:package:]] | unknown       | MPI, OpenMP | F90 | :gear: :wrench: :sunny: | :white_check_mark: :partly_sunny: | :white_check_mark: :warning: |
@@ -63,7 +63,7 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minief][MiniFE-evo]]   | NONE [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniFE/miniFE_ref_1.5.tar.gz][:package:]] | unknown | MPI | C | :gear: :sunny: | :white_check_mark: | :white_check_mark: |
 
 * [[https://repository.prace-ri.eu/git/PRACE/CodeVault][CodeVault]] benchmark codes 
-| Benchmark  | Ref | Lines of code | paral | Lang | Build and run with MPI | Build with SMPI | Run with SMPI |
+| Benchmark  | Ref | Lines of code | paral | Lang | MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+--------------+-----------------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] | NONE | unknown | MPI, PTHREAD | C++ | :gear: :wrench: :sunny: | :x: :construction: | / |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | NONE | unknown | MPI | C++ | :gear: :sunny: | :x: :construction: | / |
@@ -74,7 +74,7 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-body_methods (dyn sparse data ex)]] | NONE | unknown | MPI | C++ | :gear: :wrench: :sunny: | :white_check_mark: | :white_check_mark: |
 
 * [[http://proxyapps.exascaleproject.org/ecp-suite/][ECP]] Proxy Applications 
-| Benchmark  | Ref | Lines of code | paral | Lang | Build and run with MPI | Build with SMPI | Run with SMPI |
+| Benchmark  | Ref | Lines of code | paral | Lang | MPI | Build with SMPI | Run with SMPI |
 |------------+-----+---------------+-------+------+----------------+--------------+-----------------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | :white_check_mark: :partly_sunny: | :x: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | :white_check_mark: | :white_check_mark: |
