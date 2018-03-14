@@ -1,5 +1,5 @@
 CC = smpicc
-FF = smpif90
+FF = smpiff
 
 CFLAGS = -O2 
 FFLAGS = -O2
