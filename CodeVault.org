@@ -30,6 +30,9 @@
 libgmp-dev
 *** Integral-basic
 #+BEGIN_SRC sh :tangle bin/CodeVault_IntegralBasic.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
      
      echo "Install the modified sources"
@@ -51,6 +54,9 @@ libgmp-dev
 
 *** Pi
 #+BEGIN_SRC sh :tangle bin/CodeVault_Pi.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
 
      echo "Install the modified sources"
@@ -72,6 +78,9 @@ libgmp-dev
 
 *** Prng
 #+BEGIN_SRC sh :tangle bin/CodeVault_Prng.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
 
      echo "Install the modified sources"
@@ -90,11 +99,14 @@ libgmp-dev
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_prng_mpi 10 100 --cfg=smpi/host-speed:10
 
  #+END_SRC
-
+ 
 ** N-Body methods
 *** Brief description 
 *** Dynamic sparse data exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_DynSparse.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
 
      echo "Install the modified sources"
@@ -118,6 +130,9 @@ libgmp-dev
 *** Brief description 
 *** Halo exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_UnstructedGrid.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
 
      echo "Install the modified sources"
@@ -142,6 +157,9 @@ libgmp-dev
 This code demonstrate the basic usage of MPI parallel I/O.
 **** Build and run  
 #+BEGIN_SRC sh :tangle bin/CodeVault_parallelio.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
 
      echo "Install the modified sources"
