@@ -27,13 +27,13 @@ their support by the SMPI implementation. This is tested nightly on a
 | :book: | Compilation instructions | :package: | Source code |
 | :sunny: | Execution is done successfully | :gear: | Compilation is done successfully |
 | :partly_sunny: | Done successfully but with some warnings | :construction: |  SMPI missing feature |
-| :lock: | Deadlock | | |
+| :lock: | Deadlock | :heavy_minus_sign: | Execution is not done yet |
 
 * [[https://asc.llnl.gov/CORAL-benchmarks/][CORAL]] benchmark codes 
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#amg2013][amg2013]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/AMG2013_Summary_v2.3.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/amg20130624.tgz][:package:]] | 75,000 | MPI-OPENMP | C | :gear: :wrench: :sunny: | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :sunny: | :x: :construction: / |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Coral_HACC_IO/][:x: :construction: :heavy_minus_sign:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#kmi_hash][KMI_HASH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]| unknown | MPI | C | :gear: :sunny: | :gear: :white_check_mark: :warning: |
 
 * [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/][Trinity-Nersc]] benchmark codes
@@ -43,29 +43,29 @@ their support by the SMPI implementation. This is tested nightly on a
 | SMB - msgrate | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/smb/][:book:]] | unknown | MPI | C | :gear: :x: | :x: /|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#ziatest][ziatest]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/ziatest/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/ziatest.tar][:package:]] | unknown | MPI | C |  :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#mdtest][mdtest]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mdtest/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Mar29/mdtest-1.8.4.tar][:package:]] | unknown | MPI | C | :gear: :sunny: | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#mpimemu][mpimemu]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mpimemu/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July5/mpimemu-1.0-rc6July5.tar][:package:]] | unknown | MPI | C |  :gear: :sunny:|  :x: / |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#pt2pt][OMB_MPI Tests (pt2pt)]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar][:package:]] | unknown | MPI | C | :gear: :sunny: | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#one-sided][OMB_MPI Tests (one-sided)]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar][:package:]] | unknown | MPI | C | :gear: :sunny: |  :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#collective][OMB_MPI Tests (collective)]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar][:package:]] | unknown | MPI | C | :gear: :sunny: |  :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#minife][MiniFE]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minife/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Feb22/MiniFE_ref_1.4b.tar][:package:]] | unknown | MPI | C++ | :gear: :sunny: |  :x: / |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#gtc][GTC]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/gtc/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8GTCMay30.tar][:package:]] | unknown | MPI, OPENMP | F90 | :gear: :partly_sunny: | :x: / | 
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#mpimemu][mpimemu]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mpimemu/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July5/mpimemu-1.0-rc6July5.tar][:package:]] | unknown | MPI | C |  :gear: :sunny:| [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Trinity_MPIMemu/][:x: :heavy_minus_sign:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#pt2pt][OMB_MPI Tests (pt2pt)]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar][:package:]] | unknown | MPI | C | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Trinity_OMB_MPI_pt2pt/][:gear: :sunny:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#one-sided][OMB_MPI Tests (one-sided)]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar][:package:]] | unknown | MPI | C | :gear: :sunny: |  [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Trinity_OMB_MPI_one_sided/][:gear: :sunny:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#collective][OMB_MPI Tests (collective)]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar][:package:]] | unknown | MPI | C | :gear: :sunny: |  [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Trinity_OMB_MPI_collective/][:gear: :sunny:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#minife][MiniFE]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minife/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Feb22/MiniFE_ref_1.4b.tar][:package:]] | unknown | MPI | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Trinity_MiniFE/][:x: :heavy_minus_sign:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#gtc][GTC]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/gtc/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8GTCMay30.tar][:package:]] | unknown | MPI, OPENMP | F90 | :gear: :partly_sunny: | :x: :heavy_minus_sign: | 
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#stream][Stream]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/stream/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/stream.tar][:package:]] | unknown | MPI, OPENMP | C,F90 | :gear: :sunny: | :gear: :sunny: | 
 
 * [[https://mantevo.org/download/][Mantevo]] benchmark codes
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | NONE [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | unknown       | MPI, OpenMP | C,F90     | :gear: :wrench: :sunny: | :x: / |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | NONE [[http://mantevo.org/downloads/miniSMAC2D_2.0.html][:package:]] | unknown       | MPI, OpenMP | F90 | :gear: :wrench: :sunny: | :gear: :partly_sunny: :white_check_mark: :warning: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | NONE [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | unknown       | MPI, OpenMP | C,F90     | :gear: :wrench: :sunny: | :x: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | NONE [[http://mantevo.org/downloads/miniSMAC2D_2.0.html][:package:]] | unknown       | MPI, OpenMP | F90 | :gear: :wrench: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_MiniSMAC2D/][:gear: :partly_sunny: :white_check_mark: :warning:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixcye][MiniXcye]]   | NONE [[http://mantevo.org/downloads/miniXyce_1.0.html][:package:]] | unknown       | MPI         | C++     | :gear: :sunny: | :gear: :x: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]]   | NONE [[http://mantevo.org/downloads/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz][:package:]] | unknown | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :partly_sunny: :x: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#miniamr][MiniAMR]]   | NONE [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniAMR/miniAMR_1.0_ref.tgz][:package:]] | unknown | MPI | C | :gear: :wrench: :sunny: | :gear: :partly_sunny: :x: :construction: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]]   | NONE [[http://mantevo.org/downloads/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz][:package:]] | unknown | MPI, OpenMP | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_HPCCG/][:gear: :partly_sunny: :x:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#miniamr][MiniAMR]]   | NONE [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniAMR/miniAMR_1.0_ref.tgz][:package:]] | unknown | MPI | C | :gear: :wrench: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_MiniAMR/][:gear: :partly_sunny: :x: :construction:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minief][MiniFE-evo]]   | NONE [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniFE/miniFE_ref_1.5.tar.gz][:package:]] | unknown | MPI | C | :gear: :sunny: | :gear: :sunny: |
 
 * [[https://repository.prace-ri.eu/git/PRACE/CodeVault][CodeVault]] benchmark codes 
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] | NONE | unknown | MPI, PTHREAD | C++ | :gear: :wrench: :sunny: | :x: :construction: / |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | NONE | unknown | MPI | C++ | :gear: :sunny: | :x: :construction: / |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] | NONE | unknown | MPI, PTHREAD | C++ | :gear: :wrench: :sunny: | :x: :construction: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | NONE | unknown | MPI | C++ | :gear: :sunny: | :x: :construction: :heavy_minus_sign: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][Monte_carlo_methods (integral_basic)]] | NONE | unknown | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prime][Monte_carlo_methods (prime)]] | NONE | unknown | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][Monte_carlo_methods (pi)]] | NONE | unknown | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
@@ -75,7 +75,7 @@ their support by the SMPI implementation. This is tested nightly on a
 * [[http://proxyapps.exascaleproject.org/ecp-suite/][ECP]] Proxy Applications 
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | :gear: :partly_sunny: :x: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/ECP_CoMD/][:gear: :partly_sunny: :x:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | :gear: :sunny: |
 
 * Disabled benchmarks 
@@ -134,9 +134,9 @@ MiniGhost : issues with MG_CONSTANTS.F
 | MiniMD | [[http://mantevo.org/downloads/miniMD_ref_2.0.html][:package:]] |
 
 *** Using another dependencies
-| Benchmark | Ref | Lines of code | Dependency |  
-|-----------|-----|---------------|------------|
-| Miniaero | [[http://mantevo.org/downloads/miniAero_1.0.html][:package:]] | unknown | Trilinos Kokkos, PTHREAD |
+| Benchmark | Dependency |  
+|-----------|------------|
+| [[http://mantevo.org/downloads/miniAero_1.0.html][Miniaero]] | Trilinos Kokkos, PTHREAD |
 
 *** Not available 
 CoMD.
@@ -146,11 +146,11 @@ CoMD.
 Dense_linear_algebra, N-body_methods (bhtree, hermite4, naive), Structured_grids.
 
 *** Using another dependencies
-| Benchmark | Ref | Lines of code | Dependency |
-|-----------|-----|---------------|------------|
-| Sparse_linear_algebra | / | unknown | PETSc |
-| Spectral_methods | / | unknown | OpenMP, CUDA, OpenCL, FFTW |
-| Unstructured_grids (libmesh) | / | unknown | libmesh |
+| Benchmark | Dependency |
+|-----------|------------|
+| Sparse_linear_algebra | PETSc |
+| Spectral_methods | OpenMP, CUDA, OpenCL, FFTW |
+| Unstructured_grids (libmesh) | libmesh |
 
 *** Issues : 
 n-body_methods (bhtree_mpi) : issue with Body.cpp
@@ -161,12 +161,12 @@ n-body_methods (bhtree_mpi) : issue with Body.cpp
 XSBench
 
 *** Using another dependencies
-| Benchmark | Ref | Lines of code | Dependency |
-|-----------|-----|---------------|------------|
-| sw4lite | / | unknown | lblas, Lapack |
-| SWFFT | / | unknown | FFTW3 |
-| Laghos | / | unknown | HYPRE, METIS, MFEM |
-| MACSio | / | unknown | json-c |
+| Benchmark | Dependency |
+|-----------|------------|
+| sw4lite | lblas, Lapack |
+| SWFFT   | FFTW3 |
+| Laghos  | HYPRE, METIS, MFEM |
+| MACSio  | json-c |
 
 *** Using unsuitable language 
 python : CANDLE benchmarks 
