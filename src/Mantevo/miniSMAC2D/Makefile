@@ -14,7 +14,7 @@ FFLAGS=-O3 -c -g -DD_PRECISION #-check bounds -traceback
 # for Mac OSX
 #CPP=/opt/local/bin/cpp
 # for TLCC2 linux clusters like glory, chama
-CPP=/usr/bin/cpp
+CPP=smpicxx
 
 # preprocessor flags, with double precision
 # ... for MPI only
