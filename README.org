@@ -79,74 +79,93 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | :gear: :partly_sunny: :x: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | NONE | unknown | MPI, OpenMP | C | :gear: :sunny: | :gear: :sunny: |
 
-* Not valid benchmarks 
+* Disabled benchmarks 
 ** CORAL 
-*** For dependency 
+*** Using OpenMP
+| Benchmark | Ref | Lines of code |
+|-----------|-----|---------------|
+| UMT2013 | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/UMT2013_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/UMT2013-20140204.tar.gz][:package:]] | 75,000 |
+| MCB | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/MCB_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/mcb-20130723.tar.gz][:package:]] | 13,000 |
+| Nekbone | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/Nekbone_Summary_v2.3.4.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Science/nekbone-2.3.4.tar.gz][:package:]] | 48,000 |
+| QMCPACK | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/QMCPACK_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/qmcpack-coral20131203.tar.gz][:package:]] | 200.000 |
+| LULESH | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz][:package:]] | 5,000 |
+| integer_sort | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/BigSort_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/BigSort-20130808.tar.bz2][:package:]] | 2,000 | 
+| CLOMP | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/CLOMP_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/clomp_v1.2.tar.gz][:package:]] | unknown |
+| SNAP | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/snap/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/June13/SNAPJune13.tar.gz][:package:]] | unknown |
+
+*** Using another dependencies
 | Benchmark | Ref | Lines of code | Dependency |
 |-----------|-----|---------------|------------|
 | LSMS | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LSMS_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Science/LSMS_3_rev237.tar.bz2][:package:]] | 200,000 |  HDF5 |
 | QBOX | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/QBox_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Science/qball_r140b.tgz][:package:]] | 47,000 |OpenMP, Blas, LAPACK | 
-| Nekbone | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/Nekbone_Summary_v2.3.4.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Science/nekbone-2.3.4.tar.gz][:package:]] | 48,000 | OpenMP |
 | CAM-SE | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/CAMSE_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/homme1_3_6_mira_2.tgz][:package:]] | 150,000 | NETCDF, Lapack, cBlas |
-| UMT2013 | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/UMT2013_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/UMT2013-20140204.tar.gz][:package:]] | 75,000 | OpenMP |
-| MCB | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/MCB_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/mcb-20130723.tar.gz][:package:]] | 13,000 | OpenMP |
-| QMCPACK | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/QMCPACK_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/qmcpack-coral20131203.tar.gz][:package:]] | 200.000 | OpenMP |
 | NAMD | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/NAMD_Summary_v1.0.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/namd-src.tar.gz][:package:]] | 180,000 | mpixlc |
-| LULESH | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz][:package:]] | 5,000 | OpenMP |
-| integer_sort | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/BigSort_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/BigSort-20130808.tar.bz2][:package:]] | 2,000 | OpenMP | 
-| CLOMP | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/CLOMP_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/clomp_v1.2.tar.gz][:package:]] | unknown | OpenMP |
 | IOR | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/IOR_Summary_v1.0.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/IOR.CORAL.1.tar.gz][:package:]] | 4,000 | MPIICC |
-| SNAP | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/snap/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/June13/SNAPJune13.tar.gz][:package:]] | unknown | OpenMP |
-*** For programming language 
+
+*** Using unsuitable language 
 - Python : Pynmaic
-*** For Independency to MPI : 
+
+*** MPI unused : 
 Graph500, SPECint2006"peak", Memory benchmarks, CLOMP, LCALS, FTQ, XSBench, NEKbonemk, HACCmk, UMTmk, AMGmk, MILCmk, GFMCmk.
+
 ** Trinity 
-*** For dependency 
+*** Using particular dependencies 
 | Benchmark | Ref | Lines of code | Dependency |  
 |-----------|-----|---------------|------------|
 | AMG | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/amg/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May20/AMG2013May20.tar][:package:]] | 200,000 |  |
 | MILC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/milc/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8MILC7May30.tar][:package:]] | unknown |  |
 | MiniDFT | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][:book:]][[http://qe-forge.org/gf/download/frsrelease/144/456/MiniDFT-1.06.tar.gz][:package:]] | unknown | ScaLAPACK, BLAS, FFT |
 | UPC-FC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/npb-upc-ft/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/UPC-FT.tar][:package:]] | unknown | FFTW |
-*** For programming language 
+
+*** Using unsuitable language 
 - Python : UMT.
-*** For issues : 
+
+*** Issues : 
 MiniGhost : issues with MG_CONSTANTS.F
+
 ** Mantevo 
-*** For dependency 
+*** Using OpenMP
+| Benchmark | Ref |  
+|-----------|-----|
+| Clover3D | [[http://uk-mac.github.io/CloverLeaf3D/][:book:]][[http://mantevo.org/downloads/CloverLeaf3D-1.0.html][:package:]] |
+| MiniMD | [[http://mantevo.org/downloads/miniMD_ref_2.0.html][:package:]] |
+
+*** Using another dependencies
 | Benchmark | Ref | Lines of code | Dependency |  
 |-----------|-----|---------------|------------|
-| Clover3D | [[http://uk-mac.github.io/CloverLeaf3D/][:book:]][[http://mantevo.org/downloads/CloverLeaf3D-1.0.html][:package:]] | unknown | OpenMP |
 | Miniaero | [[http://mantevo.org/downloads/miniAero_1.0.html][:package:]] | unknown | Trilinos Kokkos, PTHREAD |
-| MiniMD | [[http://mantevo.org/downloads/miniMD_ref_2.0.html][:package:]] | unknown | OpenMP |
+
 *** Not available 
 CoMD.
+
 ** CodeVault
-*** For dependency 
+*** Using OpenMP 
+Dense_linear_algebra, N-body_methods (bhtree, hermite4, naive), Structured_grids.
+
+*** Using another dependencies
 | Benchmark | Ref | Lines of code | Dependency |
 |-----------|-----|---------------|------------|
 | Sparse_linear_algebra | / | unknown | PETSc |
-| Dense_linear_algebra | / | unknown | OpenMP |
-| N-body_methods (bhtree) | / | unknown | OpenMP |
-| N-body_methods (hermite4) | / | unknown | OpenMP |
-| N-body_methods (naive) | / | unknown | OpenMP |
 | Spectral_methods | / | unknown | OpenMP, CUDA, OpenCL, FFTW |
-| Structured_grids | / | unknown | OpenMP |
 | Unstructured_grids (libmesh) | / | unknown | libmesh |
 
-*** For issues : 
+*** Issues : 
 n-body_methods (bhtree_mpi) : issue with Body.cpp
 
 ** [[http://proxyapps.exascaleproject.org/ecp-suite/][ECP Proxy Applications]]
+
+*** Using OpenMP 
+XSBench
+
+*** Using another dependencies
 | Benchmark | Ref | Lines of code | Dependency |
 |-----------|-----|---------------|------------|
-| XSBench | / | unknown | OpenMP |
 | sw4lite | / | unknown | lblas, Lapack |
 | SWFFT | / | unknown | FFTW3 |
 | Laghos | / | unknown | HYPRE, METIS, MFEM |
 | MACSio | / | unknown | json-c |
-*** For programming language 
+
+*** Using unsuitable language 
 python : CANDLE benchmarks 
-*** Not available 
+*** Unavailable 
 Ember
