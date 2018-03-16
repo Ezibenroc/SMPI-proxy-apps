@@ -54,37 +54,6 @@ Building issue.
      cd smb/src/msgrate/
 #+END_SRC
 
-*** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/psnap/][PSNAP]]
-**** Brief description 
-PSNAP (PAL System Noise Activity Program) consists of a spin loop that is calibrated to take a given amount of time (typically 1 ms). This loop is repeated for a number of iterations.
-**** Build and run  
-#+BEGIN_SRC sh :tangle bin/Trinity_PSNAP.sh
-  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
-  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
-  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
-     echo "Clean up the place" 
-     set -xeu
-     rm -rf Benchmarks/psnap
-     mkdir -p Benchmarks/
-     cd Benchmarks
-     echo "Download the source code"
-     test -e psnap-source.tgz || curl -o psnap-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/June28/psnap-1.2June28.tar
-
-     echo "Unpack the code"
-     mkdir psnap && tar -xvf psnap-source.tgz -C psnap
- 
-     echo "Install the modified sources"
-     cd psnap
-     cp -f ../../src/Trinity-Nersc/psnap/* ./
-     cp -f ../../src/common/* ./
-
-     echo "Compile it"
-     make
-
-     echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./psnap -n 1 -w 0
-#+END_SRC
-
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/ziatest/][ZiaTest]]
 **** Brief description 
 It executes a new proposed standard benchmark method for MPI startup that is intended to provide a realistic assessment of

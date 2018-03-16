@@ -8,7 +8,6 @@ ENABLE_TESTING()
 # Trinity-Nersc benchmarks
 ADD_TEST(Trinity_MDTest  bin/Trinity_MDTest.sh)
 ADD_TEST(Trinity_stream  bin/Trinity_stream.sh)
-#ADD_TEST(Trinity_PSNAP   bin/Trinity_PSNAP.sh) # This test is very long. Comment it for now
 ADD_TEST(Trinity_SMB     bin/Trinity_SMB.sh)
 ADD_TEST(Trinity_ZiaTest bin/Trinity_ZiaTest.sh)
 ADD_TEST(Trinity_MPIMemu bin/Trinity_MPIMemu.sh)
