@@ -28,6 +28,7 @@ ADD_TEST(Mantevo_MiniEF     bin/Mantevo_MiniEF.sh)
 ADD_TEST(Mantevo_MiniXyce   bin/Mantevo_MiniXyce.sh)
 ADD_TEST(Mantevo_HPCCG      bin/Mantevo_HPCCG.sh)
 ADD_TEST(Mantevo_MiniAMR    bin/Mantevo_MiniAMR.sh)
+ADD_TEST(Mantevo_CloverLeaf    bin/Mantevo_CloverLeaf.sh)
 
 # CodeVault benchmarks
 ADD_TEST(CodeVault_PreExec  bin/CodeVault_PreExec.sh)

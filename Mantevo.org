@@ -1,3 +1,34 @@
+*** CloverLeaf
+**** Brief description 
+This code is a simple linear circuit simulator with a basic parser that performs transient analysis. 
+**** Build and run
+#+BEGIN_SRC sh :tangle bin/Mantevo_CloverLeaf.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     echo "Clean up the place" 
+     set -xeu
+     rm -rf Benchmarks/Mantevo/CloverLeaf
+     mkdir -p Benchmarks/Mantevo/
+     cd Benchmarks/Mantevo
+     echo "Download the source code"
+     test -e CloverLeaf-source.tar.gz || curl -o CloverLeaf-source.tar.gz -Lk https://mantevo.org/downloads/releaseTarballs/miniapps/CloverLeaf/CloverLeaf-1.1.tar.gz
+          
+     echo "Unpack the code"
+     mkdir CloverLeaf && tar -xvf CloverLeaf-source.tar.gz -C CloverLeaf --strip-components 1
+ 
+     echo "Install the modified sources"
+     cp -f ../../src/Mantevo/CloverLeaf/* CloverLeaf/CloverLeaf_MPI/
+     cp -f ../../src/common/* CloverLeaf/CloverLeaf_MPI/
+     cd CloverLeaf/CloverLeaf_MPI/
+
+     echo "Compile it"
+     make COMPILER=GNU
+
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clover_leaf
+ #+END_SRC
+
 *** MiniXcye
 **** Brief description 
 This code is a simple linear circuit simulator with a basic parser that performs transient analysis. 
