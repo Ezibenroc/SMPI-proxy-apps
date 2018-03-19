@@ -10,9 +10,9 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
      
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/CoMD
-     mkdir -p Benchmarks/ 
-     cd Benchmarks
+     rm -rf Benchmarks/ECP/CoMD
+     mkdir -p Benchmarks/ECP/ 
+     cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
      if [ -e CoMD ] ; then
         cd CoMD ; git clean -dfx ; git pull ; cd ..
@@ -22,12 +22,12 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
 
      echo "Install the modified sources"
      cd CoMD/src-mpi/
-     cp ../../../src/ECP/CoMD/* ./
+     cp ../../../../src/ECP/CoMD/* ./
 
      echo "Compile it" 
      make 
      cd ../examples/
-     cp ../../../src/common/* ./
+     cp ../../../../src/common/* ./
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../bin/CoMD-mpi -e -i 4 -j 2 -k 1 -x 40 -y 40 -z 40
@@ -47,9 +47,9 @@ systems for various 3-dimensional problems.
      
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/AMG
-     mkdir -p Benchmarks/ 
-     cd Benchmarks
+     rm -rf Benchmarks/ECP/AMG
+     mkdir -p Benchmarks/ECP/ 
+     cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
      if [ -e AMG ] ; then
         cd AMG ; git clean -dfx ; git pull ; cd ..
@@ -58,13 +58,13 @@ systems for various 3-dimensional problems.
      fi
 
      echo "Install the modified sources"
-     cp ../src/ECP/AMG/* ./AMG/
+     cp ../../src/ECP/AMG/* ./AMG/
 
      echo "Compile it" 
      cd AMG/
      make veryclean
      make
-     cp ../../src/common/* ./test/
+     cp ../../../src/common/* ./test/
      cd test/
 
      echo "Run it"
