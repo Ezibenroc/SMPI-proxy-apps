@@ -14,9 +14,9 @@ Or Very slow (Running no stop) if one use the standart runing command.
 
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/smb
-     mkdir -p Benchmarks
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/smb
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e smb-source.tgz || curl -o smb-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/smb1.0-1.tar
 
@@ -24,8 +24,8 @@ Or Very slow (Running no stop) if one use the standart runing command.
      mkdir smb && tar -xvf smb-source.tgz -C smb --strip-components 1
 
      echo "Install the modified sources"
-     cp -f ../src/Trinity-Nersc/smb/mpi_overhead/* smb/src/mpi_overhead/
-     cp -f ../src/common/* smb/src/mpi_overhead/
+     cp -f ../../src/Trinity-Nersc/smb/mpi_overhead/* smb/src/mpi_overhead/
+     cp -f ../../src/common/* smb/src/mpi_overhead/
      cd smb/src/mpi_overhead/
 
      echo "Compile it"
@@ -39,9 +39,9 @@ Or Very slow (Running no stop) if one use the standart runing command.
 Building issue.
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/smb
-     mkdir -p Benchmarks
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/smb
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e smb-source.tgz || curl -o smb-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/smb1.0-1.tar
 
@@ -49,8 +49,8 @@ Building issue.
      mkdir smb && tar -xvf smb-source.tgz -C smb --strip-components 1
 
      echo "Install the modified sources"
-     cp -f ../src/smb/msgrate/* smb/src/msgrate/
-     cp -f ../src/common/* smb/src/msgrate/
+     cp -f ../../src/smb/msgrate/* smb/src/msgrate/
+     cp -f ../../src/common/* smb/src/msgrate/
      cd smb/src/msgrate/
 #+END_SRC
 
@@ -65,9 +65,9 @@ both launch and wireup requirements. Accordingly, it exercises both the launch s
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/ziatest
-     mkdir -p Benchmarks/ziatest
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/ziatest
+     mkdir -p Benchmarks/Trinity-Nersc/ziatest
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e ziatest-source.tgz || curl -o ziatest-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/ziatest.tar
 
@@ -76,8 +76,8 @@ both launch and wireup requirements. Accordingly, it exercises both the launch s
      tar -xvf ../ziatest-source.tgz
 
      echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/ziatest/* ./
-     cp -f ../../src/common/* ./
+     cp -f ../../../src/Trinity-Nersc/ziatest/* ./
+     cp -f ../../../src/common/* ./
 
      echo "Compile it"
      make 
@@ -99,9 +99,9 @@ The execution should done with 2 proc.
 
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/mdtest
-     mkdir Benchmarks || true
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/mdtest
+     mkdir Benchmarks/Trinity-Nersc/ || true
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source"
      test -e mdtest-source.tgz || curl -o mdtest-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Mar29/mdtest-1.8.4.tar
 
@@ -110,8 +110,8 @@ The execution should done with 2 proc.
  
      echo "Install the modified sources"
      cd mdtest
-     cp -f ../../src/Trinity-Nersc/mdtest/* ./
-     cp -f ../../src/common/* ./
+     cp -f ../../../src/Trinity-Nersc/mdtest/* ./
+     cp -f ../../../src/common/* ./
 
      echo "Compile it"
      make
@@ -131,9 +131,9 @@ STREAM is a simple, synthetic benchmark designed to measure sustainable memory b
 
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/stream
-     mkdir -p Benchmarks/stream || true
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/stream
+     mkdir -p Benchmarks/Trinity-Nersc/stream || true
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source"
      test -e stream-source.tgz || curl -o stream-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/stream.tar
 
@@ -142,8 +142,8 @@ STREAM is a simple, synthetic benchmark designed to measure sustainable memory b
  
      echo "Install the modified sources"
      pwd
-     cp -f ../src/Trinity-Nersc/stream/* stream/
-     cp -f ../src/common/* stream/
+     cp -f ../../src/Trinity-Nersc/stream/* stream/
+     cp -f ../../src/common/* stream/
      cd stream
 
      echo "Compile it"
@@ -161,9 +161,9 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
 #+BEGIN_SRC sh sh :tangle bin/Trinity_MPIMemu.sh
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/mpimemu
-     mkdir -p Benchmarks/
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/mpimemu
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e mpimemu-source.tar.gz || curl -o mpimemu-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July5/mpimemu-1.0-rc6July5.tar
 
@@ -172,8 +172,8 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
 
      echo "Install the modified sources"
      cd mpimemu/
-     cp -f ../../src/Trinity-Nersc/mpimemu/* src/
-     cp -f ../../src/common/* src/
+     cp -f ../../../src/Trinity-Nersc/mpimemu/* src/
+     cp -f ../../../src/common/* src/
 
      echo "Configure it"
      SMPI_PRETEND_CC=1 ./configure
@@ -197,9 +197,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
   
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/OMB_MPI
-     mkdir -p Benchmarks/
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/OMB_MPI
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e OMB_MPI-source.tar.gz || curl -o OMB_MPI-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar
 
@@ -212,8 +212,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/OMB_MPI/mpi/pt2pt/* ./mpi/pt2pt
-     cp -f ../../src/common/* ./mpi/pt2pt
+     cp -f ../../../src/Trinity-Nersc/OMB_MPI/mpi/pt2pt/* ./mpi/pt2pt
+     cp -f ../../../src/common/* ./mpi/pt2pt
 
      echo "Compile it"
      cd mpi/pt2pt
@@ -242,9 +242,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
      echo "Clean up the place" 
      set -xeu 
-     rm -rf Benchmarks/OMB_MPI
-     mkdir -p Benchmarks/
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/OMB_MPI
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e OMB_MPI-source.tar.gz || curl -o OMB_MPI-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar
 
@@ -257,8 +257,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/OMB_MPI/mpi/one-sided/* ./mpi/one-sided
-     cp -f ../../src/common/* ./mpi/one-sided
+     cp -f ../../../src/Trinity-Nersc/OMB_MPI/mpi/one-sided/* ./mpi/one-sided
+     cp -f ../../../src/common/* ./mpi/one-sided
 
      echo "Compile it"
      cd mpi/one-sided
@@ -296,8 +296,6 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
  #+END_SRC
 
- #+RESULTS:
-
 **** Collective
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_collective.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -305,9 +303,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/OMB_MPI
-     mkdir -p Benchmarks/
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/OMB_MPI
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e OMB_MPI-source.tar.gz || curl -o OMB_MPI-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar
 
@@ -320,8 +318,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/OMB_MPI/mpi/collective/* ./mpi/collective
-     cp -f ../../src/common/* ./mpi/collective
+     cp -f ../../../src/Trinity-Nersc/OMB_MPI/mpi/collective/* ./mpi/collective
+     cp -f ../../../src/common/* ./mpi/collective
 
      echo "Compile it"
      cd mpi/collective
@@ -376,9 +374,9 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
 
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/GTC
-     mkdir -p Benchmarks/
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/GTC
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc
 
      echo "Download the source code"
      test -e GTC-source.tar || curl -o GTC-source.tar -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8GTCMay30.tar
@@ -387,8 +385,8 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
      mkdir GTC && tar -xvf GTC-source.tar -C GTC --strip-components 1
 
      echo "Install the modified sources"
-     cp ../src/Trinity-Nersc/GTC/* GTC/source/
-     cp -f ../src/common/* GTC/source/
+     cp ../../src/Trinity-Nersc/GTC/* GTC/source/
+     cp -f ../../src/common/* GTC/source/
 
      echo "Compile it"
      cd GTC/source/
@@ -409,9 +407,9 @@ It assembles a sparse linear-system from the steady-state conduction equation on
 
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/MiniFE
-     mkdir -p Benchmarks/
-     cd Benchmarks
+     rm -rf Benchmarks/Trinity-Nersc/MiniFE
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
      echo "Download the source code"
      test -e MiniFE-source.tar || curl -o MiniFE-source.tar -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Feb22/MiniFE_ref_1.4b.tar
           
@@ -419,8 +417,8 @@ It assembles a sparse linear-system from the steady-state conduction equation on
      mkdir MiniFE && tar -xvf MiniFE-source.tar -C MiniFE --strip-components 1
  
      echo "Install the modified sources"
-     cp -f ../src/Trinity-Nersc/MiniFE/* MiniFE/
-     cp -f ../src/common/* MiniFE/
+     cp -f ../../src/Trinity-Nersc/MiniFE/* MiniFE/
+     cp -f ../../src/common/* MiniFE/
      cd MiniFE/
 
      echo "Compile it"
