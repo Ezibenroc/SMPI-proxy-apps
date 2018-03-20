@@ -2,12 +2,11 @@
 **** Brief description  
 It include two benchmarks :  
 - The msg_rate test measures the sustained MPI message rate using a communication pattern found in many real applications.
-- The mpi_overhead test uses a post-work-wait method using MPI non-blocking send and receive calls to measure the user level overhead of the respective MPI calls.
-**** Build and run  
-- mpi_overhead : 
+- The mpi_overhead test uses a post-work-wait method using MPI non-blocking send and receive calls to measure the user level overhead of the respective MPI calls. 
+**** mpi_overhead : 
 hostfile note found if one use ./run_script.
 Or Very slow (Running no stop) if one use the standart runing command. 
-#+BEGIN_SRC sh :tangle bin/Trinity_SMB.sh
+#+BEGIN_SRC sh :tangle bin/Trinity_SMB_mpiHeader.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
@@ -35,8 +34,12 @@ Or Very slow (Running no stop) if one use the standart runing command.
      ./run_script 
 #+END_SRC
 
-- msg_rate :
-Building issue.
+**** Msgrate :
+#+BEGIN_SRC sh :tangle bin/Trinity_SMB_msgrate.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/Trinity-Nersc/smb
@@ -49,9 +52,16 @@ Building issue.
      mkdir smb && tar -xvf smb-source.tgz -C smb --strip-components 1
 
      echo "Install the modified sources"
-     cp -f ../../src/smb/msgrate/* smb/src/msgrate/
+     cp -f ../../src/Trinity-Nersc/smb/msgrate/* smb/src/msgrate/
      cp -f ../../src/common/* smb/src/msgrate/
      cd smb/src/msgrate/
+
+     echo "Compile it"
+     make
+
+     echo "Run it"
+     smpirun -n 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./msgrate -n 2 -p 1 -s 8
+
 #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/ziatest/][ZiaTest]]

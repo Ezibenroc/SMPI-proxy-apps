@@ -21,9 +21,9 @@
 
 RELEASE_VERSION = 1.0
 
-CC = mpicc
+CC = smpicc
 # CC = cc
-CPPFLAGS = -DVERSION=$(RELEASE_VERSION)
+CPPFLAGS = #-DVERSION=$(RELEASE_VERSION)
 CFLAGS = -O3
 
 msgrate: msgrate.o
