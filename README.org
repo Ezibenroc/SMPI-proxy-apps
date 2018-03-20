@@ -54,28 +54,28 @@ their support by the SMPI implementation. This is tested nightly on a
 * [[https://mantevo.org/download/][Mantevo]] benchmark codes
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | NONE [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | 37,477  | MPI, OpenMP | C,F90     | :gear: :wrench: :sunny: | :x: :heavy_minus_sign: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | NONE [[http://mantevo.org/downloads/miniSMAC2D_2.0.html][:package:]] | 8,329  | MPI, OpenMP | F90 | :gear: :wrench: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_MiniSMAC2D/][:gear: :partly_sunny: :white_check_mark: :warning:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixcye][MiniXcye]]   | NONE [[http://mantevo.org/downloads/miniXyce_1.0.html][:package:]] | 2,020 | MPI | C++     | :gear: :sunny: | :gear: :x: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]]   | NONE [[http://mantevo.org/downloads/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz][:package:]] | 1,548 | MPI, OpenMP | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_HPCCG/][:gear: :partly_sunny: :x:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#miniamr][MiniAMR]]   | NONE [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniAMR/miniAMR_1.0_ref.tgz][:package:]] | 8,329 | MPI | C | :gear: :wrench: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_MiniAMR/][:gear: :partly_sunny: :x: :construction:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minief][MiniFE-evo]]   | NONE [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniFE/miniFE_ref_1.5.tar.gz][:package:]] | 19,907 | MPI | C | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | 37,477  | MPI, OpenMP | C,F90     | :gear: :wrench: :sunny: | :x: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | [[http://mantevo.org/downloads/miniSMAC2D_2.0.html][:package:]] | 8,329  | MPI, OpenMP | F90 | :gear: :wrench: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_MiniSMAC2D/][:gear: :partly_sunny: :white_check_mark: :warning:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixcye][MiniXcye]] | [[http://mantevo.org/downloads/miniXyce_1.0.html][:package:]] | 2,020 | MPI | C++     | :gear: :sunny: | :gear: :x: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]]   | [[http://mantevo.org/downloads/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz][:package:]] | 1,548 | MPI, OpenMP | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_HPCCG/][:gear: :partly_sunny: :x:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#miniamr][MiniAMR]]   | [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniAMR/miniAMR_1.0_ref.tgz][:package:]] | 8,329 | MPI | C | :gear: :wrench: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Mantevo_MiniAMR/][:gear: :partly_sunny: :x: :construction:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minief][MiniFE-evo]]   | [[https://mantevo.org/downloads/releaseTarballs/miniapps/MiniFE/miniFE_ref_1.5.tar.gz][:package:]] | 19,907 | MPI | C | :gear: :sunny: | :gear: :sunny: |
 
 * [[https://repository.prace-ri.eu/git/PRACE/CodeVault][CodeVault]] benchmark codes 
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] | NONE | 1,114 | MPI, PTHREAD | C++ | :gear: :wrench: :sunny: | :x: :construction: :heavy_minus_sign: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | NONE | 1,338 | MPI | C++ | :gear: :sunny: | :x: :construction: :heavy_minus_sign: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][MCM (integral_basic)]] | NONE | 1,351 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][MCM (pi)]] | NONE | 1,325 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prng][MCM (prng)]] | NONE | 1,351 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-Body_methods (dyn sparse)]] | NONE | 2,401 | MPI | C++ | :gear: :wrench: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] | / | 1,114 | MPI, PTHREAD | C++ | :gear: :wrench: :sunny: | :x: :construction: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | / | 1,338 | MPI | C++ | :gear: :sunny: | :x: :construction: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][MCM (integral_basic)]] | / | 1,351 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][MCM (pi)]] | / | 1,325 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prng][MCM (prng)]] | / | 1,351 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-Body_methods (dyn sparse)]] | / | 2,401 | MPI | C++ | :gear: :wrench: :sunny: | :gear: :sunny: |
 
 * [[http://proxyapps.exascaleproject.org/ecp-suite/][ECP]] Proxy Applications 
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | NONE | 4,658 | MPI, OpenMP | C | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/ECP_CoMD/][:gear: :partly_sunny: :x:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | NONE | 4,658 | MPI, OpenMP | C | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | / | 4,658 | MPI, OpenMP | C | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/ECP_CoMD/][:gear: :partly_sunny: :x:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | / | 4,658 | MPI, OpenMP | C | :gear: :sunny: | :gear: :sunny: |
 
 * Disabled benchmarks 
 ** CORAL 
