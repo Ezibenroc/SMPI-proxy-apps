@@ -42,5 +42,6 @@ ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
 # ECP benchmarks 
 ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
 ADD_TEST(ECP_AMG       bin/ECP_AMG.sh)
+ADD_TEST(ECP_sw4lite       bin/ECP_sw4lite.sh)
 
 

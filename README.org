@@ -76,6 +76,7 @@ their support by the SMPI implementation. This is tested nightly on a
 |------------+-----+---------------+-------+------+-----+------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | / | 4,658 | MPI, OpenMP | C | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/ECP_CoMD/][:gear: :partly_sunny: :x:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | / | 4,658 | MPI, OpenMP | C | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | / | 48,436 | MPI, OpenMP | C | :gear: :sunny: | :x: :heavy_minus_sign: |
 
 * Disabled benchmarks 
 ** CORAL 
@@ -162,7 +163,6 @@ XSBench
 *** Using another dependencies
 | Benchmark | Dependency |
 |-----------|------------|
-| sw4lite | lblas, Lapack |
 | SWFFT   | FFTW3 |
 | Laghos  | HYPRE, METIS, MFEM |
 | MACSio  | json-c |

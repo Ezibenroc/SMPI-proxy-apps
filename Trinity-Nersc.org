@@ -253,6 +253,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_latency
  #+END_SRC
 
+ #+RESULTS:
+
 **** One-sided
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_one-sided.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
