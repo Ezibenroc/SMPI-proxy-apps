@@ -169,6 +169,13 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
  and /proc/self/status (process level) and outputs the min, max and avg values for a specified period of time.
 **** Build and run
 #+BEGIN_SRC sh sh :tangle bin/Trinity_MPIMemu.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     export MPIMEMU_START_INDEX=1
+     export MPIMEMU_NUMPE_FUN="X + 1"
+     export MPIMEMU_MAX_PES=4
+     
      echo "Clean up the place" 
      set -xeu
      rm -rf Benchmarks/Trinity-Nersc/mpimemu
@@ -180,22 +187,22 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
      echo "Unpack the code"
      mkdir mpimemu && tar -xvf mpimemu-source.tar.gz -C mpimemu --strip-components 1
 
-     echo "Install the modified sources"
-     cd mpimemu/
-     cp -f ../../../src/Trinity-Nersc/mpimemu/* src/
-     cp -f ../../../src/common/* src/
-
      echo "Configure it"
-     SMPI_PRETEND_CC=1 ./configure
+     cd mpimemu/
+     ./configure CC=mpicc 
+
+     echo "Install the modified sources"
+     cp -f ../../../src/common/* src/
+     cd src/
+     sed -i -e "s/\mpicc/\smpicc/g" Makefile
 
      echo "Compile it"
-     cd src/
      make 
 
      echo "Run it"
      
  #+END_SRC
-
+ 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][OMB_MPI]]
 **** Brief description 
 The Ohio MicroBenchmark suite is a collection of independent MPI message passing performance microbenchmarks developed and written at The Ohio State University.
@@ -204,6 +211,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_pt2pt.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
   
      echo "Clean up the place" 
      set -xeu
@@ -222,11 +230,11 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
-     cp -f ../../../src/Trinity-Nersc/OMB_MPI/mpi/pt2pt/* ./mpi/pt2pt
      cp -f ../../../src/common/* ./mpi/pt2pt
+     cd mpi/pt2pt
+     sed -i -e "s/\mpicc/\smpicc/g" Makefile
 
      echo "Compile it"
-     cd mpi/pt2pt
      make 
 
      echo "Run osu_bibw"
@@ -249,6 +257,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_one-sided.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
 
      echo "Clean up the place" 
      set -xeu 
@@ -267,11 +276,11 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
-     cp -f ../../../src/Trinity-Nersc/OMB_MPI/mpi/one-sided/* ./mpi/one-sided
      cp -f ../../../src/common/* ./mpi/one-sided
+     cd mpi/one-sided
+     sed -i -e "s/\mpicc/\smpicc/g" Makefile
 
      echo "Compile it"
-     cd mpi/one-sided
      make 
 
       echo "Run osu_acc_latency"
@@ -310,6 +319,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_OMB_MPI_collective.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
 
      echo "Clean up the place" 
      set -xeu
@@ -328,11 +338,11 @@ It includes traditional benchmarks and performance measures such as latency, ban
      SMPI_PRETEND_CC=1 ./configure
 
      echo "Install the modified sources"
-     cp -f ../../../src/Trinity-Nersc/OMB_MPI/mpi/collective/* ./mpi/collective
      cp -f ../../../src/common/* ./mpi/collective
+     cd mpi/collective
+     sed -i -e "s/\mpicc/\smpicc/g" Makefile
 
      echo "Compile it"
-     cd mpi/collective
      make 
 
      echo "Run osu_allgather"
