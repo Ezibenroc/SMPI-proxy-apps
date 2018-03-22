@@ -50,7 +50,7 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#minife][MiniFE]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minife/][:book:]] [[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Feb22/MiniFE_ref_1.4b.tar][:package:]] | 4,968 | MPI | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Trinity_MiniFE/][:x: :heavy_minus_sign:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#gtc][GTC]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/gtc/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8GTCMay30.tar][:package:]] | 5,591 | MPI, OPENMP | F90 | :gear: :partly_sunny: | :x: :heavy_minus_sign: | 
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Trinity-Nersc.org#stream][Stream]] | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/stream/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/stream.tar][:package:]] | 817 | MPI, OPENMP | C,F90 | :gear: :sunny: | :gear: :sunny: | 
-
+| MILC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/milc/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8MILC7May30.tar][:package:]] | 82,645 | MPI, OpenMP | :gear: :wrench: :x: :warning: | :heavy_minus_sign: |
 * [[https://mantevo.org/download/][Mantevo]] benchmark codes
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
@@ -111,8 +111,6 @@ Graph500, SPECint2006"peak", Memory benchmarks, CLOMP, LCALS, FTQ, XSBench, NEKb
 *** Using particular dependencies 
 | Benchmark | Ref | Lines of code | Dependency |  
 |-----------|-----|---------------|------------|
-| AMG | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/amg/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May20/AMG2013May20.tar][:package:]] | 200,000 |  |
-| MILC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/milc/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8MILC7May30.tar][:package:]] | unknown |  |
 | MiniDFT | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][:book:]][[http://qe-forge.org/gf/download/frsrelease/144/456/MiniDFT-1.06.tar.gz][:package:]] | unknown | ScaLAPACK, BLAS, FFT |
 | UPC-FC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/npb-upc-ft/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/UPC-FT.tar][:package:]] | unknown | FFTW |
 
