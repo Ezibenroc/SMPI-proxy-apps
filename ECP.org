@@ -10,7 +10,6 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
      
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/ECP/CoMD
      mkdir -p Benchmarks/ECP/ 
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
@@ -47,7 +46,6 @@ systems for various 3-dimensional problems.
      
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/ECP/AMG
      mkdir -p Benchmarks/ECP/ 
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
@@ -83,7 +81,6 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
      
      echo "Clean up the place" 
      set -exu
-     rm -rf Benchmarks/ECP/sw4lite
      mkdir -p Benchmarks/ECP/ 
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
