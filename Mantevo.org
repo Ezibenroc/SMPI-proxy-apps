@@ -29,12 +29,12 @@ CloverLeaf is a mini-app that solves the compressible Euler equations on a Carte
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clover_leaf
  #+END_SRC
 
-*** MiniXcye
+*** MiniXyce
 **** Brief description 
 This code is a simple linear circuit simulator with a basic parser that performs transient analysis. 
 **** Build and run  
 Running issue.
-#+BEGIN_SRC sh :tangle bin/Mantevo_MiniXcye.sh
+#+BEGIN_SRC sh :tangle bin/Mantevo_MiniXyce.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
@@ -55,7 +55,6 @@ Running issue.
      cd miniXyce/miniXyce_ref/
 
      echo "Compile it"
-     make
      make
 
      echo "Run it"
