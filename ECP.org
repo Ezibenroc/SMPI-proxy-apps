@@ -97,7 +97,7 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
      cd sw4lite
      sed -i -e "s/\mpicxx/\smpicxx/g" Makefile
      sed -i -e "s/\mpic++/\smpicxx/g" Makefile
-     sed -i -e "s/\mpif90/\smpif90/g" Makefile
+     sed -i -e "s/\mpif90/\smpiff/g" Makefile
 
      echo "Compile it"
      make openmp=no
