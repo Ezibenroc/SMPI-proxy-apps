@@ -85,7 +85,7 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
      if [ -e sw4lite ] ; then
-        cd sw4lite ; git stash ; git pull ; cd ..
+        cd sw4lite ; git stash ; git clean -dfx ; git pull ; cd ..
      else
         git clone --depth=1 https://github.com/geodynamics/sw4lite.git
      fi
