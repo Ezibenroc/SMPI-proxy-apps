@@ -14,7 +14,7 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
      if [ -e CoMD ] ; then
-        cd CoMD ; git clean -dfx ; git pull ; cd ..
+        cd CoMD ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
      else
         git clone --depth=1 https://github.com/ECP-copa/CoMD.git
      fi
@@ -50,7 +50,7 @@ systems for various 3-dimensional problems.
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
      if [ -e AMG ] ; then
-        cd AMG ; git clean -dfx ; git pull ; cd ..
+        cd AMG ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
      else
         git clone --depth=1 https://github.com/LLNL/AMG.git
      fi
@@ -85,7 +85,7 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
      cd Benchmarks/ECP/
      echo "Checkout or update the git containing the source code"
      if [ -e sw4lite ] ; then
-        cd sw4lite ; git stash ; git clean -dfx ; git pull ; cd ..
+        cd sw4lite ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
      else
         git clone --depth=1 https://github.com/geodynamics/sw4lite.git
      fi

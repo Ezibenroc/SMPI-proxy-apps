@@ -227,7 +227,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      cd OMB_MPI/
      
      echo "Configure it"
-     SMPI_PRETEND_CC=1 ./configure
+     SMPI_PRETEND_CC=1 ./configure CC=smpicc
 
      echo "Install the modified sources"
      cp -f ../../../src/common/* ./mpi/pt2pt
