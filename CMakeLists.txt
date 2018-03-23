@@ -17,6 +17,7 @@ ADD_TEST(Trinity_OMB_MPI_one-sided bin/Trinity_OMB_MPI_one-sided.sh)
 ADD_TEST(Trinity_OMB_MPI_collective bin/Trinity_OMB_MPI_collective.sh)
 ADD_TEST(Trinity_GTC     bin/Trinity_GTC.sh)
 ADD_TEST(Trinity_MiniFE  bin/Trinity_MiniFE.sh)
+ADD_TEST(Trinity_MiniDFT  bin/Trinity_MiniDFT.sh)
 
 # Coral benchamrks 
 ADD_TEST(Coral_AMG2013    bin/Coral_AMG2013.sh)

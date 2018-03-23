@@ -449,6 +449,41 @@ It assembles a sparse linear-system from the steady-state conduction equation on
      echo "Run it"
 #+END_SRC
 
+*** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MiniDFT]]
+**** Brief description  
+FE is a Finite Element mini-application which implements a couple of kernels representative of implicit finite-element applications. 
+It assembles a sparse linear-system from the steady-state conduction equation on a brick-shaped problem domain of linear 8-node hex elements.
+**** Build and run  
+#+BEGIN_SRC sh  sh :tangle bin/Trinity_MiniDFT.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
+     echo "Clean up the place" 
+     set -xeu
+     rm -rf Benchmarks/Trinity-Nersc/MiniDFT
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
+     echo "Download the source code"
+     test -e MiniDFT-source.tar || curl -o MiniDFT-source.tar -Lk http://qe-forge.org/gf/download/frsrelease/144/456/MiniDFT-1.06.tar.gz
+          
+     echo "Unpack the code"
+     mkdir MiniDFT && tar -xvf MiniDFT-source.tar -C MiniDFT --strip-components 1
+ 
+     echo "Install the modified sources"
+     cp -f ../../src/Trinity-Nersc/MiniDFT/*  ./MiniDFT/src
+     cp -f ../../src/common/* MiniDFT/test
+
+     echo "Compile it"
+     cd MiniDFT/src/
+     ln -s Makefile.hopper.gnu Makefile
+     make
+     cd ../test/
+ 
+     echo "Run it"
+     mpirun -np 8 ./mini_dft -in Si_333.in > Si_333.out
+#+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
