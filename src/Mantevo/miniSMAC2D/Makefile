@@ -9,12 +9,12 @@ FFLAGS=-O3 -c -g -DD_PRECISION #-check bounds -traceback
 # FFLAGS=-O3 -xAVX -c -g -DD_PRECISION -check bounds -traceback -openmp \
 #       -I/opt/intel-12.1/compiler/include
 
-# for linux machines
-#CPP=/lib/cpp
+# Preprocessor for linux machines
+CPP=/lib/cpp
 # for Mac OSX
 #CPP=/opt/local/bin/cpp
 # for TLCC2 linux clusters like glory, chama
-CPP=smpicxx
+
 
 # preprocessor flags, with double precision
 # ... for MPI only
