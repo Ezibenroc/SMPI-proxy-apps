@@ -10,13 +10,13 @@ SCALAPACK_LIBS = -lscalapack -llapack
 DFLAGS = -D__GFORTRAN 
 #DFLAGS += -D__IPM
 
-CC = mpicc 
+CC = smpicc 
 CFLAGS = -O3
 
-FC = mpif90
+FC = smpif90
 FFLAGS = -O3 -cpp -x f95-cpp-input #-lg2c
 
-LD = mpif90
+LD = smpif90
 LDFLAGS = 
 
 ifeq ($(USE_OPENMP), TRUE)
