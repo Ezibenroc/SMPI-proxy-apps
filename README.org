@@ -36,6 +36,10 @@ their support by the SMPI implementation. This is tested nightly on a
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :sunny: | [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/lastCompletedBuild/testReport/(root)/TestSuite/Coral_HACC_IO/][:x: :construction: :heavy_minus_sign:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#kmi_hash][KMI_HASH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]| 4,239 | MPI | C | :gear: :sunny: | :gear: :white_check_mark: :warning: |
 
+*** Disabled Apps
+Using OpenMP: UMT2013 ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/UMT2013_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/UMT2013-20140204.tar.gz][:package:]]), MCB ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/MCB_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/mcb-20130723.tar.gz][:package:]]),
+Nekbone ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/Nekbone_Summary_v2.3.4.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Science/nekbone-2.3.4.tar.gz][:package:]]), QMCPACK ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/QMCPACK_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/qmcpack-coral20131203.tar.gz][:package:]])
+
 * [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/][Trinity-Nersc]] benchmark codes
 | Benchmark  | Ref | Lines of code | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
@@ -81,12 +85,7 @@ their support by the SMPI implementation. This is tested nightly on a
 * Disabled benchmarks 
 ** CORAL 
 *** Using OpenMP
-| Benchmark | Ref | Lines of code |
-|-----------|-----|---------------|
-| UMT2013 | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/UMT2013_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/UMT2013-20140204.tar.gz][:package:]] | 75,000 |
-| MCB | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/MCB_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/mcb-20130723.tar.gz][:package:]] | 13,000 |
-| Nekbone | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/Nekbone_Summary_v2.3.4.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Science/nekbone-2.3.4.tar.gz][:package:]] | 48,000 |
-| QMCPACK | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/QMCPACK_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/qmcpack-coral20131203.tar.gz][:package:]] | 200.000 |
+
 | LULESH | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz][:package:]] | 5,000 |
 | integer_sort | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/BigSort_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/BigSort-20130808.tar.bz2][:package:]] | 2,000 | 
 | CLOMP | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/CLOMP_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/clomp_v1.2.tar.gz][:package:]] | unknown |
