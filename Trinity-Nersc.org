@@ -408,13 +408,15 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
 
      echo "Install the modified sources"
      cp ../../src/Trinity-Nersc/GTC/* GTC/source/
-     cp -f ../../src/common/* GTC/source/
+     cp -f ../../src/common/* GTC/run/
 
      echo "Compile it"
      cd GTC/source/
      make 
+     cd ../run/
 
      echo "Run it"
+     smpirun -np 64 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../source/gtcmpi gtc.input.64p
 #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minife/][MiniFE]]
