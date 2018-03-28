@@ -6,7 +6,9 @@ massive application that it stands for. But they last only a few
 thousands lines instead of some millions of lines. These proxy
 apps are usually provided for educational purpose, and also to ensure
 that the represented large HPC applications will correctly work with
-the next generation of runtimes and hardware.
+the next generation of runtimes and hardware. See also
+[[http://lightsighter.org/posts/miniappredicament.html][this
+explanation]] of the proxy apps' purpose.
 
 SMPI is an implementation of MPI executing the application on top of
 the SimGrid simulator. This allows to study the application behavior
