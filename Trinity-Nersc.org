@@ -453,8 +453,7 @@ It assembles a sparse linear-system from the steady-state conduction equation on
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MiniDFT]]
 **** Brief description  
-FE is a Finite Element mini-application which implements a couple of kernels representative of implicit finite-element applications. 
-It assembles a sparse linear-system from the steady-state conduction equation on a brick-shaped problem domain of linear 8-node hex elements.
+Mini-DFT is a plane-wave denstity functional theory (DFT) mini-app for modeling materials.  Given an set of atomic coordinates and pseudopotentials,  mini-DFT computes self-consistent solutions of the Kohn-Sham equations  using either the LDA or PBE exchange-correlation functionals. For each iteration of the self-consistent field cycle, the Fock matrix is constructed and then diagonalized. To build the Fock matrix, Fast Fourier Transforms are used to tranform orbitals from the plane wave basis ( where the kinetic energy is most readily compted ) to real space ( where the potential is evaluated ) and back. Davidson diagonalization is used to compute the orbital energies and update the orbital coefficients.
 **** Build and run  
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_MiniDFT.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -483,7 +482,39 @@ It assembles a sparse linear-system from the steady-state conduction equation on
      cd ../test/
  
      echo "Run it"
-     mpirun -np 8 ./mini_dft -in Si_333.in > Si_333.out
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./mini_dft -in Si_333.in > Si_333.out
+#+END_SRC
+
+*** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MILC]]
+**** Brief description  
+This code was developed for simulations of SU3 lattice gauge theory on MIMD parallel machines.
+**** Build and run  
+#+BEGIN_SRC sh  sh :tangle bin/Trinity_MILC.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
+     echo "Clean up the place" 
+     set -xeu
+     rm -rf Benchmarks/Trinity-Nersc/MILC
+     mkdir -p Benchmarks/Trinity-Nersc/
+     cd Benchmarks/Trinity-Nersc/
+     echo "Download the source code"
+     test -e MILC-source.tar || curl -o MILC-source.tar -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8MILC7May30.tar
+          
+     echo "Unpack the code"
+     mkdir MILC && tar -xvf MILC-source.tar -C MILC --strip-components 1
+ 
+     echo "Install the modified sources"
+     cp -f ../../src/Trinity-Nersc/MILC/ks_imp_dyn/*  ./MILC/ks_imp_dyn/
+
+     echo "Compile it"
+     cd MILC/ks_imp_dyn/
+     make su3_rmd
+     cd ../benchmark_n8/single_node/
+ 
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../../ks_imp_dyn/su3_rmd < n8_single.in
 #+END_SRC
 
 * Emacs settings
