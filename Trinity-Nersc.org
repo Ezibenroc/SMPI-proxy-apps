@@ -232,8 +232,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      echo "Install the modified sources"
      cp -f ../../../src/common/* ./mpi/pt2pt
      cd mpi/pt2pt
-     sed -i -e 's/mpicc/smpicc/g' Makefile
-
+     
      echo "Compile it"
      make 
 
@@ -280,8 +279,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      echo "Install the modified sources"
      cp -f ../../../src/common/* ./mpi/one-sided
      cd mpi/one-sided
-     sed -i -e 's/mpicc/smpicc/g' Makefile
-
+     
      echo "Compile it"
      make 
 
@@ -342,7 +340,6 @@ It includes traditional benchmarks and performance measures such as latency, ban
      echo "Install the modified sources"
      cp -f ../../../src/common/* ./mpi/collective
      cd mpi/collective
-     sed -i -e 's/mpicc/smpicc/g' Makefile
 
      echo "Compile it"
      make 
