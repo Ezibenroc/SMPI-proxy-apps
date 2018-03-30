@@ -450,6 +450,8 @@ It assembles a sparse linear-system from the steady-state conduction equation on
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MiniDFT]]
 **** Brief description  
 Mini-DFT is a plane-wave denstity functional theory (DFT) mini-app for modeling materials.  Given an set of atomic coordinates and pseudopotentials,  mini-DFT computes self-consistent solutions of the Kohn-Sham equations  using either the LDA or PBE exchange-correlation functionals. For each iteration of the self-consistent field cycle, the Fock matrix is constructed and then diagonalized. To build the Fock matrix, Fast Fourier Transforms are used to tranform orbitals from the plane wave basis ( where the kinetic energy is most readily compted ) to real space ( where the potential is evaluated ) and back. Davidson diagonalization is used to compute the orbital energies and update the orbital coefficients.
+
+MiniDFT also needs scalapack, so we are building an SMPI-based version of the library for testing purposes
 **** Build and run  
 #+BEGIN_SRC sh  sh :tangle bin/Trinity_MiniDFT.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -458,9 +460,25 @@ Mini-DFT is a plane-wave denstity functional theory (DFT) mini-app for modeling 
 
      echo "Clean up the place" 
      set -xeu
+     rm -rf Benchmarks/Trinity-Nersc/scalapack
      rm -rf Benchmarks/Trinity-Nersc/MiniDFT
      mkdir -p Benchmarks/Trinity-Nersc/
      cd Benchmarks/Trinity-Nersc/
+     
+     echo "Download scalapack"
+     test -e scalapack.tgz || curl -o scalapack.tgz -Lk http://www.netlib.org/scalapack/scalapack.tgz
+     echo "Unpack the code"
+     mkdir scalapack && tar -xzvf scalapack.tgz -C scalapack --strip-components 1
+     
+     echo "Compile it"
+     cd scalapack
+     SMPI_PRETEND_CC=1 cmake -DMPI_C_COMPILER=smpicc -DMPI_Fortran_COMPILER=smpif90 -DMPI_C_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_Fortran_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_C_NO_INTERROGATE=1 -DMPI_Fortran_NO_INTERROGATE=1 -DMPI_C_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_Fortran_INCLUDE_PATH=$SIMGRID_PATH/include/smpi .
+     
+     make
+     export LD_LIBRARY_PATH=$PWD/lib:$LD_LIBRARY_PATH
+     export LIBRARY_PATH=$PWD/lib:$LIBRARY_PATH
+     cd ..
+     
      echo "Download the source code"
      test -e MiniDFT-source.tar || curl -o MiniDFT-source.tar -Lk http://qe-forge.org/gf/download/frsrelease/144/456/MiniDFT-1.06.tar.gz
           
