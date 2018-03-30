@@ -189,12 +189,11 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
 
      echo "Configure it"
      cd mpimemu/
-     ./configure CC=mpicc 
+     SMPI_PRETEND_CC=1 ./configure CC=smpicc 
 
      echo "Install the modified sources"
      cp -f ../../../src/common/* src/
      cd src/
-     sed -i -e 's/mpicc/smpicc/g' Makefile
 
      echo "Compile it"
      make 
