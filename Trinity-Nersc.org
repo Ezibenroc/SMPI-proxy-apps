@@ -20,7 +20,7 @@ Or Very slow (Running no stop) if one use the standart runing command.
      test -e smb-source.tgz || curl -o smb-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/smb1.0-1.tar
 
      echo "Unpack the code"
-     mkdir smb && tar -xvf smb-source.tgz -C smb --strip-components 1
+     mkdir smb && tar -xf smb-source.tgz -C smb --strip-components 1
 
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/smb/mpi_overhead/* smb/src/mpi_overhead/
@@ -49,7 +49,7 @@ Or Very slow (Running no stop) if one use the standart runing command.
      test -e smb-source.tgz || curl -o smb-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/smb1.0-1.tar
 
      echo "Unpack the code"
-     mkdir smb && tar -xvf smb-source.tgz -C smb --strip-components 1
+     mkdir smb && tar -xf smb-source.tgz -C smb --strip-components 1
 
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/smb/msgrate/* smb/src/msgrate/
@@ -83,7 +83,7 @@ both launch and wireup requirements. Accordingly, it exercises both the launch s
 
      echo "Unpack the code"
      cd ziatest
-     tar -xvf ../ziatest-source.tgz
+     tar -xf ../ziatest-source.tgz
 
      echo "Install the modified sources"
      cp -f ../../../src/Trinity-Nersc/ziatest/* ./
@@ -116,7 +116,7 @@ The execution should done with 2 proc.
      test -e mdtest-source.tgz || curl -o mdtest-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Mar29/mdtest-1.8.4.tar
 
      echo "Unpack the code"
-     mkdir mdtest && tar -xvf mdtest-source.tgz -C mdtest --strip-components 1
+     mkdir mdtest && tar -xf mdtest-source.tgz -C mdtest --strip-components 1
  
      echo "Install the modified sources"
      cd mdtest
@@ -148,7 +148,7 @@ STREAM is a simple, synthetic benchmark designed to measure sustainable memory b
      test -e stream-source.tgz || curl -o stream-source.tgz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/stream.tar
 
      echo "Unpack the code"
-     tar -xvf stream-source.tgz -C stream
+     tar -xf stream-source.tgz -C stream
  
      echo "Install the modified sources"
      pwd
@@ -185,7 +185,7 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
      test -e mpimemu-source.tar.gz || curl -o mpimemu-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July5/mpimemu-1.0-rc6July5.tar
 
      echo "Unpack the code"
-     mkdir mpimemu && tar -xvf mpimemu-source.tar.gz -C mpimemu --strip-components 1
+     mkdir mpimemu && tar -xf mpimemu-source.tar.gz -C mpimemu --strip-components 1
 
      echo "Configure it"
      cd mpimemu/
@@ -221,7 +221,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      test -e OMB_MPI-source.tar.gz || curl -o OMB_MPI-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar
 
      echo "Unpack the code"
-     mkdir OMB_MPI && tar -xvf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
+     mkdir OMB_MPI && tar -xf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
 
      cd OMB_MPI/
      
@@ -268,7 +268,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      test -e OMB_MPI-source.tar.gz || curl -o OMB_MPI-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar
 
      echo "Unpack the code"
-     mkdir OMB_MPI && tar -xvf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
+     mkdir OMB_MPI && tar -xf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
 
      cd OMB_MPI/
 
@@ -329,7 +329,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      test -e OMB_MPI-source.tar.gz || curl -o OMB_MPI-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July12/osu-micro-benchmarks-3.8-July12.tar
 
      echo "Unpack the code"
-     mkdir OMB_MPI && tar -xvf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
+     mkdir OMB_MPI && tar -xf OMB_MPI-source.tar.gz -C OMB_MPI --strip-components 1
 
      cd OMB_MPI/
 
@@ -400,7 +400,7 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
      test -e GTC-source.tar || curl -o GTC-source.tar -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8GTCMay30.tar
 
      echo "Unpack the code"
-     mkdir GTC && tar -xvf GTC-source.tar -C GTC --strip-components 1
+     mkdir GTC && tar -xf GTC-source.tar -C GTC --strip-components 1
 
      echo "Install the modified sources"
      cp ../../src/Trinity-Nersc/GTC/* GTC/source/
@@ -434,7 +434,7 @@ It assembles a sparse linear-system from the steady-state conduction equation on
      test -e MiniFE-source.tar || curl -o MiniFE-source.tar -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Feb22/MiniFE_ref_1.4b.tar
           
      echo "Unpack the code"
-     mkdir MiniFE && tar -xvf MiniFE-source.tar -C MiniFE --strip-components 1
+     mkdir MiniFE && tar -xf MiniFE-source.tar -C MiniFE --strip-components 1
  
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/MiniFE/* MiniFE/
@@ -468,7 +468,7 @@ MiniDFT also needs scalapack, so we are building an SMPI-based version of the li
      echo "Download scalapack"
      test -e scalapack.tgz || curl -o scalapack.tgz -Lk http://www.netlib.org/scalapack/scalapack.tgz
      echo "Unpack the code"
-     mkdir scalapack && tar -xzvf scalapack.tgz -C scalapack --strip-components 1
+     mkdir scalapack && tar -xzf scalapack.tgz -C scalapack --strip-components 1
      
      echo "Compile it"
      cd scalapack
@@ -476,14 +476,14 @@ MiniDFT also needs scalapack, so we are building an SMPI-based version of the li
      
      make
      export LD_LIBRARY_PATH=$PWD/lib:$LD_LIBRARY_PATH
-     export LIBRARY_PATH=$PWD/lib:$LIBRARY_PATH
+     export LIBRARY_PATH=$PWD/lib
      cd ..
      
      echo "Download the source code"
      test -e MiniDFT-source.tar || curl -o MiniDFT-source.tar -Lk http://qe-forge.org/gf/download/frsrelease/144/456/MiniDFT-1.06.tar.gz
           
      echo "Unpack the code"
-     mkdir MiniDFT && tar -xvf MiniDFT-source.tar -C MiniDFT --strip-components 1
+     mkdir MiniDFT && tar -xf MiniDFT-source.tar -C MiniDFT --strip-components 1
  
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/MiniDFT/*  ./MiniDFT/src
@@ -517,7 +517,7 @@ This code was developed for simulations of SU3 lattice gauge theory on MIMD para
      test -e MILC-source.tar || curl -o MILC-source.tar -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/May31/TrN8MILC7May30.tar
           
      echo "Unpack the code"
-     mkdir MILC && tar -xvf MILC-source.tar -C MILC --strip-components 1
+     mkdir MILC && tar -xf MILC-source.tar -C MILC --strip-components 1
  
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/MILC/ks_imp_dyn/*  ./MILC/ks_imp_dyn/
