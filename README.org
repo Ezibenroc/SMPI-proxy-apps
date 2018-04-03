@@ -141,7 +141,7 @@ Using OpenMP : XSBench
 Using another dependencies
 | Benchmark | Dependency |
 |-----------|------------|
-| SWFFT   | FFTW3 |
+| SWFFT   | FFTW3, UPC |
 | Laghos  | HYPRE, METIS, MFEM |
 | MACSio  | json-c |
 
