@@ -377,6 +377,7 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
      cd GTC/source/
      make 
      cd ../run/
+     sed -i -e "s/248/48/g" gtc.input.64p
 
      echo "Run it"
      smpirun -np 64 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../source/gtcmpi gtc.input.64p
