@@ -376,11 +376,17 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
      echo "Compile it"
      cd GTC/source/
      make 
+     sed -i -e "s/mstep=1500/mstep=50/g" setup.F90
+     sed -i -e "s/mpsi=90/mpsi=45/g" setup.F90
+
      cd ../run/
-     sed -i -e "s/248/48/g" gtc.input.64p
+     sed -i -e "s/mstep=248/mstep=48/g" gtc.input.64p
+     sed -i -e "s/mpsi=90/mpsi=45/g" gtc.input.64p
+     sed -i -e "s/micell=100/micell=2/g" gtc.input.64p
+     cp gtc.input.64p gtc.input
 
      echo "Run it"
-     smpirun -np 64 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../source/gtcmpi gtc.input.64p
+     smpirun -np 64 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../source/gtcmpi gtc.input
 #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minife/][MiniFE]]
