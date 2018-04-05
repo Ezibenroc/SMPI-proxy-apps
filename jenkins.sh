@@ -8,6 +8,13 @@ mkdir -p bin
 for org in CodeVault.org  Coral.org ECP.org Mantevo.org  Trinity-Nersc.org ; do 
   emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "'${org}'")'
 done
+
+echo > bin/linkchecker.sh << EOF
+lynx -hiddenlinks=merge -listonly -dump https://github.com/simgrid/SMPI-proxy-apps/ \
+  | grep http | sed 's/ *[0-9]*. //' \
+  | linkchecker --stdin --no-follow-url='http' --recursion-level=0
+EOF
+
 chmod +x bin/*.sh
 
 cmake .
