@@ -18,7 +18,7 @@ CXXFLAGS = -O3
 # This macro will also enable a somewhat expensive range-check on indices in
 # the exchange_externals function.
 
-CPPFLAGS = -I. -I../utils -I../fem $(MINIFE_TYPES) -DMINIFE_DEBUG #-DHAVE_MPI -DMPICH_IGNORE_CXX_SEEK
+CPPFLAGS = -I. -I../utils -I../fem $(MINIFE_TYPES) -DMINIFE_DEBUG -DHAVE_MPI
 # CPPFLAGS = -I. -I../utils -I../fem $(MINIFE_TYPES) $(MINIFE_MATRIX_TYPE) -DHAVE_MPI -DMPICH_IGNORE_CXX_SEEK
 
 #LDFLAGS=$(IPM)
