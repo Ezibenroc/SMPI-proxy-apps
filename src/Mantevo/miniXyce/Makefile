@@ -38,7 +38,7 @@ EXEC=smpirun -np 2
 # - If you want to run the program with MPI, make sure USE_MPI is set to -DHAVE_MPI
 
 # USE_MPI =
-USE_MPI = -DMPICH_IGNORE_CXX_SEEK # -DHAVE_MPI
+USE_MPI =  -DHAVE_MPI
 
 
 # MPI headers:  
