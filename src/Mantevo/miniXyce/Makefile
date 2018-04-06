@@ -32,13 +32,13 @@
 #LINKER=g++
 CXX=smpicxx
 LINKER=smpicxx
-EXEC=smpiexec -np 2
+EXEC=smpirun -np 2
 
 # Build with MPI or not?
 # - If you want to run the program with MPI, make sure USE_MPI is set to -DHAVE_MPI
 
 # USE_MPI =
-# USE_MPI = -DHAVE_MPI -DMPICH_IGNORE_CXX_SEEK
+USE_MPI = -DMPICH_IGNORE_CXX_SEEK # -DHAVE_MPI
 
 
 # MPI headers:  
@@ -57,7 +57,7 @@ EXEC=smpiexec -np 2
 #IA32 with GCC: 
 #CPP_OPT_FLAGS = -O3 -funroll-all-loops -malign-double
 #IA64 with GCC:
-CPP_OPT_FLAGS = -O3 -funroll-all-loops
+CPP_OPT_FLAGS = -O3 -funroll-all-loops -std=gnu++11
 #DEBUG
 #CPP_OPT_FLAGS = -O0 -g
 
@@ -81,7 +81,7 @@ CPP_OPT_FLAGS = -O3 -funroll-all-loops
 
 CXXFLAGS = $(CPP_OPT_FLAGS) $(MPI_INC) 
 
-# CPPFLAGS = $(USE_MPI)
+ CPPFLAGS = $(USE_MPI)
 
 # LDFLAGS = $(MPI_LIB) $(SYS_LIB)
 
