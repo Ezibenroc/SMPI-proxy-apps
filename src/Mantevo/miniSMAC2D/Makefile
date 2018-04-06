@@ -10,7 +10,7 @@ FFLAGS=-O3 -c -g -DD_PRECISION #-check bounds -traceback
 #       -I/opt/intel-12.1/compiler/include
 
 # Preprocessor for linux machines
-CPP=/lib/cpp
+CPP=cpp
 # for Mac OSX
 #CPP=/opt/local/bin/cpp
 # for TLCC2 linux clusters like glory, chama
@@ -35,7 +35,7 @@ LDFLAGS=-O3
 INCDIR=./include
 
 # for SimGrid install
-MPIDIR=-I/${SIMGRID_PATH}/include
+MPIDIR=-I${SIMGRID_PATH}/include/smpi
 # for Mac OSX
 #MPIDIR=-I/Users/dwbarne/local/packages/OpenMPI-1.7.2/include
 # for redsky
