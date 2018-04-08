@@ -496,18 +496,16 @@ This code was developed for simulations of SU3 lattice gauge theory on MIMD para
  
      echo "Install the modified sources"
      cp -f ../../src/Trinity-Nersc/MILC/ks_imp_dyn/*  ./MILC/ks_imp_dyn/
+     cp -f ../../src/Trinity-Nersc/MILC/test.in  ./MILC/benchmark_n8/
      cp -f ../../src/common/* ./MILC/benchmark_n8/
 
      echo "Compile it"
      cd MILC/ks_imp_dyn/
      make su3_rmd
      cd ../benchmark_n8/
-     cd single_node/
-     sed -i -e "s/300/100/g" n8_single.in
-     cd ..
  
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../ks_imp_dyn/su3_rmd < single_node/n8_single.in
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../ks_imp_dyn/su3_rmd < test.in
 #+END_SRC
 
 * Emacs settings
