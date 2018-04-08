@@ -16,8 +16,8 @@ $input
   underr=0.01d0					! under-relaxation parameter, 0<underr<1
   zz_run_default_input=.false.			! use default run case in sub. initia
   write_plot3d_q_file=.false.			! solution file can be big! write only if desired
-  bcmain_directory='./data'
-  bcmain_filename='bcmain.dat_original_7kx7k'
-  xygrid_directory='./data'
-  xygrid_filename='xy.dat_original_7kx7k'
+  bcmain_directory='.'
+  bcmain_filename='bcmain.dat_original_119x31'
+  xygrid_directory='.'
+  xygrid_filename='xy.dat_original_119x31'
   $end
