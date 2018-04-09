@@ -134,8 +134,11 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#quicksilver][Quicksilver]] |  | MPI, OMP | C++ | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] |  | MPI, OMP | C++ | :gear: :warning: | :gear: :warning: |
 
 *** Disabled Apps
+MPI unused : PathFinder. 
+
 Using OpenMP : XSBench
 
 Using another dependencies
