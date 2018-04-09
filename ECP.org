@@ -101,6 +101,39 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
 
  #+END_SRC
 
+** QuickSilver
+*** Brief description 
+Quicksilver is a proxy application that represents some elements of the Mercury workload by solving a simpliﬁed dynamic monte carlo particle transport problem.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_quicksilver.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place" 
+     set -exu
+     mkdir -p Benchmarks/ECP/ 
+     cd Benchmarks/ECP/
+     echo "Checkout or update the git containing the source code"
+     if [ -e Quicksilver ] ; then
+        cd Quicksilver ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/LLNL/Quicksilver.git
+     fi
+
+     echo "Install the modified sources"
+     cp ../../src/common/* ./Quicksilver/src/
+     cp ../../src/ECP/Quicksilver/* ./Quicksilver/src/
+     cd Quicksilver/src/
+
+     echo "Compile it"
+     make
+
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./qs
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

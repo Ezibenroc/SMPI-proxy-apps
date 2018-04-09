@@ -44,5 +44,6 @@ ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
 ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
 ADD_TEST(ECP_AMG       bin/ECP_AMG.sh)
 ADD_TEST(ECP_sw4lite       bin/ECP_sw4lite.sh)
+ADD_TEST(ECP_quicksilver     bin/ECP_quicksilver.sh)
 
 
