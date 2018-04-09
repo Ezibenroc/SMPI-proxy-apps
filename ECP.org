@@ -164,7 +164,7 @@ for 3D neutron transport calculations in the context of full scale light water r
      make
 
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./SimpleMOC -i default.in
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./SimpleMOC -i input.in
 
  #+END_SRC
  
