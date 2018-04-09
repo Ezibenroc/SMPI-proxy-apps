@@ -1,6 +1,7 @@
 #! /bin/sh
 
 export SIMGRID_PATH=/builds/simgrid_install
+export CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE=1000000
 
 set -exu
 rm -rf bin
