@@ -139,7 +139,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 *** Disabled Apps
 MPI unused : PathFinder. 
 
-Using OpenMP : XSBench
+Using OpenMP : XSBench, Tycho2
 
 Using another dependencies
 | Benchmark | Dependency |

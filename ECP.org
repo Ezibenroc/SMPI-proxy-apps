@@ -98,6 +98,10 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
 
      echo "Compile it"
      make openmp=no
+     cp ../../../src/common/* ./optimize/
+     cd optimize/
+     
+     smpirun -np 16 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./sw4lite ../tests/pointsource/pointsource.in
 
  #+END_SRC
 
