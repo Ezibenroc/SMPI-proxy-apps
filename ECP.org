@@ -195,7 +195,7 @@ finite element meshes containing arbitrary polygons.
      fi
 
      echo "Install the modified sources"
-     cp ../../src/common/* ./PENNANT/test/
+     cp ../../src/common/* ./PENNANT/
      cp ../../src/ECP/PENNANT/* ./PENNANT/
      cd PENNANT/
 
