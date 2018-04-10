@@ -91,6 +91,7 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
      fi
 
      echo "Install the modified sources"
+     cp -f ../../src/ECP/sw4lite/pointsource.in ./sw4lite/tests/pointsource/
      cd sw4lite
      sed -i -e "s/\mpicxx/\smpicxx/g" Makefile
      sed -i -e "s/\mpic++/\smpicxx/g" Makefile
