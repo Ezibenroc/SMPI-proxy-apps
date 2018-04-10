@@ -203,7 +203,7 @@ finite element meshes containing arbitrary polygons.
      make
 
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./build/pennant ./leblanc/leblanc.pnt
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./build/pennant ./test/leblanc/leblanc.pnt
 
  #+END_SRC
 
