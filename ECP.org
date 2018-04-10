@@ -196,14 +196,14 @@ finite element meshes containing arbitrary polygons.
 
      echo "Install the modified sources"
      cp ../../src/common/* ./PENNANT/
-     cp ../../src/ECP/PENNANT/* ./PENNANT/
+     cp -r ../../src/ECP/PENNANT/* ./PENNANT/
      cd PENNANT/
 
      echo "Compile it"
      make
 
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../build/pennant ./leblanc/leblanc.pnt
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./build/pennant ./leblanc/leblanc.pnt
 
  #+END_SRC
 
