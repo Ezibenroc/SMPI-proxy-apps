@@ -60,7 +60,7 @@ Or Very slow (Running no stop) if one use the standart runing command.
      make
 
      echo "Run it"
-     smpirun -n 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./msgrate -n 2 -p 1 -s 8
+     smpirun -n 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./msgrate -n 1 -p 2 -i 100 -s 8
 
 #+END_SRC
 
