@@ -207,6 +207,41 @@ finite element meshes containing arbitrary polygons.
 
  #+END_SRC
 
+** SWFFT
+*** Brief description 
+Fast Fourier transform which distributes data between ranks in a 3D cartesian grid communicator, and then re-distributed across three 2D pencil dsitributions to compute the DFFTs along each dimension. 
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_SWFFT.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     echo "Checkout or update the git containing the source code"
+     if [ -e SWFFT ] ; then
+        cd SWFFT ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://xgitlab.cels.anl.gov/hacc/SWFFT.git
+     fi
+
+     echo "Install the modified sources"
+     cp ../../src/common/* ./SWFFT/
+     cd SWFFT/
+     sed -i -e "s/\mpicxx/\smpicxx/g" GNUmakefile
+     sed -i -e "s/\mpicc/\smpicc/g" GNUmakefile
+     sed -i -e "s/\mpif90/\smpiff/g" GNUmakefile
+
+     echo "Compile it"
+     make
+
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./build/TestDfft 2 128
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

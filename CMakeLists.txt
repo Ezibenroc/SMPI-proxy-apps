@@ -47,5 +47,6 @@ ADD_TEST(ECP_sw4lite       bin/ECP_sw4lite.sh)
 ADD_TEST(ECP_quicksilver     bin/ECP_quicksilver.sh)
 ADD_TEST(ECP_SimpleMOC     bin/ECP_SimpleMOC.sh)
 ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
+ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
 
 
