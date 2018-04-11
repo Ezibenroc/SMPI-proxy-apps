@@ -268,10 +268,10 @@ This is a miniapp for the Energy Banding Monte Carlo (EBMC) neutron transportati
      sed -i -e "s/\mpicc/\smpicc/g" Makefile
 
      echo "Compile it"
-     make
+     make ebmc-rget
 
      echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./EBMS-iallgather ./inputs/params.small
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./ebmc-rget ./inputs/params.small
 
  #+END_SRC
 
