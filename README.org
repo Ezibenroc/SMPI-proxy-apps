@@ -147,7 +147,7 @@ Using OpenMP : XSBench, Tycho2
 Using another dependencies
 | Benchmark | Dependency |
 |-----------|------------|
-| SWFFT   | FFTW3, UPC |
+| ASPA | HDF5 |
 | Laghos  | HYPRE, METIS, MFEM |
 | MACSio  | json-c |
 
