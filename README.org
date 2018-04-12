@@ -140,7 +140,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | :x: :sunny: |
 
 *** Disabled Apps
-MPI unused : PathFinder. 
+MPI unused : PathFinder, CoHMM. 
 
 Using OpenMP : XSBench, Tycho2
 
