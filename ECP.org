@@ -275,6 +275,39 @@ This is a miniapp for the Energy Banding Monte Carlo (EBMC) neutron transportati
 
  #+END_SRC
 
+** CoSP2
+*** Brief description 
+CoSP2 is a reference implementation of typical linear algebra algorithms and workloads for a quantum molecular dynamics (QMD) electronic structure code.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_CoSP2.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     echo "Checkout or update the git containing the source code"
+     if [ -e CoSP2 ] ; then
+        cd CoSP2 ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/exmatex/CoSP2.git
+     fi
+
+     echo "Install the modified sources"
+     cp ../../src/common/* ./CoSP2/src-mpi
+     cp -f ../../src/ECP/CoSP2/* ./CoSP2/src-mpi
+     cd CoSP2/src-mpi
+
+     echo "Compile it"
+     smpicc *.c -o CoSP2 -lm
+
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./CoSP2 
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

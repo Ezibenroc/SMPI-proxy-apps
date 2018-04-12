@@ -49,5 +49,6 @@ ADD_TEST(ECP_SimpleMOC     bin/ECP_SimpleMOC.sh)
 ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
 ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
 ADD_TEST(ECP_EBMS     bin/ECP_EBMS.sh)
+ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
 
 
