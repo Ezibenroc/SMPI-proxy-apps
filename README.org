@@ -149,6 +149,7 @@ Using another dependencies
 | ASPA | HDF5 |
 | Laghos  | HYPRE, METIS, MFEM |
 | MACSio  | json-c |
+| CoGL | CUDA |
 
 Using unsuitable language : CANDLE benchmarks (python). 
 
