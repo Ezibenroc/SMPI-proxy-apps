@@ -119,7 +119,7 @@ LDFLAGS =
 ###############################################################################
 #OPENMP_FLAGS = -DHAVE_OPENMP -fopenmp
 #OPENMP_LDFLAGS = -fopenmp
-#MPI_FLAGS = -DHAVE_MPI
+MPI_FLAGS = -DHAVE_MPI
 OPTFLAGS = -g -O2
 #
 CXX=smpicxx

@@ -242,6 +242,39 @@ Fast Fourier transform which distributes data between ranks in a 3D cartesian gr
 
  #+END_SRC
 
+** EBMS
+*** Brief description 
+This is a miniapp for the Energy Banding Monte Carlo (EBMC) neutron transportation simulation code.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_EBMS.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     echo "Checkout or update the git containing the source code"
+     if [ -e EBMS ] ; then
+        cd EBMS ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/ANL-CESAR/EBMS.git
+     fi
+
+     echo "Install the modified sources"
+     cp ../../src/common/* ./EBMS/
+     cd EBMS/
+     sed -i -e "s/\mpicc/\smpicc/g" Makefile
+
+     echo "Compile it"
+     make ebmc-rget
+
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./ebmc-rget ./inputs/params.small
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
