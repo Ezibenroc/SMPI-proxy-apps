@@ -344,7 +344,7 @@ previous MD proxy apps (MiniMD, COMD), its design is significantly more modular 
      make KOKKOS_PATH=$PWD/../kokkos KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial CXX=smpicxx MPI=1
 
      echo "Run it"
-     smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml -bind-to socket ./ExaMiniMD -il ../input/in.lj --comm-type MPI --kokkos-threads=12 
+     smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./ExaMiniMD -il ../input/in.lj --comm-type MPI --kokkos-threads=12 
 
  #+END_SRC
 
