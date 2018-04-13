@@ -157,4 +157,4 @@ Using unsuitable language : CANDLE benchmarks (python).
 
 Unavailable : Ember, AMR_Exp_Parabolic.
 
-Not supported : EBMC (iallgather).
+Not supported : EBMC (iallgather), ExaMiniMD.
