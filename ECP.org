@@ -382,7 +382,7 @@ implementations.
      echo "Install the modified sources"
      cp ../../../../src/common/* ./linearAlgebra/MPI/
      cd linearAlgebra/MPI/
-     sed -i -e "s/\mpicxx/\smpicc/g" Makefile
+     sed -i -e "s/\mpicxx/\smpicxx/g" Makefile
 
      echo "Compile it"
      make 
