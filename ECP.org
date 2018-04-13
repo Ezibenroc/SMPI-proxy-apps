@@ -387,8 +387,14 @@ implementations.
      echo "Compile it"
      make 
 
+     echo "get input file"
+     if [ ! -e ca-GrQc ] ; then
+       wget https://sparse.tamu.edu/MM/SNAP/ca-GrQc.tar.gz
+       tar xzf ca-GrQc.tar.gz
+     fi
+     
      echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniTri.exe 
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniTri.exe ./ca-GrQc/ca-GrQc.mtx
 
  #+END_SRC
 
