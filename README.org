@@ -88,7 +88,7 @@ Issues : MiniGhost (issues with MG_CONSTANTS.F)
 * [[https://mantevo.org/download/][Mantevo]] benchmark codes
 | Benchmark  | Ref | Lines | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | 37,477  | MPI, OMP | C,F90     | :gear: :wrench: :sunny: | :x: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]]   | [[http://mantevo.org/downloads/CloverLeaf-1.1.html][:package:]] | 37,477  | MPI, OMP | C,F90     | :gear: :wrench: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | [[http://mantevo.org/downloads/miniSMAC2D_2.0.html][:package:]] | 8,329  | MPI, OMP | F90 | :gear: :wrench: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixyce][MiniXyce]] | [[http://mantevo.org/downloads/miniXyce_1.0.html][:package:]] | 2,020 | MPI | C++     | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]]   | [[http://mantevo.org/downloads/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz][:package:]] | 1,548 | MPI, OMP | C++ | :gear: :sunny: | :gear: :sunny: |
