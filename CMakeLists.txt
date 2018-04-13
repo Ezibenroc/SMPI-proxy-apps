@@ -5,6 +5,18 @@ project(SMPI-proxy-apps)
 INCLUDE(CTest)
 ENABLE_TESTING()
 
+# ECP benchmarks 
+ADD_TEST(ECP_ExaMiniMD    bin/ECP_ExaMiniMD.sh)
+ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
+ADD_TEST(ECP_AMG       bin/ECP_AMG.sh)
+ADD_TEST(ECP_sw4lite       bin/ECP_sw4lite.sh)
+ADD_TEST(ECP_quicksilver     bin/ECP_quicksilver.sh)
+ADD_TEST(ECP_SimpleMOC     bin/ECP_SimpleMOC.sh)
+ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
+ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
+ADD_TEST(ECP_EBMS     bin/ECP_EBMS.sh)
+ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
+
 # Trinity-Nersc benchmarks
 ADD_TEST(Trinity_MDTest  bin/Trinity_MDTest.sh)
 ADD_TEST(Trinity_SMB_mpiHeader     bin/Trinity_SMB_mpiHeader.sh)
@@ -39,17 +51,5 @@ ADD_TEST(CodeVault_Pi             bin/CodeVault_Pi.sh)
 ADD_TEST(CodeVault_Prng           bin/CodeVault_Prng.sh)
 ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
 ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
-
-# ECP benchmarks 
-ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
-ADD_TEST(ECP_AMG       bin/ECP_AMG.sh)
-ADD_TEST(ECP_sw4lite       bin/ECP_sw4lite.sh)
-ADD_TEST(ECP_quicksilver     bin/ECP_quicksilver.sh)
-ADD_TEST(ECP_SimpleMOC     bin/ECP_SimpleMOC.sh)
-ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
-ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
-ADD_TEST(ECP_EBMS     bin/ECP_EBMS.sh)
-ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
-ADD_TEST(ECP_ExaMiniMD    bin/ECP_ExaMiniMD.sh)
 
 
