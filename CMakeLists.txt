@@ -6,6 +6,8 @@ INCLUDE(CTest)
 ENABLE_TESTING()
 
 # ECP benchmarks 
+ADD_TEST(ECP_miniTri    bin/ECP_miniTri.sh)
+ADD_TEST(ECP_linearAlgebra    bin/ECP_linearAlgebra.sh)
 ADD_TEST(ECP_ExaMiniMD    bin/ECP_ExaMiniMD.sh)
 ADD_TEST(ECP_CoMD      bin/ECP_CoMD.sh)
 ADD_TEST(ECP_AMG       bin/ECP_AMG.sh)
