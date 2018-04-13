@@ -337,7 +337,7 @@ previous MD proxy apps (MiniMD, COMD), its design is significantly more modular 
      fi
 
      echo "Install the modified sources"
-     cp ../../src/common/* ./src
+     cp ../../../src/common/* ./src
      cd src
 
      echo "Compile it"
