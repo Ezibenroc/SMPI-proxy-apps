@@ -328,13 +328,20 @@ previous MD proxy apps (MiniMD, COMD), its design is significantly more modular 
      else
         git clone --depth=1 https://github.com/ECP-copa/ExaMiniMD.git
      fi
+     
+     cd ExaMiniMD
+     if [ -e kokkos ] ; then
+        cd kokkos ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/kokkos/kokkos
+     fi
 
      echo "Install the modified sources"
-     cp ../../src/common/* ./ExaMiniMD/src
-     cd ExaMiniMD/src
+     cp ../../src/common/* ./src
+     cd src
 
      echo "Compile it"
-     make -j KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial CXX=smpicxx MPI=1
+     make KOKKOS_PATH=$PWD/../kokkos KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial CXX=smpicxx MPI=1
 
      echo "Run it"
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml -bind-to socket ./ExaMiniMD -il ../input/in.lj --comm-type MPI --kokkos-threads=12 
