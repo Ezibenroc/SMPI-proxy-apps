@@ -308,6 +308,39 @@ CoSP2 is a reference implementation of typical linear algebra algorithms and wor
 
  #+END_SRC
 
+** ExaMinMD
+*** Brief description 
+ExaMiniMD is a proxy application and research vehicle for particle codes, in particular Molecular Dynamics (MD). Compared to 
+previous MD proxy apps (MiniMD, COMD), its design is significantly more modular in order to allow independent investigation of different aspects.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_ExaMiniMD.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     echo "Checkout or update the git containing the source code"
+     if [ -e ExaMiniMD ] ; then
+        cd ExaMiniMD ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/ECP-copa/ExaMiniMD.git
+     fi
+
+     echo "Install the modified sources"
+     cp ../../src/common/* ./ExaMiniMD/src
+     cd ExaMiniMD/src
+
+     echo "Compile it"
+     make -j KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial CXX=smpicxx MPI=1
+
+     echo "Run it"
+     smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml -bind-to socket ./ExaMiniMD -il ../input/in.lj --comm-type MPI --kokkos-threads=12 
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

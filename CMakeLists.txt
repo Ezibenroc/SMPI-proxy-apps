@@ -50,5 +50,6 @@ ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
 ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
 ADD_TEST(ECP_EBMS     bin/ECP_EBMS.sh)
 ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
+ADD_TEST(ECP_ExaMiniMD    bin/ECP_ExaMiniMD.sh)
 
 

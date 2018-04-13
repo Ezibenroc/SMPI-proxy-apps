@@ -139,6 +139,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: | :x: |
 
 *** Disabled Apps
 MPI unused : PathFinder, CoHMM. 
@@ -157,4 +158,4 @@ Using unsuitable language : CANDLE benchmarks (python).
 
 Unavailable : Ember, AMR_Exp_Parabolic.
 
-Not supported : EBMC (iallgather), ExaMiniMD.
+Not supported : EBMC (iallgather).
