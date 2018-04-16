@@ -155,9 +155,12 @@ Using another dependencies
 | MACSio  | json-c |
 | CoGL | CUDA |
 | CLAMR | CUDA, OpenCL, OpenGL, HDF5 |
+| FleCSALE | Exodus, FleCSI, ParMETIS *|
 
 Using unsuitable language : CANDLE benchmarks (python). 
 
 Unavailable : Ember, AMR_Exp_Parabolic.
 
 Not supported : EBMC (iallgather).
+
+(*) FleCSALE (ProjectLists.txt)
