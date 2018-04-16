@@ -154,6 +154,7 @@ Using another dependencies
 | Laghos  | HYPRE, METIS, MFEM |
 | MACSio  | json-c |
 | CoGL | CUDA |
+| CLAMR | CUDA, OpenCL, OpenGL, HDF5 |
 
 Using unsuitable language : CANDLE benchmarks (python). 
 
