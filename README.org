@@ -140,7 +140,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: | :x: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: | :gear: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: | :gear: :sunny: |
 
 *** Disabled Apps
 MPI unused : PathFinder, CoHMM. 
