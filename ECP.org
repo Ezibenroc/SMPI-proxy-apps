@@ -416,17 +416,23 @@ implementations.
         git clone --depth=1 https://github.com/lanl/CLAMR.git
      fi
      
-     echo "Install the modified sources"
-     cp ../../src/common/* ./CLAMR/
-     cp ../../src/ECP/CLAMR/* ./CLAMR/
      cd CLAMR/
-     
+     if [ -e build ] ; then
+       rm -rf build
+     fi
+     mkdir build
+     cd build
+
+     echo "Install the modified sources"
+     cp ../../../../src/common/* .
+     cp ../../../../src/ECP/CLAMR/* ..
+
      echo "Compile it"
-     cmake .
-     make -j 4 
+     SMPI_PRETEND_CC=1 cmake -DCMAKE_CXX_COMPILER=smpicc -DMPI_CXX_COMPILER=smpicxx -DMPI_C_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_CXX_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so  -DMPI_C_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_CXX_INCLUDE_PATH=$SIMGRID_PATH/include/smpi ..
+     make CXX_FLAGS="-ftree-vectorize -O2 -g -DNDEBUG -fPIC" clamr_mpionly
      
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clamr_mpionly
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clamr_mpionly -n 256 -l 2 -i 10 -t 100
 
  #+END_SRC
 

@@ -50,9 +50,11 @@ endif()
 
 if (SIMGRID_ENABLE)
     # using SMPICXX
-    set(CMAKE_CXX_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicxx")
+#    set(CMAKE_CXX_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicxx")
     include_directories(BEFORE "$ENV{SIMGRID_PATH}/include")
     set (CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS}")
+    set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g -O0 -Wextra")
+    set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g -O3")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 # using Clang
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftree-vectorize")
