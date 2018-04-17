@@ -398,6 +398,38 @@ implementations.
 
  #+END_SRC
 
+** CLAMR
+#+BEGIN_SRC sh :tangle bin/ECP_CLAMR.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     
+     echo "Checkout or update the git containing the source code"
+     if [ -e CLAMR ] ; then
+        cd CLAMR ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/lanl/CLAMR.git
+     fi
+     
+     echo "Install the modified sources"
+     cp ../../src/common/* ./CLAMR/
+     cp ../../src/ECP/CLAMR/* ./CLAMR/
+     cd CLAMR/
+     
+     echo "Compile it"
+     cmake .
+     make -j 4 
+     
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clamr_mpionly
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
