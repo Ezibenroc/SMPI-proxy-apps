@@ -428,7 +428,7 @@ implementations.
      cp ../../../../src/ECP/CLAMR/* ..
 
      echo "Compile it"
-     SMPI_PRETEND_CC=1 cmake -DCMAKE_CXX_COMPILER=smpicc -DMPI_CXX_COMPILER=smpicxx -DMPI_C_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_CXX_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so  -DMPI_C_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_CXX_INCLUDE_PATH=$SIMGRID_PATH/include/smpi ..
+     SMPI_PRETEND_CC=1 cmake -DCMAKE_CXX_COMPILER=smpicxx -DMPI_CXX_COMPILER=smpicxx -DMPI_C_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_CXX_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so  -DMPI_C_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_CXX_INCLUDE_PATH=$SIMGRID_PATH/include/smpi ..
      make CXX_FLAGS="-ftree-vectorize -O2 -g -DNDEBUG -fPIC" clamr_mpionly
      
      echo "Run it"
