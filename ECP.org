@@ -399,6 +399,9 @@ implementations.
  #+END_SRC
 
 ** CLAMR
+*** Brief description
+The CLAMR code is a cell-based adaptive mesh refinement (AMR) mini-app developed as a testbed for hybrid algorithm development using MPI and OpenCL GPU code. 
+*** Build and run 
 #+BEGIN_SRC sh :tangle bin/ECP_CLAMR.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
      export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
@@ -435,6 +438,48 @@ implementations.
      
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clamr_mpionly -n 256 -l 2 -i 10 -t 100
+
+ #+END_SRC
+
+** Kripke
+*** Brief description 
+Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its primary purpose is to research how data layout, programming paradigms and architectures effect the implementation and performance of Sn transport.  A main goal of Kripke is investigating how different data-layouts affect instruction, thread and task level parallelism, and what the implications are on overall solver performance.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_Kripke.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     
+     echo "Download the source code"
+     test -e kripke-source.tar.gz || curl -o kripke-source.tar.gz -Lk https://codesign.llnl.gov/downloads/kripke-openmp-1.1.tar.gz
+
+     echo "Unpack the code"
+     mkdir kripke && tar -xvf kripke-source.tar.gz -C kripke --strip-components 1
+     
+     cd kripke/
+
+     echo "Install the modified sources"
+     patch -p1 < ../../../src/ECP/kripke/patch_kripke.diff
+     
+     if [ -e build ] ; then
+       rm -rf build
+     fi
+     mkdir build
+     cd build
+
+     cp ../../../../src/common/* .
+
+     echo "Compile it"
+     cmake ..
+     make -j 8
+     
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./kripke
 
  #+END_SRC
 

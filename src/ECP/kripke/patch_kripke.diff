@@ -1,0 +1,35 @@
+Index: kripke/CMakeLists.txt
+===================================================================
+--- kripke.orig/CMakeLists.txt
++++ kripke/CMakeLists.txt
+@@ -4,17 +4,23 @@ project(KRIPKE)
+ 
+ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/Modules" ${CMAKE_MODULE_PATH})
+ message(STATUS ${CMAKE_MODULE_PATH})
+-
++set(CMAKE_MODULE_PATH "~/simgrid/src/smpi/")
+ 
+ # MPI Support (Required)
+ # If the ENABLE_MPI is turned off, you must use the mpi* compiler wrappers, since
+ # Kripke will not build without MPI support
+-set(ENABLE_MPI On CACHE STRING "Turn this off if you are using mpi compiler wrappers")
+-if(ENABLE_MPI)
+-  find_package(MPI REQUIRED)
+-  include_directories(${MPI_INCLUDE_PATH})
+-  set(KRIPKE_LIBS ${KRIPKE_LIBS} ${MPI_LIBRARIES})
+-endif()
++# set(ENABLE_MPI On CACHE STRING "Turn this off if you are using mpi compiler wrappers")
++
++# Using SMPI instead of MPI
++set(CMAKE_CXX_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicxx")
++include_directories(BEFORE "$ENV{SIMGRID_PATH}/include")
++set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
++
++# if(ENABLE_MPI)
++#   find_package(MPI REQUIRED)
++include_directories(${MPI_INCLUDE_PATH})
++set(KRIPKE_LIBS ${KRIPKE_LIBS} ${MPI_LIBRARIES})
++# endif()
+ 
+ 
+ # OpenMP Support (Optional)
