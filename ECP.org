@@ -479,7 +479,7 @@ Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its 
      make -j 8
      
      echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./kripke
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./kripke --procs 2,2,2
 
  #+END_SRC
 
