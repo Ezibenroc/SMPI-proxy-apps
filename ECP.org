@@ -459,6 +459,9 @@ Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its 
      test -e kripke-source.tar.gz || curl -o kripke-source.tar.gz -Lk https://codesign.llnl.gov/downloads/kripke-openmp-1.1.tar.gz
 
      echo "Unpack the code"
+     if [ -e kripke ] ; then
+       rm -rf kripke
+     fi
      mkdir kripke && tar -xvf kripke-source.tar.gz -C kripke --strip-components 1
      
      cd kripke/
