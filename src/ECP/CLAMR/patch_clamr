@@ -1,0 +1,32 @@
+diff --git a/./clamr_mpionly.cpp b/./clamr_mpionly.cpp
+index cc81fb5..a4e702f 100644
+--- a/./clamr_mpionly.cpp
++++ b/../SMPI-proxy-apps/src/ECP/CLAMR/clamr_mpionly.cpp
+@@ -188,11 +188,9 @@ int main(int argc, char **argv) {
+    // Needed for code to compile correctly on the Mac
+    int mype=0;
+    int numpe=0;
+-
+    //  Process command-line arguments, if any.
+-   parseInput(argc, argv);
+    L7_Init(&mype, &numpe, &argc, argv, do_quo_setup, lttrace_on);
+-
++   parseInput(argc, argv);
+ #ifdef _OPENMP
+    int nt = 0;
+    int tid = 0;
+    
+diff --git a/./CMakeLists.txt b/CMakeLists.txt
+index d157e92..4c6826f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -242,7 +242,7 @@ set (LIB_TYPE STATIC)
+ if (BUILD_SHARED_LIBS)
+   set (LIB_TYPE SHARED)
+ endif (BUILD_SHARED_LIBS)
+-set (CMAKE_POSITION_INDEPENDENT_CODE ON)
++set (CMAKE_POSITION_INDEPENDENT_CODE OFF)
+ 
+ if (NOT PRECISION_TYPE)
+    set (PRECISION_TYPE full_precision)
+
