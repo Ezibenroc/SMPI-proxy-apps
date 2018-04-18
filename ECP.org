@@ -445,7 +445,7 @@ The CLAMR code is a cell-based adaptive mesh refinement (AMR) mini-app developed
 *** Brief description 
 Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its primary purpose is to research how data layout, programming paradigms and architectures effect the implementation and performance of Sn transport.  A main goal of Kripke is investigating how different data-layouts affect instruction, thread and task level parallelism, and what the implications are on overall solver performance.
 *** Build and run 
-#+BEGIN_SRC sh :tangle bin/ECP_Kripke.sh
+#+BEGIN_SRC sh :tangle bin/ECP_kripke.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
      export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
      export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
