@@ -142,6 +142,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: | :x: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#kriple][Kriple]] | 109,477 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
 
 *** Disabled Apps
 MPI unused : PathFinder, CoHMM. 
@@ -156,6 +157,7 @@ Using another dependencies
 | MACSio  | json-c |
 | CoGL | CUDA |
 | FleCSALE | Exodus, FleCSI, ParMETIS *|
+| HPGMG | PETSc, OpenMP |
 
 Using unsuitable language : CANDLE benchmarks (python). 
 
