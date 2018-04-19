@@ -83,8 +83,6 @@ Using particular dependencies :
 
 Using unsuitable language : UMT (Python).
 
-Issues : MiniGhost (issues with MG_CONSTANTS.F)
-
 * [[https://mantevo.org/download/][Mantevo]] benchmark codes
 | Benchmark  | Ref | Lines | paral | Lang | MPI | SMPI |
 |------------+-----+---------------+-------+------+-----+------|
@@ -154,6 +152,7 @@ Using another dependencies
 | CoGL | CUDA |
 | FleCSALE | Exodus, FleCSI, ParMETIS *|
 | HPGMG | PETSc, OpenMP |
+| MiniGhost | HDF5, H5Part |
 
 Using unsuitable language : CANDLE benchmarks (python). 
 
