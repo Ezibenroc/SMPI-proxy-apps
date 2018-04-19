@@ -490,7 +490,7 @@ Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its 
 *** Brief description 
 MiniAero is a mini-application for the evaulation of programming models and hardware for next generation platforms. MiniAero is an explicit (using RK4) unstructured finite volume code that solves the compressible Navier-Stokes equations. Both inviscid and viscous terms are included. The viscous terms can be optionally included or excluded.
 *** Build and run 
-#+BEGIN_SRC sh :tangle bin/ECP_MiniAero.sh
+#+BEGIN_SRC sh :tangle bin/ECP_miniAero.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
      export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
      export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
