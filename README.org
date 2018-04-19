@@ -139,7 +139,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniaero][MiniAero]] | 4,645 | MPI | C++ | :gear: :sunny: | :gear: :sunny: |
 
 *** Disabled Apps
-MPI unused : PathFinder, CoHMM. 
+MPI unused : PathFinder, CoHMM, NuT. 
 
 Using OpenMP : XSBench, Tycho2, MiniGMG.
 
