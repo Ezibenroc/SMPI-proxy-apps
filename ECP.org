@@ -483,6 +483,42 @@ Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its 
 
  #+END_SRC
 
+** MiniAero
+*** Brief description 
+MiniAero is a mini-application for the evaulation of programming models and hardware for next generation platforms. MiniAero is an explicit (using RK4) unstructured finite volume code that solves the compressible Navier-Stokes equations. Both inviscid and viscous terms are included. The viscous terms can be optionally included or excluded.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_MiniAero.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     
+     echo "Checkout or update the git containing the source code"
+     if [ -e miniAero ] ; then
+        cd miniAero ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/Mantevo/miniAero.git
+     fi
+     
+     cd miniAero/kokkos
+
+     echo "Install the modified sources"
+     patch -p1 < ../../../../src/ECP/miniAero/patch_makefile.diff
+     
+     cp ../../../../src/common/* .
+
+     echo "Compile it"
+     make -j 4
+     
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniAero
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

@@ -98,11 +98,6 @@ Issues : MiniGhost (issues with MG_CONSTANTS.F)
 *** Disabled Apps  
 Using OpenMP : Clover3D ([[http://uk-mac.github.io/CloverLeaf3D/][:book:]][[http://mantevo.org/downloads/CloverLeaf3D-1.0.html][:package:]]), MiniMD ([[http://mantevo.org/downloads/miniMD_ref_2.0.html][:package:]])
 
-Using another dependencies
-| Benchmark | Dependency |  
-|-----------|------------|
-| [[http://mantevo.org/downloads/miniAero_1.0.html][Miniaero]] | Trilinos Kokkos, PTHREAD |
-
 Not available : CoMD.
 
 * [[https://repository.prace-ri.eu/git/PRACE/CodeVault][CodeVault]] benchmark codes 
@@ -143,6 +138,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#kriple][Kripke]] | 109,477 | MPI, OpenMP | C++ | :gear: :sunny: | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniaero][MiniAero]] | 4,645 | MPI | C++ | :gear: :sunny: | :x: |
 
 *** Disabled Apps
 MPI unused : PathFinder, CoHMM. 
