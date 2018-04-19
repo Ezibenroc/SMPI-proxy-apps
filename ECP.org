@@ -329,19 +329,20 @@ previous MD proxy apps (MiniMD, COMD), its design is significantly more modular 
         git clone --depth=1 https://github.com/ECP-copa/ExaMiniMD.git
      fi
      
-     cd ExaMiniMD
+     
      if [ -e kokkos ] ; then
         cd kokkos ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
      else
         git clone --depth=1 https://github.com/kokkos/kokkos
      fi
-
+     cd ExaMiniMD
+     
      echo "Install the modified sources"
      cp ../../../src/common/* ./src
      cd src
 
      echo "Compile it"
-     make KOKKOS_PATH=$PWD/../kokkos KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial CXX=smpicxx MPI=1
+     make KOKKOS_PATH=$PWD/../../kokkos KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial CXX=smpicxx MPI=1
 
      echo "Run it"
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./ExaMiniMD -il ../input/in.lj --comm-type MPI --kokkos-threads=12 
@@ -507,6 +508,12 @@ MiniAero is a mini-application for the evaulation of programming models and hard
         git clone --depth=1 https://github.com/Mantevo/miniAero.git
      fi
      
+     if [ -e kokkos ] ; then
+        cd kokkos ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/kokkos/kokkos
+     fi
+     
      cd miniAero/kokkos
 
      echo "Install the modified sources"
@@ -515,7 +522,7 @@ MiniAero is a mini-application for the evaulation of programming models and hard
      cp ../../../../src/common/* .
 
      echo "Compile it"
-     make -j 4
+     make KOKKOS_PATH=$PWD/../../kokkos KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial
      
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniAero
