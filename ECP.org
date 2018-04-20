@@ -529,6 +529,42 @@ MiniAero is a mini-application for the evaulation of programming models and hard
 
  #+END_SRC
 
+** TeaLeaf
+*** Brief description 
+TeaLeaf is a mini-app that solves the linear heat conduction equation on a spatially decomposed regularly grid using a 5 point stencil with implicit solvers. TeaLeaf currently solves the equations in two dimensions, but three dimensional support is in beta.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_TeaLeaf.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     
+     echo "Checkout or update the git containing the source code"
+     if [ -e TeaLeaf_ref ] ; then
+        cd TeaLeaf_ref ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/UK-MAC/TeaLeaf_ref.git
+     fi
+     
+     cd TeaLeaf_ref/
+
+     echo "Install the modified sources"
+     patch -p1 < ../../../src/ECP/TeaLeaf/patch_tealeaf.diff
+     
+     cp ../../../src/common/* .
+
+     echo "Compile it"
+     make -j4
+     
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./tea_leaf
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

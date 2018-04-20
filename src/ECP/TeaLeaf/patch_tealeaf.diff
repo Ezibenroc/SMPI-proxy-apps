@@ -1,0 +1,32 @@
+Index: TeaLeaf_ref/Makefile
+===================================================================
+--- TeaLeaf_ref.orig/Makefile
++++ TeaLeaf_ref/Makefile
+@@ -65,7 +65,7 @@ endif
+ 
+ OMP_INTEL     = -qopenmp -ip -g
+ OMP_SUN       = -xopenmp=parallel -vpara
+-OMP_GNU       = -fopenmp
++OMP_GNU       = #-fopenmp
+ OMP_CRAY      = -e Z
+ OMP_PGI       = -mp=nonuma
+ OMP_PATHSCALE = -mp
+@@ -126,8 +126,8 @@ endif
+ 
+ FLAGS=$(FLAGS_$(COMPILER)) $(OMP_$(COMPILER)) $(I3E_$(COMPILER)) $(OPTIONS) $(OMP4)
+ CFLAGS=$(CFLAGS_$(COMPILER)) $(OMP_$(COMPILER)) $(I3E_$(COMPILER)) $(C_OPTIONS) -c
+-MPI_COMPILER=mpif90
+-C_MPI_COMPILER=mpicc
++MPI_COMPILER=smpif90
++C_MPI_COMPILER=smpicc
+ 
+ C_FILES=\
+ 	timer_c.o
+@@ -179,7 +179,6 @@ KERNEL_FILES= \
+ tea_leaf: Makefile $(KERNEL_FILES) $(FORTRAN_FILES) $(C_FILES)
+ 	$(MPI_COMPILER) \
+ 	$(FLAGS)	\
+-	$(OMP_$(COMPILER)) $(OMP4) \
+ 	$(FORTRAN_FILES)	\
+ 	$(KERNEL_FILES) \
+ 	$(C_FILES)	\

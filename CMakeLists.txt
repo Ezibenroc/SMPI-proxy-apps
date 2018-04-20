@@ -9,6 +9,7 @@ set(CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE 30720000)
 set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 
 # ECP benchmarks 
+ADD_TEST(ECP_TeaLeaf    bin/ECP_TeaLeaf.sh)
 ADD_TEST(ECP_miniAero    bin/ECP_miniAero.sh)
 ADD_TEST(ECP_kripke    bin/ECP_kripke.sh)
 ADD_TEST(ECP_CLAMR    bin/ECP_CLAMR.sh)
