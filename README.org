@@ -148,15 +148,17 @@ Because of other dependencies
 |-----------|------------|
 | ASPA | HDF5 |
 | Laghos  | HYPRE, METIS, MFEM |
-| MACSio  | json-c |
 | CoGL | CUDA |
 | FleCSALE | Exodus, FleCSI, ParMETIS *|
 | HPGMG | PETSc, OpenMP |
 | MiniGhost | HDF5, H5Part |
-| CANDLE | Python language |
+| PlasmApp | Tirilinos |
 
-Code source not available: Ember, AMR_Exp_Parabolic.
+Code source not available: AMR_Exp_Parabolic.
 
 Using unsupported MPI primitives: EBMC (iallgather).
 
 (*) FleCSALE (ProjectLists.txt)
+
+TODO 
+RajaPerformanecesuite, RSBench, SNBONE, TeaLeaf, VPFFT.
