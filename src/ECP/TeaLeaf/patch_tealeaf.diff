@@ -30,3 +30,67 @@ Index: TeaLeaf_ref/Makefile
  	$(FORTRAN_FILES)	\
  	$(KERNEL_FILES) \
  	$(C_FILES)	\
+diff --git a/initialise.f90 b/initialise.f90
+index 5afd5e4..5d50d9a 100644
+--- a/initialise.f90
++++ b/initialise.f90
+@@ -30,7 +30,7 @@ SUBROUTINE initialise
+ 
+   IMPLICIT NONE
+ 
+-  INTEGER :: ios
++  INTEGER :: ios, i
+   INTEGER :: get_unit,stat,uin,out_unit
+ !$ INTEGER :: OMP_GET_THREAD_NUM,OMP_GET_NUM_THREADS
+   CHARACTER(LEN=g_len_max) :: ltmp
+@@ -98,23 +98,24 @@ SUBROUTINE initialise
+       OPEN(FILE='tea.in',ACTION='READ',STATUS='OLD',UNIT=uin,IOSTAT=ios)
+     ENDIF
+     IF(ios.NE.0) CALL report_error('initialise','Error opening tea.in')
+-
+-    out_unit=get_unit(dummy)
+-    OPEN(FILE='tea.in.tmp',UNIT=out_unit,STATUS='REPLACE',ACTION='WRITE',IOSTAT=ios)
+-    IF(ios.NE.0) CALL  report_error('initialise','Error opening tea.in.tmp file')
+-    stat=parse_init(uin,'')
+-    DO
+-       stat=parse_getline(-1_4)
+-       IF(stat.NE.0)EXIT
+-       WRITE(out_unit,'(A)') line
++    DO i=0,parallel%max_task
++        out_unit=get_unit(dummy)
++        OPEN(FILE='tea.in.tmp'//trim(str(i)),UNIT=out_unit,STATUS='REPLACE',ACTION='WRITE',IOSTAT=ios)
++        IF(ios.NE.0) CALL  report_error('initialise','Error opening tea.in.tmp file')
++        stat=parse_init(uin,'')
++        DO
++           stat=parse_getline(-1_4)
++           IF(stat.NE.0)EXIT
++           WRITE(out_unit,'(A)') line
++        ENDDO
++        CLOSE(out_unit)
+     ENDDO
+-    CLOSE(out_unit)
+   ENDIF
+ 
+   CALL tea_barrier
+ 
+   g_in=get_unit(dummy)
+-  OPEN(FILE='tea.in.tmp',ACTION='READ',STATUS='OLD',UNIT=g_in,IOSTAT=ios)
++  OPEN(FILE='tea.in.tmp'//trim(str(parallel%task)),ACTION='READ',STATUS='OLD',UNIT=g_in,IOSTAT=ios)
+ 
+   IF(ios.NE.0) CALL report_error('initialise','Error opening tea.in.tmp file')
+ 
+@@ -150,7 +151,13 @@ SUBROUTINE initialise
+   ENDIF
+ 
+   CLOSE(g_in)
+-
++  contains
++    character(len=20) function str(k)
++      !   "Convert an integer to string."
++      integer, intent(in) :: k
++      write (str, *) k
++      str = adjustl(str)
++  end function str
+ END SUBROUTINE initialise
+ 
+ FUNCTION get_unit(dummy)
