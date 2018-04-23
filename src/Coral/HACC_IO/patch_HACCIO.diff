@@ -1,0 +1,15 @@
+Index: HACC_IO/Makefile
+===================================================================
+--- HACC_IO.orig/Makefile
++++ HACC_IO/Makefile
+@@ -4,8 +4,8 @@ HAPP_CPP_HDRS = RestartIO_GLEAN.h
+ # 	---------------------------
+ # 	Compiler Flags
+ # 	---------------------------
+-MPICC =	mpicc
+-MPICXX = mpicxx
++# MPICC =	mpicc
++MPICXX = smpicxx
+ 
+ #Compiler Flags
+ MPI_CFLAGS = -g -O3 -DGLEAN_PRINT_PERROR -I./
