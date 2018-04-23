@@ -133,7 +133,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][teaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: |
 
 *** Disabled Apps
 MPI not used: PathFinder, CoHMM, NuT, LCALS, RSBench. 
