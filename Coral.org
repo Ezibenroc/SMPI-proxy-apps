@@ -89,7 +89,7 @@ KMI_HASH evaluate the performance of the architecture integer operations, specif
      patch -p1 < ../../../../src/Coral/kmi_hash/patch_KMI_HASH_tests.diff
      cd ../src/
      patch -p1 < ../../../../src/Coral/kmi_hash/patch_KMI_HASH_src.diff
-     cp -f ../../../../src/common/* ./
+     cp -f ../../../../src/common/* ../tests
 
      echo "Compile it"
      make
