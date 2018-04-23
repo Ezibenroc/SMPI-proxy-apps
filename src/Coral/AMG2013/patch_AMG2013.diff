@@ -1,0 +1,26 @@
+Index: AMG2013/Makefile.include
+===================================================================
+--- AMG2013.orig/Makefile.include
++++ AMG2013/Makefile.include
+@@ -12,7 +12,7 @@
+ 
+ 
+ # set the compiler here
+-CC = mpicc
++CC = smpicc
+ 
+ # set compile flags here
+ # MPI only:
+@@ -24,9 +24,10 @@ CC = mpicc
+ # Use 64-bit integers for global variables (needed for large problems
+ #	with more than 2 billion variables)
+ #   add '-DHYPRE_LONG_LONG'  to 'INCLUDE_CFLAGS'
+-INCLUDE_CFLAGS = -O2 -DTIMER_USE_MPI -DHYPRE_USING_OPENMP -DHYPRE_LONG_LONG -DHYPRE_NO_GLOBAL_PARTITION -fopenmp
++#INCLUDE_CFLAGS = -O2 -DTIMER_USE_MPI -DHYPRE_USING_OPENMP -DHYPRE_LONG_LONG -DHYPRE_NO_GLOBAL_PARTITION -fopenmp
++INCLUDE_CFLAGS = -O2 -DHYPRE_LONG_LONG
+ 
+ # set link flags here
+ #INCLUDE_LFLAGS = -lm -openmp -qsmp
+-INCLUDE_LFLAGS = -lm  -fopenmp
++INCLUDE_LFLAGS = -lm
+ 

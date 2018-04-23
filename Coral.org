@@ -21,8 +21,8 @@ AMG is a parallel algebraic multigrid solver for linear systems arising from pro
  
      echo "Install the modified sources"
      cp -f ../../src/common/* AMG2013/test/
-     cp -f ../../src/Coral/AMG2013/*.include AMG2013/
      cd AMG2013/
+     patch -p1 < ../../../src/Coral/AMG2013/patch_AMG2013.diff
 
      echo "Compile it"
      make
