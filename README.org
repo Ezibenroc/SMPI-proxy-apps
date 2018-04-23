@@ -21,7 +21,9 @@ This repository gathers several collections of proxy apps, and reports
 their support by the SMPI implementation. This is tested nightly on a
 [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/][dedicated jenkins server]].
 
-https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/test/trend?failureOnly=false
+The graphe below gives an idea about the success rate of tests that have been run using smpi : 
+
+[[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/test/trend?failureOnly=false]]
 
 ** Legend 
 | Symbol  | Meaning | Symbol | Meaning |
