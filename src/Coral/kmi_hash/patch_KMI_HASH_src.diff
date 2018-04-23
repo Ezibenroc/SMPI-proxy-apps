@@ -1,0 +1,15 @@
+Index: src/Makefile
+===================================================================
+--- src.orig/Makefile
++++ src/Makefile
+@@ -4,8 +4,8 @@
+ 
+ #MPICC = mpixlc_r 
+ #MPICXX = mpicxx
+-MPICC = mpicc 
+-MPICXX = mpicxx
++MPICC = smpicc 
++MPICXX = smpicxx
+ 
+ #LIB_TIMEBASE_PATH = /home/morozov/lib
+ MPI_CFLAGS = -I. -O3 -g -pg -DKMI_CONFIG_BINARY_STRING -DKMI_CONFIG_SORTING -DKMI_CONFIG_INDEXED_ARRAY -DKMI_CONFIG_SAMPLING_ITERATION -DKMI_CONFIG_INDEXED_ARRAY_HASH -DKMI_PROFILING_ALLTOALL 

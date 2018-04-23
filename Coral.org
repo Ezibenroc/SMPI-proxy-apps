@@ -85,10 +85,11 @@ KMI_HASH evaluate the performance of the architecture integer operations, specif
      mkdir KMI_HASH &&  tar -xvf KMI_HASH-source.tar.gz -C KMI_HASH --strip-components 1
  
      echo "Install the modified sources"
-     cp -f ../../src/Coral/kmi_hash/src/* KMI_HASH/src/
-     cp -f ../../src/Coral/kmi_hash/tests/* KMI_HASH/tests/
-     cp -f ../../src/common/* KMI_HASH/tests/
-     cd KMI_HASH/src/
+     cd KMI_HASH/tests/
+     patch -p1 < ../../../../src/Coral/kmi_hash/patch_KMI_HASH_tests.diff
+     cd ../src/
+     patch -p1 < ../../../../src/Coral/kmi_hash/patch_KMI_HASH_src.diff
+     cp -f ../../../../src/common/* ./
 
      echo "Compile it"
      make

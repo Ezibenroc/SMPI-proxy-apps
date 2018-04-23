@@ -1,0 +1,15 @@
+Index: tests/Makefile
+===================================================================
+--- tests.orig/Makefile
++++ tests/Makefile
+@@ -4,8 +4,8 @@
+ 
+ #MPICC = mpixlc_r 
+ #MPICXX = mpicxx
+-MPICC = mpicc 
+-MPICXX = mpicxx
++MPICC = smpicc 
++MPICXX = smpicxx
+ 
+ KMI_LIB = -L../src -lkmi
+ 
