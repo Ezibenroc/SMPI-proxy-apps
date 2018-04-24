@@ -1,0 +1,27 @@
+Index: VPFFT/CMakeLists.txt
+===================================================================
+--- VPFFT.orig/CMakeLists.txt
++++ VPFFT/CMakeLists.txt
+@@ -22,13 +22,18 @@ set( VPFFT_List  ${VPFFT_List} "Src/Solv
+ 
+ 
+ 
+-set( CMAKE_C_COMPILER "mpicc-openmpi-gcc46") 
+-set( CMAKE_CXX_COMPILER "mpicxx-openmpi-gcc46" )
++set(CMAKE_C_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicc")
++set(CMAKE_CXX_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicxx")
+ 
+ # This project is designed to be built outside the Insight source tree.
+ PROJECT(VPFFT++)
+-set( EIGEN_PATH "/Users/li31/LLNL/ExMatEx/VonnegutSvn/svn/proxyApps/VPFFT/trunk/ExtLib/eigen-eigen-6e7488e20373")
+-set( FFTW_PATH "/Users/li31/LLNL/ExtLib/fftw3")
++find_package(Eigen3 REQUIRED)
++set(FFTW_PATH "$ENV{FFTW3_PATH}")
++
++set(CMAKE_MODULE_PATH "~/simgrid/src/smpi/")
++include_directories(BEFORE "$ENV{SIMGRID_PATH}/include")
++set(CMAKE_CXX_FLAGS ${FFTW_PATH})
++set(CMAKE_C_FLAGS  ${FFTW_PATH})
+ 
+ include_directories("Src/")
+ include_directories(${EIGEN_PATH})

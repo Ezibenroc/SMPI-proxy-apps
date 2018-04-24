@@ -565,6 +565,50 @@ TeaLeaf is a mini-app that solves the linear heat conduction equation on a spati
 
  #+END_SRC
 
+** VPFFT
+*** Brief description 
+VPFFT is an implementation of a mesoscale micromechanical materials model. By solving the viscoplasticity model, VPFFT simulates the evolution of a material under deformation. The solution time to the viscoplasticity model, described by a set of partial differential equations, is significantly reduced by the application of Fast Fourier Transform in the VPFFT algorithm.
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_VPFFT.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     
+     echo "Checkout or update the git containing the source code"
+     if [ -e VPFFT ] ; then
+        cd VPFFT ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/exmatex/VPFFT.git
+     fi
+     
+     cd VPFFT/
+
+     echo "Install the modified sources"
+     cp ./CMakeBuild/CMakeLists.txt.example CMakeLists.txt
+     patch -p1 < ../../../src/ECP/VPFFT/patch_vpfft.diff
+   
+     if [ -e build ] ; then
+       rm -rf build
+     fi
+     mkdir build
+     cd build
+
+     cp ../../../../src/common/* .
+
+     echo "Compile it"
+     cmake ..
+     make -j4
+     
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./VPFFT++
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
