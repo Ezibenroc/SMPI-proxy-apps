@@ -579,10 +579,8 @@ FFTW is a C subroutine library for computing the discrete Fourier transform (DFT
     mkdir -p Benchmarks/FFTW/
     cd Benchmarks/FFTW/
 
-    if [ ! -e fftw-3.3.7 ] ; then
-       wget http://www.fftw.org/fftw-3.3.7.tar.gz
-       tar xzf fftw-3.3.7.tar.gz 
-    fi 
+    test -e fftw-3.3.7.tar.gz || wget http://www.fftw.org/fftw-3.3.7.tar.gz
+    tar xzf fftw-3.3.7.tar.gz 
 
     cd fftw-3.3.7
     patch -p1 < ../../../src/ECP/FFTW/patch_fftw3.diff
@@ -618,7 +616,7 @@ VPFFT is an implementation of a mesoscale micromechanical materials model. By so
 
      echo "Install the modified sources"
      cp ./CMakeBuild/CMakeLists.txt.example CMakeLists.txt
-     patch -p1 < ../../../src/ECP/VPFFT/patch_vpfft.diff
+     patch -p0 < ../../../src/ECP/VPFFT/patch_vpfft.diff
    
      if [ -e build ] ; then
        rm -rf build
