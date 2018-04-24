@@ -611,7 +611,7 @@ VPFFT is an implementation of a mesoscale micromechanical materials model. By so
      else
         git clone --depth=1 https://github.com/exmatex/VPFFT.git
      fi
-     export FFTW3_PATH=${PWD}/FFTW/fftw3-install/
+     export FFTW3_PATH=${PWD}/../FFTW/fftw3-install/
      cd VPFFT/
 
      echo "Install the modified sources"
