@@ -1,27 +1,45 @@
-Index: VPFFT/CMakeLists.txt
-===================================================================
---- VPFFT.orig/CMakeLists.txt
-+++ VPFFT/CMakeLists.txt
-@@ -22,13 +22,18 @@ set( VPFFT_List  ${VPFFT_List} "Src/Solv
- 
- 
- 
--set( CMAKE_C_COMPILER "mpicc-openmpi-gcc46") 
+--- a/CMakeLists.txt    2018-04-24 10:37:52.913338893 -0400
++++ b/CMakeLists_save.txt       2018-04-24 18:18:55.455412116 -0400
+@@ -22,13 +22,17 @@
+
+
+
+-set( CMAKE_C_COMPILER "mpicc-openmpi-gcc46")
 -set( CMAKE_CXX_COMPILER "mpicxx-openmpi-gcc46" )
 +set(CMAKE_C_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicc")
 +set(CMAKE_CXX_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicxx")
- 
+
  # This project is designed to be built outside the Insight source tree.
  PROJECT(VPFFT++)
 -set( EIGEN_PATH "/Users/li31/LLNL/ExMatEx/VonnegutSvn/svn/proxyApps/VPFFT/trunk/ExtLib/eigen-eigen-6e7488e20373")
 -set( FFTW_PATH "/Users/li31/LLNL/ExtLib/fftw3")
-+find_package(Eigen3 REQUIRED)
++#find_package(Eigen3 REQUIRED)
++set(EIGEN_PATH "/usr/include/eigen3")
 +set(FFTW_PATH "$ENV{FFTW3_PATH}")
 +
 +set(CMAKE_MODULE_PATH "~/simgrid/src/smpi/")
 +include_directories(BEFORE "$ENV{SIMGRID_PATH}/include")
-+set(CMAKE_CXX_FLAGS ${FFTW_PATH})
-+set(CMAKE_C_FLAGS  ${FFTW_PATH})
- 
+
  include_directories("Src/")
  include_directories(${EIGEN_PATH})
+@@ -41,7 +45,7 @@
+ find_library( FFTW_LIBRARY libfftw3.a HINTS ${FFTW_PATH}/lib)
+ find_library( FFTW_LIBRARY_THREADS libfftw3_threads.a HINTS ${FFTW_PATH}/lib)
+ ADD_EXECUTABLE( VPFFT++ ${VPFFT_List} )
+-TARGET_LINK_LIBRARIES(  VPFFT++ ${FFTW_LIBRARY} ${FFTW_LIBRARY_MPI} ${FFTW_LIBRARY_THREADS} )
++TARGET_LINK_LIBRARIES(  VPFFT++ ${FFTW_LIBRARY_MPI} ${FFTW_LIBRARY} ${FFTW_LIBRARY_THREADS} )
+--- a/Src/UnitTester.cpp	2018-04-24 19:01:57.802996714 -0400
++++ b/Src/UnitTester.cpp	2018-04-24 17:55:01.975471081 -0400
+@@ -392,9 +392,9 @@
+       VPFFT::FCC_CrystalTest::FCC_SchmidtBasis FCC_Schmidt = VPFFT::FCC_CrystalTest::FCC_SchmidtBasis::Get();
+ 
+ 
+-      const int NumX = 16;
+-      const int NumY = 16;
+-      const int NumZ = 16;
++      const int NumX = 2;
++      const int NumY = 2;
++      const int NumZ = 2;
+       
+       std::cout << "Sample Grid construction " << std::endl;
+       

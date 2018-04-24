@@ -565,6 +565,34 @@ TeaLeaf is a mini-app that solves the linear heat conduction equation on a spati
 
  #+END_SRC
 
+** FFTW
+*** Brief description
+FFTW is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST).
+*** Build
+#+BEGIN_SRC sh :tangle bin/FFTW.sh
+    export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+    export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+    export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
+    echo "Clean up the place"
+    set -exu
+    mkdir -p Benchmarks/FFTW/
+    cd Benchmarks/FFTW/
+
+    if [ ! -e VPFFT ] ; then
+       wget http://www.fftw.org/fftw-3.3.7.tar.gz
+       tar xzf fftw-3.3.7.tar.gz 
+    fi 
+
+    cd fftw-3.3.7
+    patch -p1 < ../../../src/ECP/FFTW/patch_fftw3.diff
+
+    SMPI_PRETEND_CC=1 ./configure --enable-mpi --enable-threads MPICC=smpicc CC=smpicc LD=ld --prefix=${PWD}/../fftw3-install
+    make
+    make install
+
+#+END_SRC
+
 ** VPFFT
 *** Brief description 
 VPFFT is an implementation of a mesoscale micromechanical materials model. By solving the viscoplasticity model, VPFFT simulates the evolution of a material under deformation. The solution time to the viscoplasticity model, described by a set of partial differential equations, is significantly reduced by the application of Fast Fourier Transform in the VPFFT algorithm.
@@ -585,7 +613,7 @@ VPFFT is an implementation of a mesoscale micromechanical materials model. By so
      else
         git clone --depth=1 https://github.com/exmatex/VPFFT.git
      fi
-     
+     export FFTW3_PATH=${PWD}/FFTW/fftw3-install/
      cd VPFFT/
 
      echo "Install the modified sources"
