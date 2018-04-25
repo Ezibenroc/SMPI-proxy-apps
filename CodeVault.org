@@ -128,8 +128,9 @@ libgmp-dev
  
 ** Unstructured_grids
 *** Brief description 
+This code sample demonstrates how to implement halo-exchange for structured or unstructured grids using advanced MPI features
 *** Halo exchange
-#+BEGIN_SRC sh :tangle bin/CodeVault_UnstructedGrid.sh
+#+BEGIN_SRC sh :tangle bin/CodeVault_HaloExchange.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
@@ -147,8 +148,8 @@ libgmp-dev
      
      cp ../../../../../../src/common/* ./
 
-      echo "Run it"
-#     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_ 
+     echo "Run it"
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_unstructured_haloex
 
  #+END_SRC
 
