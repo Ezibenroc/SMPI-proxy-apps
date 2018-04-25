@@ -175,6 +175,8 @@ This code demonstrate the basic usage of MPI parallel I/O.
      cd build
      cmake ..
      make 
+     
+     cp ../../../../../../src/common/* ./
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_io_basic_mpi_io
