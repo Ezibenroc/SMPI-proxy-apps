@@ -100,6 +100,38 @@ KMI_HASH evaluate the performance of the architecture integer operations, specif
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./BENCH_QUERY
 #+END_SRC
 
+** [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][Lulesh]]
+*** Brief description 
+LULESH performs a hydrodynamics stencil calculation using both MPI and OpenMP to achieve parallelism.     
+*** Build and run  
+#+BEGIN_SRC sh :tangle bin/Coral_Lulesh.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
+     echo "Clean up the place" 
+     set -xeu
+     rm -rf Benchmarks/Coral/Lulesh
+     mkdir -p Benchmarks/Coral/
+     cd Benchmarks/Coral/
+     echo "Download the source code"
+     test -e lulesh-source.tar.gz || curl -o lulesh-source.tar.gz -Lk https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz
+
+     echo "Unpack the code"
+     mkdir Lulesh &&  tar -xvf lulesh-source.tar.gz -C Lulesh
+ 
+     echo "Install the modified sources"
+     cd Lulesh/
+     patch -p1 < ../../../src/Coral/Lulesh/patch_lulesh.diff
+     cp -f ../../../src/common/* ./
+
+     echo "Compile it"
+     make
+
+     echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./lulesh2.0 -i 10
+#+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

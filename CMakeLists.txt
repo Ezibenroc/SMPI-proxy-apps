@@ -8,6 +8,12 @@ ENABLE_TESTING()
 set(CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE 30720000)
 set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 
+# Coral benchamrks 
+ADD_TEST(Coral_Lulesh    bin/Coral_Lulesh.sh)
+ADD_TEST(Coral_AMG2013    bin/Coral_AMG2013.sh)
+ADD_TEST(Coral_HACC_IO    bin/Coral_HACC_IO.sh)
+ADD_TEST(Coral_KMI_HASH    bin/Coral_KMI_HASH.sh)
+
 # ECP benchmarks 
 ADD_TEST(FFTW       bin/FFTW.sh)
 ADD_TEST(ECP_VPFFT  bin/ECP_VPFFT.sh)
@@ -42,10 +48,6 @@ ADD_TEST(Trinity_MiniFE  bin/Trinity_MiniFE.sh)
 ADD_TEST(Trinity_MiniDFT  bin/Trinity_MiniDFT.sh)
 ADD_TEST(Trinity_MILC bin/Trinity_MILC.sh)
 
-# Coral benchamrks 
-ADD_TEST(Coral_AMG2013    bin/Coral_AMG2013.sh)
-ADD_TEST(Coral_HACC_IO    bin/Coral_HACC_IO.sh)
-ADD_TEST(Coral_KMI_HASH    bin/Coral_KMI_HASH.sh)
 
 # Mantevo benchmarks 
 ADD_TEST(Mantevo_MiniSMAC2D bin/Mantevo_MiniSMAC2D.sh)
