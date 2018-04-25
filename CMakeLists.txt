@@ -9,13 +9,13 @@ set(CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE 30720000)
 set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 
 # CodeVault benchmarks
+ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
 ADD_TEST(CodeVault_HaloExchange  bin/CodeVault_HaloExchange.sh)
 ADD_TEST(CodeVault_PreExec  bin/CodeVault_PreExec.sh)
 ADD_TEST(CodeVault_IntegralBasic  bin/CodeVault_IntegralBasic.sh)
 ADD_TEST(CodeVault_Pi             bin/CodeVault_Pi.sh)
 ADD_TEST(CodeVault_Prng           bin/CodeVault_Prng.sh)
 ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
-ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
 
 # Coral benchamrks 
 ADD_TEST(Coral_Lulesh    bin/Coral_Lulesh.sh)

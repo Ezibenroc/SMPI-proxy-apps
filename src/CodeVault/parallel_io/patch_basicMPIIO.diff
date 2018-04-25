@@ -1,0 +1,65 @@
+Index: basicMPIIO/CMakeLists.txt
+===================================================================
+--- basicMPIIO.orig/CMakeLists.txt
++++ basicMPIIO/CMakeLists.txt
+@@ -13,6 +13,7 @@ cmake_minimum_required(VERSION 3.0.0 FAT
+ project("Hermite4" NONE)
+ include(${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/common.cmake)
+ 
++set (CMAKE_MODULE_PATH ~/simgrid/src/smpi/)
+ 
+ # ==================================================================================================
+ 
+@@ -28,8 +29,10 @@ CHECK_CXX_COMPILER_FLAG("-std=c++11" COM
+ set(CXX11 ${COMPILER_SUPPORTS_CXX11})
+ set(CXX11_FLAGS -std=c++11)
+ 
+-find_package(Common)
+-find_package(MPI)
++# find_package(Common)
++# find_package(MPI)
++set(CMAKE_CXX_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicxx")
++include_directories(BEFORE "~/simgrid/include/smpi")
+ 
+ if (NOT CXX11)
+   message("## Skipping '${NAME}': no C++11 support")
+@@ -37,22 +40,22 @@ if (NOT CXX11)
+   return()
+ endif()
+ 
+-if (MPI_NOT_FOUND)
+-  message("## Skipping '${NAME}': no MPI found")
+-  return()
+-endif()
++# if (MPI_NOT_FOUND)
++#   message("## Skipping '${NAME}': no MPI found")
++#   return()
++# endif()
+ 
+ include_directories(${MPI_INCLUDE_PATH})
+ 
+-select_compiler_flags(cxx_flags 
+-    GNU   "-Wall -Werror ${CXX11_FLAGS} -Wno-literal-suffix"
+-    CLANG "-Wall -Werror ${CXX11_FLAGS}"
+-    Intel "-Wall -Werror ${CXX11_FLAGS}"
+-    PGI   "${CXX11_FLAGS}")
++# select_compiler_flags(cxx_flags 
++#     GNU   "-Wall -Werror ${CXX11_FLAGS} -Wno-literal-suffix"
++#     CLANG "-Wall -Werror ${CXX11_FLAGS}"
++#     Intel "-Wall -Werror ${CXX11_FLAGS}"
++#     PGI   "${CXX11_FLAGS}")
+ 
+ add_executable(${NAME} basic_mpi_io.cpp myMPI.cpp)
+ target_link_libraries(${NAME} ${MPI_LIBRARIES})
+-set_target_properties(${NAME} PROPERTIES COMPILE_FLAGS ${cxx_flags})
++# set_target_properties(${NAME} PROPERTIES COMPILE_FLAGS)# ${cxx_flags})
+ install(TARGETS ${NAME} DESTINATION bin)
+ 
+ if (MPI_COMPILE_FLAGS)
+@@ -65,4 +68,4 @@ if (MPI_LINK_FLAGS)
+ endif()
+   
+ 
+-# ==================================================================================================
++# ==================================================================================================
+\ No newline at end of file

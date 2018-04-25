@@ -163,18 +163,24 @@ This code demonstrate the basic usage of MPI parallel I/O.
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
 
+     cd Benchmarks/CodeVault/hpc_kernel_samples/parallel_io/basicMPIIO/
      echo "Install the modified sources"
-     cp -r src/CodeVault/parallel_io/* Benchmarks/CodeVault/hpc_kernel_samples/parallel_io/
+     patch -p1 < ../../../../../src/CodeVault/parallel_io/patch_basicMPIIO.diff
 
      echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/parallel_io/
-     mkdir -p build
-     cd build/
-     #cmake ..
-     #make 
+     if [ -e build ] ; then
+       rm -rf build
+     fi
+     mkdir build
+     cd build
+     cmake ..
+     make 
 
      echo "Run it"
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_io_basic_mpi_io
 #+END_SRC
+
+#+RESULTS:
 
 * Emacs settings
 # Local Variables:
