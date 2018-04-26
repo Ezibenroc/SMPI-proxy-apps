@@ -680,8 +680,9 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
      cp ../../../../src/common/* .
 
      echo "Compile it"
-     make COMPILER=smpi
-     
+     make USEMETIS=yes COMPILER=smpi
+     cp ../src_processmesh/pmesh.ascii .
+
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./SNaCFE.x 0  100 30 2 2
 
