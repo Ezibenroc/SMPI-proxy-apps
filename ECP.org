@@ -673,9 +673,10 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
      make COMPILER=gfortran 
      cp ../src_makemesh/grid_tet_mesh.ascii inputmesh.ascii
      ./processmesh.x 1  1
-     
-     cd ../src_fortran/
-     patch -p0 < ../../../../src/ECP/SNbone/patch_SNboneff.diff
+
+     cd ..
+     patch -p1 < ../../../src/ECP/SNbone/patch_SNboneff.diff
+     cd src_fortran/
      
      cp ../../../../src/common/* .
 
