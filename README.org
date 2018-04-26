@@ -136,6 +136,7 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#vpfft][VPFFT]] | 3,384 | MPI, OMP | C++ | :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#snbone][SNBONE]] | 3,384 | MPI, OMP | C++ | :gear: :sunny: |
 
 *** Disabled Apps
 MPI not used: PathFinder, CoHMM, NuT, LCALS, RSBench. 
@@ -160,4 +161,4 @@ Using unsupported MPI primitives: EBMC (iallgather).
 (*) FleCSALE (ProjectLists.txt)
 
 TODO 
-RajaPerformanecesuite, SNBONE.
+RajaPerformanecesuite.

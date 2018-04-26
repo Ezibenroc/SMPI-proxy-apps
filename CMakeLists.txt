@@ -8,22 +8,8 @@ ENABLE_TESTING()
 set(CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE 30720000)
 set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 
-# CodeVault benchmarks
-ADD_TEST(CodeVault_PreExec  bin/CodeVault_PreExec.sh)
-ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
-ADD_TEST(CodeVault_HaloExchange  bin/CodeVault_HaloExchange.sh)
-ADD_TEST(CodeVault_IntegralBasic  bin/CodeVault_IntegralBasic.sh)
-ADD_TEST(CodeVault_Pi             bin/CodeVault_Pi.sh)
-ADD_TEST(CodeVault_Prng           bin/CodeVault_Prng.sh)
-ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
-
-# Coral benchamrks 
-ADD_TEST(Coral_Lulesh    bin/Coral_Lulesh.sh)
-ADD_TEST(Coral_AMG2013    bin/Coral_AMG2013.sh)
-ADD_TEST(Coral_HACC_IO    bin/Coral_HACC_IO.sh)
-ADD_TEST(Coral_KMI_HASH    bin/Coral_KMI_HASH.sh)
-
 # ECP benchmarks 
+ADD_TEST(ECP_SNbone  bin/ECP_SNbone.sh)
 ADD_TEST(FFTW       bin/FFTW.sh)
 ADD_TEST(ECP_VPFFT  bin/ECP_VPFFT.sh)
 ADD_TEST(ECP_TeaLeaf    bin/ECP_TeaLeaf.sh)
@@ -42,6 +28,21 @@ ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
 ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
 ADD_TEST(ECP_EBMS     bin/ECP_EBMS.sh)
 ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
+
+# CodeVault benchmarks
+ADD_TEST(CodeVault_PreExec  bin/CodeVault_PreExec.sh)
+ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
+ADD_TEST(CodeVault_HaloExchange  bin/CodeVault_HaloExchange.sh)
+ADD_TEST(CodeVault_IntegralBasic  bin/CodeVault_IntegralBasic.sh)
+ADD_TEST(CodeVault_Pi             bin/CodeVault_Pi.sh)
+ADD_TEST(CodeVault_Prng           bin/CodeVault_Prng.sh)
+ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
+
+# Coral benchamrks 
+ADD_TEST(Coral_Lulesh    bin/Coral_Lulesh.sh)
+ADD_TEST(Coral_AMG2013    bin/Coral_AMG2013.sh)
+ADD_TEST(Coral_HACC_IO    bin/Coral_HACC_IO.sh)
+ADD_TEST(Coral_KMI_HASH    bin/Coral_KMI_HASH.sh)
 
 # Trinity-Nersc benchmarks
 ADD_TEST(Trinity_MDTest  bin/Trinity_MDTest.sh)

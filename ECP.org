@@ -635,6 +635,57 @@ VPFFT is an implementation of a mesoscale micromechanical materials model. By so
 
  #+END_SRC
 
+** SNbone
+*** Brief description 
+This program emulates the inversion of A in A*x=S on a single node arch, and it is broken into three steps.
+1) Create an unstructured mesh.
+2) Process the produced mesh by re-ordered it with respect to element and vertex such that it can be applied in n*thread independent steps.
+3) Run the mini-app (fortran or c version).
+*** Build and run 
+#+BEGIN_SRC sh :tangle bin/ECP_SNbone.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place"
+     set -exu
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     
+     echo "Checkout or update the git containing the source code"
+     if [ -e SNbone ] ; then
+        cd SNbone ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/ANL-CESAR/SNbone.git
+     fi
+
+     echo "Install the modified sources"
+     
+     cd SNbone/src_makemesh
+     ls
+     echo "Create an unstructured mesh"
+     make COMPILER=gfortran
+     ./makemesh.x    10 10 10 0
+     
+     echo "Process this mesh"
+     cd ../src_processmesh/
+     patch -p1 < ../../../../src/ECP/SNbone/patch_procmesh.diff
+     make COMPILER=gfortran 
+     ./processmesh.x 1  1
+     
+     cd ../src_fortran/
+     patch -p1 < ../../../../src/ECP/SNbone/patch_SNboneff.diff
+     
+     cp ../../../../src/common/* .
+
+     echo "Compile it"
+     make -j4
+     
+     echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./SNaCFE.x 0  100 30 2 1
+
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

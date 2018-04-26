@@ -1,0 +1,29 @@
+Index: src_fortran/Makefile
+===================================================================
+--- src_fortran.orig/Makefile
++++ src_fortran/Makefile
+@@ -12,7 +12,7 @@ COMPILER=$(shell  \
+ # You can enable or disable OPENMP threading by using "THREAD=no"
+ # You can enable or disable the two PAPI options by using PAPIFLOP and PAPISET1. They cannot both be used
+ # You can change the optimization settings by using "OPT=2"
+-THREAD=yes
++THREAD=no
+ PAPI=no
+ IBMHPM=no
+ OPT=3
+@@ -90,7 +90,14 @@ ifeq (${USEMETIS},yes)
+ endif
+ endif
+ 
+-
++# ------------------------------
++# SMPI
++# ------------------------------
++ifeq (${COMPILER}, smpi)
++   FF     = smpiff
++   LD     = ${FF}
++   LDFLAGS = -O${OPT} ${DEBUG}
++endif
+ # ------------------------------
+ # Add the PAPI preprocessing stuff
+ TARGET = SNaCFE.x
