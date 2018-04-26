@@ -92,8 +92,7 @@ Using unsuitable language : UMT (Python).
 * [[https://repository.prace-ri.eu/git/PRACE/CodeVault][CodeVault]] benchmark codes 
 | Benchmark  |  Lines | paral | Lang | SMPI |
 |------------+--------+-------+------+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#unstructured_grids][Unstructured_grids (halo exchange)]] |1,114 | MPI, PTHREAD | C++ | :x: :construction: :heavy_minus_sign: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | 1,338 | MPI | C++ | :x: :construction: :heavy_minus_sign: |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | 1,338 | MPI | C++ | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][MCM (integral_basic)]] | 1,351 | MPI, OMP | C++ | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][MCM (pi)]] | 1,325 | MPI, OMP | C++ | :gear: :sunny: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prng][MCM (prng)]] | 1,351 | MPI, OMP | C++ | :gear: :sunny: |
@@ -110,6 +109,8 @@ Because of other dependencies
 | Unstructured_grids (libmesh) | libmesh |
 
 Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
+
+Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 
 * [[https://proxyapps.exascaleproject.org/app/][ECP]] Proxy Applications 
 | Benchmark  | Lines | paral | Lang | SMPI |
