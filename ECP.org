@@ -675,7 +675,7 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
      ./processmesh.x 1  1
      
      cd ../src_fortran/
-     patch -p1 < ../../../../src/ECP/SNbone/patch_SNboneff.diff
+     patch -p0 < ../../../../src/ECP/SNbone/patch_SNboneff.diff
      
      cp ../../../../src/common/* .
 
