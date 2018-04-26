@@ -7,7 +7,7 @@ Index: src_processmesh/Makefile
  
  EXTFLAGS=-DUSEMETIS
 -METISLIB=../metis/libmetis.a
-+METISLIB= -libmetis
++METISLIB= -lmetis
  
  # Initialization of null variables
  FF=echo
