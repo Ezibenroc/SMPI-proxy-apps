@@ -32,9 +32,7 @@ ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
 # CodeVault benchmarks
 ADD_TEST(CodeVault_PreExec  bin/CodeVault_PreExec.sh)
 ADD_TEST(CodeVault_parallelio      bin/CodeVault_parallelio.sh)
-ADD_TEST(CodeVault_IntegralBasic  bin/CodeVault_IntegralBasic.sh)
-ADD_TEST(CodeVault_Pi             bin/CodeVault_Pi.sh)
-ADD_TEST(CodeVault_Prng           bin/CodeVault_Prng.sh)
+ADD_TEST(CodeVault_IntegralBasic  bin/CodeVault_MCM.sh)
 ADD_TEST(CodeVault_DynSparse      bin/CodeVault_DynSparse.sh)
 
 # Coral benchamrks 

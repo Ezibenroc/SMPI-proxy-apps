@@ -24,70 +24,25 @@
  #+END_SRC
  
 * Apps
-** Monte-carlo
-*** Brief description  
-*** Extra dependencies
-libgmp-dev
-*** Integral-basic
-#+BEGIN_SRC sh :tangle bin/CodeVault_IntegralBasic.sh
+** Monte-carlo  
+#+BEGIN_SRC sh :tangle bin/CodeVault_MCM.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      set -exu
-     
+
      echo "Install the modified sources"
+     echo "Integral-basic"     
      cp src/CodeVault/monte_carlo_methods/integral_basic/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/integral_basic/
 
-     echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/integral_basic/
-     mkdir -p build
-     cd build/
-     cmake ..
-     make 
-     cp ../../../../../../src/common/* ./
-
-     echo "Run it"
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./7_montecarlo_integral1d_mpi 100 
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_integral1d_serial 100
-
- #+END_SRC
-
-*** Pi
-#+BEGIN_SRC sh :tangle bin/CodeVault_Pi.sh
-  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
-  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
-  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
-     set -exu
-
-     echo "Install the modified sources"
+     echo "pi"
      cp src/CodeVault/monte_carlo_methods/pi/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/pi/
-
-     echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/pi 
-     mkdir -p build
-     cd build/
-     cmake ..
-     make 
-
-     cp ../../../../../../src/common/* ./
-
-     echo "Run it"
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_pi_mpi 10 100 
-
- #+END_SRC
-
-*** Prng
-#+BEGIN_SRC sh :tangle bin/CodeVault_Prng.sh
-  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
-  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
-  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
-     set -exu
-
-     echo "Install the modified sources"
+     
+     echo "prng"
      cp src/CodeVault/monte_carlo_methods/prng/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prng/
 
      echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prng 
+     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/
      mkdir -p build
      cd build/
      cmake ..
@@ -95,13 +50,19 @@ libgmp-dev
 
      cp ../../../../../../src/common/* ./
 
-     echo "Run it"
+     echo "Run Integral-basic tests"
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./7_montecarlo_integral1d_mpi 100 
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_integral1d_serial 100
+     
+     echo "Run Pi tests"
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_pi_mpi 10 100 
+
+     echo "Run Prng tests"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_prng_mpi 10 100 --cfg=smpi/host-speed:10
 
  #+END_SRC
  
-** N-Body methods
-*** Brief description 
+** N-Body methods 
 *** Dynamic sparse data exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_DynSparse.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
