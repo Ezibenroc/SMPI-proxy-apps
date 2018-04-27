@@ -85,7 +85,8 @@ both launch and wireup requirements. Accordingly, it exercises both the launch s
      tar -xf ../ziatest-source.tgz
 
      echo "Install the modified sources"
-     cp -f ../../../src/Trinity-Nersc/ziatest/* ./
+     patch -p1 < ../../../src/Trinity-Nersc/ziatest/patch_ziaprobe.diff
+     patch -p1 < ../../../src/Trinity-Nersc/ziatest/patch_ziatest.diff
      cp -f ../../../src/common/* ./
 
      echo "Compile it"
