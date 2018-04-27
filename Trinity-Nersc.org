@@ -49,11 +49,11 @@ It include two benchmarks :
 
      echo "Unpack the code"
      mkdir smb && tar -xf smb-source.tgz -C smb --strip-components 1
-
-     echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/smb/msgrate/* smb/src/msgrate/
-     cp -f ../../src/common/* smb/src/msgrate/
+     
      cd smb/src/msgrate/
+     echo "Install the modified sources"
+     patch -p1 < ../../../../../src/Trinity-Nersc/smb/msgrate/patch_MsgrateMakefile.diff
+     cp -f ../../../../../src/common/* ./
 
      echo "Compile it"
      make
