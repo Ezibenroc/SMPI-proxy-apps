@@ -1,0 +1,17 @@
+Index: mdtest/Makefile
+===================================================================
+--- mdtest.orig/Makefile
++++ mdtest/Makefile
+@@ -19,9 +19,9 @@
+ #*
+ #\*****************************************************************************/
+ 
+-CC.AIX = mpcc_r -bmaxdata:0x80000000
+-CC.Linux = cc -Wall
+-CC.Darwin = mpicc -Wall
++# CC.AIX = mpcc_r -bmaxdata:0x80000000
++CC.Linux = smpicc -Wall # cc -Wall
++# CC.Darwin = mpicc -Wall
+ 
+ # Requires GNU Make
+ OS=$(shell uname)
