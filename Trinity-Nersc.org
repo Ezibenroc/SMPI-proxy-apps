@@ -120,7 +120,7 @@ The execution should done with 2 proc.
  
      echo "Install the modified sources"
      cd mdtest
-     cp -f ../../../src/Trinity-Nersc/mdtest/* ./
+     patch -p1 < ../../../src/Trinity-Nersc/mdtest/patch_mdtest.diff
      cp -f ../../../src/common/* ./
 
      echo "Compile it"
