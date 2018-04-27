@@ -34,15 +34,15 @@ The graphe below gives an idea about the success rate of tests that have been ru
 | :sunny: | Execution is done successfully | :gear: | Compilation is done successfully |
 | :partly_sunny: | Done successfully but with some warnings | :construction: |  SMPI missing feature |
 | :lock: | Deadlock | :heavy_minus_sign: | Execution is not done yet |
-| :beetle: | Has an opened issue |  |  |
+| :beetle: | Has an opened issue | Patch | :ticket: |
 
 * [[https://asc.llnl.gov/CORAL-benchmarks/][CORAL]] benchmark codes 
-| Benchmark  | Ref | Lines | paral | Lang | SMPI |
-|------------+-----+-------+-------+------+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#amg2013][amg2013]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/AMG2013_Summary_v2.3.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/amg20130624.tgz][:package:]] | 75,000 | MPI, OMP | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#kmi_hash][KMI_HASH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]| 4,239 | MPI | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#lulesh][LULESH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz][:package:]]| 5,000 | MPI | C | :gear: :sunny: |
+| Benchmark  | Ref | Lines | paral | Lang | SMPI | Patch |
+|------------+-----+-------+-------+------+------|-------|
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#amg2013][amg2013]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/AMG2013_Summary_v2.3.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/amg20130624.tgz][:package:]] | 75,000 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/Coral/AMG2013/patch_AMG2013.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#hacc_io][HACCIO]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] | 2,000 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/Coral/HACC_IO/patch_HACCIO.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#kmi_hash][KMI_HASH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]| 4,239 | MPI | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/Coral/kmi_hash][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Coral.org#lulesh][LULESH]] | [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz][:package:]]| 5,000 | MPI | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/Coral/Lulesh/patch_lulesh.diff][:ticket:]]
 
 *** Disabled Apps
 Using OpenMP: UMT2013 ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/UMT2013_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/UMT2013-20140204.tar.gz][:package:]]), MCB ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/MCB_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/mcb-20130723.tar.gz][:package:]]), QMCPACK ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/QMCPACK_Summary_v1.2.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Throughput/qmcpack-coral20131203.tar.gz][:package:]]), integer_sort ([[https://asc.llnl.gov/CORAL-benchmarks/Summaries/BigSort_Summary_v1.1.pdf][:book:]][[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/BigSort-20130808.tar.bz2][:package:]]),
@@ -83,20 +83,20 @@ MPI not used: psnap ([[http://www.nersc.gov/users/computational-systems/cori/ner
 Because of other dependencies
 | Benchmark | Ref | Dependency |  
 |-----------|-----|------------|
-| UPC-FC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/npb-upc-ft/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/UPC-FT.tar][:package:]] | FFTW |
+| UPC-FC | [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/npb-upc-ft/][:book:]][[http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/UPC-FT.tar][:package:]] | UPC |
 
 Using unsuitable language : UMT (Python).
 
 
 
 * [[https://repository.prace-ri.eu/git/PRACE/CodeVault][CodeVault]] benchmark codes 
-| Benchmark  |  Lines | paral | Lang | SMPI |
-|------------+--------+-------+------+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | 1,338 | MPI | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][MCM (integral_basic)]] | 1,351 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][MCM (pi)]] | 1,325 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prng][MCM (prng)]] | 1,351 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-Body_methods (dyn sparse)]] | 2,401 | MPI | C++ | :gear: :sunny: |
+| Benchmark  |  Lines | paral | Lang | SMPI | Patch |
+|------------+--------+-------+------+------|-------|
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | 1,338 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/CodeVault/parallel_io/patch_basicMPIIO.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#integral-basic][MCM (integral_basic)]] | 1,351 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#pi][MCM (pi)]] | 1,325 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#prng][MCM (prng)]] | 1,351 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-Body_methods (dyn sparse)]] | 2,401 | MPI | C++ | :gear: :sunny: | |
 
 *** Disabled Apps
 Using OpenMP : Dense_linear_algebra, N-body_methods (bhtree, hermite4, naive), Structured_grids.
@@ -113,31 +113,31 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 
 * [[https://proxyapps.exascaleproject.org/app/][ECP]] Proxy Applications 
-| Benchmark  | Lines | paral | Lang | SMPI |
-|------------+-------+-------+------+------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | 4,658 | MPI, OMP | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]] | 1,548 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#kriple][Kripke]] | 109,477 | MPI, OpenMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniaero][MiniAero]] | 4,645 | MPI | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#miniamr][MiniAMR]] | 8,329 | MPI | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minief][MiniFE-evo]] | 19,907 | MPI | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | 8,329  | MPI, OMP | F90 | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixyce][MiniXyce]] | 2,020 | MPI | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#pennant][PENNANT]] | 3,464 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#quicksilver][Quicksilver]] | 9,821 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#vpfft][VPFFT]] | 3,384 | MPI, OMP | C++ | :gear: :sunny: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#snbone][SNBONE]] | 5,897 | MPI | F90 | :gear: :sunny: |
+| Benchmark  | Lines | paral | Lang | SMPI | Patch |
+|------------+-------+-------+------+------|-------|
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | 4,658 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]] | 1,548 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#kriple][Kripke]] | 109,477 | MPI, OpenMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/kripke/patch_kripke.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniaero][MiniAero]] | 4,645 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/miniAero/patch_makefile.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#miniamr][MiniAMR]] | 8,329 | MPI | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minief][MiniFE-evo]] | 19,907 | MPI | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minismac2d][MiniSMAC2D]] | 8,329  | MPI, OMP | F90 | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixyce][MiniXyce]] | 2,020 | MPI | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#pennant][PENNANT]] | 3,464 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#quicksilver][Quicksilver]] | 9,821 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/FFTW/patch_fftw3.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/TeaLeaf/patch_tealeaf.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#vpfft][VPFFT]] | 3,384 | MPI, OMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/VPFFT/patch_vpfft.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#snbone][SNBONE]] | 5,897 | MPI | F90 | :gear: :sunny: | |
 
 *** Disabled Apps
 MPI not used: PathFinder, CoHMM, NuT, LCALS, RSBench. 
