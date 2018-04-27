@@ -1,0 +1,41 @@
+Index: ks_imp_dyn/Makefile
+===================================================================
+--- ks_imp_dyn.orig/Makefile
++++ ks_imp_dyn/Makefile
+@@ -44,15 +44,15 @@ endif
+ 
+ #CC = /usr/local/mvapich/bin/mpicc  # FNAL
+ #CC = powerpc-gnu-elf-gcc           # QCDOC
+-CC = cc 
++CC = smpicc
+ 
+ #----------------------------------------------------------------------
+ # 5. Compiler optimization level
+ # Choices include -g -O, etc
+ 
+ #GNU----uncomment these for GNU
+-OPT              =  -O3 -fopenmp  -std=c99  -funroll-loops -fprefetch-loop-arrays -ffast-math
+-OCFLAGS = -std=c99  -funroll-loops -fprefetch-loop-arrays -ffast-math
++OPT =  -O3 -std=c99 -D_GNU_SOURCE -funroll-loops -fprefetch-loop-arrays -ffast-math #-fopenmp  -lm -fPIC
++#OCFLAGS = -std=c99  -funroll-loops -fprefetch-loop-arrays -ffast-math
+ 
+ 
+ #----------------------------------------------------------------------
+@@ -104,7 +104,7 @@ OCFLAGS =
+ #----------------------------------------------------------------------
+ # 7. Choose large file support.
+ 
+-CLFS = -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE # Large files gcc only
++CLFS = #-D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE # Large files gcc only
+ #CLFS = # Not researched for others
+ #CLFS = -D_LARGE_FILES   # AIX
+ 
+@@ -203,7 +203,7 @@ LDFLAGS = ${OPT} ${OCFLAGS}
+ #LDFLAGS = -L${DCACHE}/lib64 -Wl,--rpath,${DCACHE}/lib64 -ldcap
+ #----------------------------------------------------------------------
+ # 13. Extra libraries
+-LIBADD = -lhugetlbfs
++LIBADD = #-lhugetlbfs
+ 
+ #----------------------------------------------------------------------
+ # 14. Inlining choices

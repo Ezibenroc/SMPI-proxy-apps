@@ -495,12 +495,14 @@ This code was developed for simulations of SU3 lattice gauge theory on MIMD para
      mkdir MILC && tar -xf MILC-source.tar -C MILC --strip-components 1
  
      echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/MILC/ks_imp_dyn/*  ./MILC/ks_imp_dyn/
-     cp -f ../../src/Trinity-Nersc/MILC/test.in  ./MILC/benchmark_n8/
-     cp -f ../../src/common/* ./MILC/benchmark_n8/
+     cd MILC/ks_imp_dyn/
+     patch -p1 < ../../../../src/Trinity-Nersc/MILC/patch_MILC.diff
+     cd ..
+     cp -f ../../../src/Trinity-Nersc/MILC/test.in  ./benchmark_n8/
+     cp -f ../../../src/common/* ./benchmark_n8/
 
      echo "Compile it"
-     cd MILC/ks_imp_dyn/
+     cd ks_imp_dyn/
      make su3_rmd
      cd ../benchmark_n8/
  
