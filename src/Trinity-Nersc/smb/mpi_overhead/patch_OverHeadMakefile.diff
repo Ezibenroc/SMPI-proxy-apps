@@ -1,0 +1,17 @@
+Index: mpi_overhead/Makefile
+===================================================================
+--- mpi_overhead.orig/Makefile
++++ mpi_overhead/Makefile
+@@ -5,10 +5,10 @@ SHELL = /bin/sh
+ 
+ # System-specific settings
+ #CC =		mpicc
+-CC =		cc
++CC =		smpicc
+ CCFLAGS =	-O2
+ #LINK =		mpicc
+-LINK =		cc
++LINK =		smpicc
+ LINKFLAGS =	
+ 
+ # Compilation rules
