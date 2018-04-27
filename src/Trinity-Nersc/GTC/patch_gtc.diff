@@ -1,0 +1,61 @@
+Index: source/Makefile
+===================================================================
+--- source.orig/Makefile
++++ source/Makefile
+@@ -50,9 +50,9 @@
+ #
+ #############################################################################
+ DOUBLE_PRECISION=n
+-OPENMP=y
++OPENMP=n
+ 64BITS=y
+-ESSL=y
++ESSL=n
+ 
+ # Default names of some platform-dependent files
+ SETUP:=setup.o
+@@ -115,8 +115,8 @@ ifeq ($(os),AIX)
+     # We also define the "__NERSC" symbol to be passed to the preprocessor
+     # through the compiler option "-WF,-D__NERSC"
+     # -g -pg
+-    CMP:=mpxlf90_r
+-    F90C:=xlf90_r
++    CMP:=smpicc #mpxlf90_r
++    F90C:=smpif90 #xlf90_r
+     OPT:= -qsuffix=cpp=F90 -WF,-D__NERSC,-D__AIX \
+          -qsuffix=f=f90 -qfree=f90 -qinitauto \
+          -qarch=auto -qtune=auto -qcache=auto -qlargepage -qstrict -O3 -Q -u
+@@ -157,11 +157,11 @@ endif
+ ifeq ($(os),Linux)
+   # Flags for the Linux system
+   # Default compiler and options: Lahey-Fujitsu compiler
+-    CMP:=ftn
+-    F90C:=ftn
++    CMP:=smpif90
++    F90C:=smpif90
+     ##OPT:=-O --ap --tpp --ntrace --staticlink -I/usr/local/lff95/include
+-#    OPT:=-O --ap --pca --trace
+-     OPT:= -fast -mp=nonuma
++    OPT:=#-O --ap --pca --trace
++    #  OPT:= -fast -mp=nonuma
+ #    OPT2:=-O --ap --pca --trace
+     HDF5_INCL:=-I$(HDF5_HOME)/lib
+     HDF5_LIB:=-L$(HDF5_HOME)/lib -lhdf5_fortran -lhdf5 -lz \
+@@ -174,9 +174,9 @@ ifeq ($(os),Linux)
+     OPT:=-O -D__PGF90 -Mfree -Kieee -mp=nonuma
+   endif
+   ifeq ($(XT3),y)
+-    CMP:=ftn
+-    F90C:=ftn
+-    OPT:=-fastsse
++    CMP:=smpif90
++    F90C:=smpif90
++    OPT:=#-fastsse
+     LIB:=
+   endif
+   ifeq ($(INTEL),y)
+@@ -297,4 +297,3 @@ track_analysis: module.o track_analysis.
+ 
+ clean:
+ 	rm -f $(CMD) $(OBJ) *.mod
+-

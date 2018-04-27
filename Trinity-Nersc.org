@@ -369,12 +369,12 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
      echo "Unpack the code"
      mkdir GTC && tar -xf GTC-source.tar -C GTC --strip-components 1
 
+     cd GTC/source/
      echo "Install the modified sources"
-     cp ../../src/Trinity-Nersc/GTC/* GTC/source/
-     cp -f ../../src/common/* GTC/run/
+     patch -p1 < ../../../../src/Trinity-Nersc/GTC/patch_gtc.diff
+     cp -f ../../../../src/common/* ../run/
 
      echo "Compile it"
-     cd GTC/source/
      make 
      sed -i -e "s/mstep=1500/mstep=50/g" setup.F90
      sed -i -e "s/mpsi=90/mpsi=45/g" setup.F90
