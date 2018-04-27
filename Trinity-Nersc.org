@@ -410,15 +410,16 @@ It assembles a sparse linear-system from the steady-state conduction equation on
      echo "Unpack the code"
      mkdir MiniFE && tar -xf MiniFE-source.tar -C MiniFE --strip-components 1
  
-     echo "Install the modified sources"
-     cp -f ../../src/Trinity-Nersc/MiniFE/* MiniFE/
-     cp -f ../../src/common/* MiniFE/
      cd MiniFE/
+     echo "Install the modified sources"
+     patch -p1 < ../../../src/Trinity-Nersc/MiniFE/patch_miniFE.diff
+     cp -f ../../../src/common/* ./
 
      echo "Compile it"
      make
 
      echo "Run it"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniFE.x -nx 32 -ny 51 -nz 18
 #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MiniDFT]]
