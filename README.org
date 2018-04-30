@@ -95,7 +95,7 @@ Using unsuitable language : UMT (Python).
 |------------+--------+-------+------+------|-------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#parallel_io][Parallel_io]] | 1,338 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/CodeVault/parallel_io/patch_basicMPIIO.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#mcm][MCM]] | 453 | MPI, OMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/CodeVault/monte_carlo_methods][:ticket:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-Body_methods (dyn sparse)]] | 2,401 | MPI | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/CodeVault.org#dyn-sparse][n-Body_methods (dyn sparse)]] | 2,401 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/CodeVault/n-body_methods/patch_dynSparse.diff][:ticket:]] |
 
 *** Disabled Apps
 Using OpenMP : Dense_linear_algebra, N-body_methods (bhtree, hermite4, naive), Structured_grids.
@@ -116,7 +116,7 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 |------------+-------+-------+------+------|-------|
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | 4,658 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | 4,658 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/CoMD/patch_CoMD.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | |
