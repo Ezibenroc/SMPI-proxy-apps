@@ -164,8 +164,9 @@ for 3D neutron transport calculations in the context of full scale light water r
 
      echo "Install the modified sources"
      cp ../../src/common/* ./SimpleMOC/src/
-     cp ../../src/ECP/SimpleMOC/* ./SimpleMOC/src/
      cd SimpleMOC/src/
+     patch -p1 < ../../../../src/ECP/SimpleMOC/patch_SimpleMOC.diff
+     cp ../../../../src/ECP/SimpleMOC/input.in ./
 
      echo "Compile it"
      make

@@ -1,0 +1,31 @@
+Index: src/Makefile
+===================================================================
+--- src.orig/Makefile
++++ src/Makefile
+@@ -2,11 +2,11 @@
+ # User Options
+ #===============================================================================
+ 
+-COMPILER    = intel
+-MPI         = no
+-OPENMP      = yes
++COMPILER    = gnu 
++SMPI        = yes
++OPENMP      = no
+ OPTIMIZE    = yes
+-DEBUG       = no
++DEBUG       = yes
+ PROFILE     = no
+ PAPI        = no
+ BENCHMARK   = no
+@@ -93,8 +93,8 @@ ifeq ($(PAPI),yes)
+ endif
+ 
+ # MPI
+-ifeq ($(MPI),yes)
+-  CC = mpicc
++ifeq ($(SMPI),yes)
++  CC = smpicc
+   CFLAGS += -DMPI
+ endif
+ 
