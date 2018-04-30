@@ -57,10 +57,10 @@ systems for various 3-dimensional problems.
      fi
 
      echo "Install the modified sources"
-     cp ../../src/ECP/AMG/* ./AMG/
+     cd AMG/
+     patch -p1 < ../../../src/ECP/AMG/patch_AMG.diff
 
      echo "Compile it" 
-     cd AMG/
      make veryclean
      make
      cp ../../../src/common/* ./test/
