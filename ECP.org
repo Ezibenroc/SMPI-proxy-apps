@@ -21,7 +21,8 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
 
      echo "Install the modified sources"
      cd CoMD/src-mpi/
-     cp ../../../../src/ECP/CoMD/* ./
+     patch -p1 < ../../../../src/ECP/CoMD/patch_CoMD.diff
+     cp Makefile.vanilla Makefile
 
      echo "Compile it" 
      make 
