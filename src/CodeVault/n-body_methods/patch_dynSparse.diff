@@ -1,0 +1,42 @@
+Index: dynamic_sparse_data_exchange/CMakeLists.txt
+===================================================================
+--- dynamic_sparse_data_exchange.orig/CMakeLists.txt
++++ dynamic_sparse_data_exchange/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ # Packages are optional: if they are not present, certain code samples are not compiled
+ cmake_minimum_required(VERSION 2.8.10 FATAL_ERROR)
+ 
+-find_package(MPI)      # Built-in in CMake
++set (CMAKE_MODULE_PATH ~/simgrid/src/smpi/)
+ 
+ include(${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/common.cmake)
+ 
+@@ -15,20 +15,14 @@ set(NAME ${DWARF_PREFIX}_dsde)
+ 
+ # C compiler settings
+ 
+-find_package(Common)
+-
+-if (MPI_FOUND)
+-    cmake_policy(SET CMP0003 OLD)
+-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+-    include_directories(${MPI_INCLUDE_PATH})
+-    add_executable(${NAME} main.c configuration.c mpicomm.c mpitypes.c particles.c random.c simulation.c vector.c)
+-    target_link_libraries(${NAME} ${MPI_LIBRARIES} stdc++)
+-    install(TARGETS ${NAME} DESTINATION bin)
+-    message("** Enabling '${NAME}': with MPI")
+-else()
+-    message("## Skipping '${NAME}': no MPI support found")
+-#    dummy_install(${NAME} "MPI")
+-endif()
++set(CMAKE_C_COMPILER "$ENV{SIMGRID_PATH}/bin/smpicc")
++include_directories(BEFORE "~/simgrid/include/smpi")
++cmake_policy(SET CMP0003 OLD)
++set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
++add_executable(${NAME} main.c configuration.c mpicomm.c mpitypes.c particles.c random.c simulation.c vector.c)
++target_link_libraries(${NAME} ${MPI_LIBRARIES} -lm stdc++)
++install(TARGETS ${NAME} DESTINATION bin)
++message("** Enabling '${NAME}': with SMPI")
+ 
+ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${C_FLAGS}")
+ 

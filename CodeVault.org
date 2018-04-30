@@ -74,10 +74,10 @@
      set -exu
 
      echo "Install the modified sources"
-     cp src/CodeVault/n-body_methods/dynamic_sparse_data_exchange/* Benchmarks/CodeVault/hpc_kernel_samples/n-body_methods/dynamic_sparse_data_exchange/
+     cd Benchmarks/CodeVault/hpc_kernel_samples/n-body_methods/dynamic_sparse_data_exchange/
+     patch -p1 < ../../../../../src/CodeVault/n-body_methods/patch_dynSparse.diff
 
      echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/n-body_methods/dynamic_sparse_data_exchange/
      mkdir -p build
      cd build/
      cmake ..
