@@ -692,6 +692,38 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
 
  #+END_SRC
 
+*** MiniXyce
+**** Brief description 
+This code is a simple linear circuit simulator with a basic parser that performs transient analysis. 
+**** Build and run  
+#+BEGIN_SRC sh :tangle bin/ECP_MiniXyce.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     echo "Clean up the place" 
+     set -xeu
+     rm -rf Benchmarks/ECP/miniXyce
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
+     echo "Download the source code"
+     test -e miniXyce-source.tar.gz || curl -o miniXyce-source.tar.gz -Lk http://mantevo.org/downloads/releaseTarballs/miniapps/MiniXyce/miniXyce_1.0.tar.gz
+          
+     echo "Unpack the code"
+     mkdir miniXyce && tar -xvf miniXyce-source.tar.gz -C miniXyce --strip-components 1
+ 
+     echo "Install the modified sources"
+     cd miniXyce/miniXyce_ref/
+     patch -p1 < ../../../../src/ECP/MiniXyce/patch_MiniXyce.diff
+     cp -f ../../../../src/common/* ./
+
+     echo "Compile it"
+     ./get_common_files
+     make
+
+     echo "Run it"
+     smpirun -np 3 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniXyce.x --circuit tests/cir1.net --t_start 1e-6 --pf params.txt
+ #+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

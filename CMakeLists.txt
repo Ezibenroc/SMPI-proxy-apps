@@ -28,6 +28,7 @@ ADD_TEST(ECP_PENNANT     bin/ECP_PENNANT.sh)
 ADD_TEST(ECP_SWFFT     bin/ECP_SWFFT.sh)
 ADD_TEST(ECP_EBMS     bin/ECP_EBMS.sh)
 ADD_TEST(ECP_CoSP2    bin/ECP_CoSP2.sh)
+ADD_TEST(ECP_MiniXyce   bin/ECP_MiniXyce.sh)
 
 # CodeVault benchmarks
 ADD_TEST(CodeVault_PreExec  bin/CodeVault_PreExec.sh)
@@ -59,10 +60,6 @@ ADD_TEST(Trinity_MILC bin/Trinity_MILC.sh)
 # Mantevo benchmarks 
 ADD_TEST(Mantevo_MiniSMAC2D bin/Mantevo_MiniSMAC2D.sh)
 ADD_TEST(Mantevo_MiniEF     bin/Mantevo_MiniEF.sh)
-ADD_TEST(Mantevo_MiniXyce   bin/Mantevo_MiniXyce.sh)
 ADD_TEST(Mantevo_HPCCG      bin/Mantevo_HPCCG.sh)
 ADD_TEST(Mantevo_MiniAMR    bin/Mantevo_MiniAMR.sh)
 ADD_TEST(Mantevo_CloverLeaf    bin/Mantevo_CloverLeaf.sh)
-
-
-
