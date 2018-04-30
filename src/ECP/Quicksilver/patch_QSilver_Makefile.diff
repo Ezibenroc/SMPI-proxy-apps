@@ -1,0 +1,35 @@
+Index: src/Makefile
+===================================================================
+--- src.orig/Makefile
++++ src/Makefile
+@@ -94,10 +94,10 @@ SHELL = /bin/bash
+ # Set your desired C++ compiler and any necessary flags.
+ # The interpretation of each of these four variables is described above.
+ # A number of examples for machines we regularly run on are given below.
+-CXX = 
++CXX =
+ CXXFLAGS =
+ CPPFLAGS = 
+-LDFLAGS =
++LDFLAGS = 
+ 
+ ###############################################################################
+ # Very simple GCC build with OpenMP but without MPI.  
+@@ -119,12 +119,12 @@ LDFLAGS =
+ ###############################################################################
+ #OPENMP_FLAGS = -DHAVE_OPENMP -fopenmp
+ #OPENMP_LDFLAGS = -fopenmp
+-#MPI_FLAGS = -DHAVE_MPI
+-#OPTFLAGS = -g -O2
++MPI_FLAGS = -DHAVE_MPI
++OPTFLAGS = -g -O2
+ #
+-#CXX=mpicxx
+-#CXXFLAGS = -std=c++11 $(OPTFLAGS) -Wpedantic
+-#CPPFLAGS = $(MPI_FLAGS) $(OPENMP_FLAGS)
++CXX=smpicxx
++CXXFLAGS = -std=c++11 $(OPTFLAGS) -Wpedantic
++CPPFLAGS = $(MPI_FLAGS)
+ #LDFLAGS = $(OPENMP_LDFLAGS) 
+ 
+ 

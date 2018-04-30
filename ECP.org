@@ -129,8 +129,9 @@ Quicksilver is a proxy application that represents some elements of the Mercury 
 
      echo "Install the modified sources"
      cp ../../src/common/* ./Quicksilver/src/
-     cp ../../src/ECP/Quicksilver/* ./Quicksilver/src/
      cd Quicksilver/src/
+     patch -p1 < ../../../../src/ECP/Quicksilver/patch_QSilver_Makefile.diff
+     patch -p1 < ../../../../src/ECP/Quicksilver/patch_QSilver_initMC.diff
 
      echo "Compile it"
      make

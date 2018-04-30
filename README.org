@@ -35,7 +35,7 @@ The graphe below gives an idea about the success rate of tests that have been ru
 | :partly_sunny: | Done successfully but with some warnings | :construction: |  SMPI missing feature |
 | :lock: | Deadlock | :heavy_minus_sign: | Execution is not done yet |
 | :beetle: | Has an opened issue | Patch | :ticket: |
-|  :black_small_square: | blank |  |  |
+| :black_small_square: | blank |  |  |
 
 * [[https://asc.llnl.gov/CORAL-benchmarks/][CORAL]] benchmark codes 
 | Benchmark  | Ref | Lines | paral | Lang | SMPI | Patch |
@@ -133,7 +133,7 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#quicksilver][Quicksilver]] | 9,821 | MPI, OMP | C++ | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/FFTW/patch_fftw3.diff][:ticket:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/TeaLeaf/patch_tealeaf.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#vpfft][VPFFT]] | 3,384 | MPI, OMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/VPFFT/patch_vpfft.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#snbone][SNBONE]] | 5,897 | MPI | F90 | :gear: :sunny: | |
