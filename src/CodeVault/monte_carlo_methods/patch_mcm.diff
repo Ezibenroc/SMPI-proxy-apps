@@ -1,0 +1,13 @@
+Index: monte_carlo_methods/CMakeLists.txt
+===================================================================
+--- monte_carlo_methods.orig/CMakeLists.txt
++++ monte_carlo_methods/CMakeLists.txt
+@@ -25,7 +25,7 @@ set(DWARF_PREFIX 7_montecarlo) # The pre
+ add_subdirectory(pi)
+ add_subdirectory(prng)
+ add_subdirectory(integral_basic)
+-add_subdirectory(prime)
++# add_subdirectory(prime)
+ 
+ # ==================================================================================================
+ 

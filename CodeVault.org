@@ -14,12 +14,6 @@
      else
         git clone --depth=1 https://repository.prace-ri.eu/git/PRACE/CodeVault.git
      fi
-    #  echo "Install the modified sources"
-    #  for file in `find ../src/CodeVault/ -type f` ; do 
-    #      dst=`echo $file|sed 's|../src/||'`
-    #      mkdir -p `dirname $dst`
-    #      cp -v $file $dst 
-    #  done
 
  #+END_SRC
  
@@ -32,36 +26,45 @@
      set -exu
 
      echo "Install the modified sources"
-     echo "Integral-basic"     
-     cp src/CodeVault/monte_carlo_methods/integral_basic/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/integral_basic/
-
-     echo "pi"
-     cp src/CodeVault/monte_carlo_methods/pi/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/pi/
+     echo "Patch the main CMakelists"
+     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods
+     patch -p1 < ../../../../src/CodeVault/monte_carlo_methods/patch_mcm.diff
      
-     echo "prng"
-     cp src/CodeVault/monte_carlo_methods/prng/* Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/prng/
+     echo "Patch integral_basic"
+     cd integral_basic/
+     patch -p1 < ../../../../../src/CodeVault/monte_carlo_methods/patch_integralBasic.diff
 
-     echo "Compile it"
-     cd Benchmarks/CodeVault/hpc_kernel_samples/monte_carlo_methods/
+     echo "Patch pi"
+     cd ../pi/
+     patch -p1 < ../../../../../src/CodeVault/monte_carlo_methods/patch_pi.diff
+     
+     echo "Patch prng"
+     cd ../prng/
+     patch -p1 < ../../../../../src/CodeVault/monte_carlo_methods/patch_prng.diff
+     
+     cd ..
+
+     echo "Compile them"
      mkdir -p build
      cd build/
      cmake ..
      make 
 
-     cp ../../../../../../src/common/* ./
+     cp ../../../../../src/common/* ./
 
-     echo "Run Integral-basic tests"
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./7_montecarlo_integral1d_mpi 100 
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_integral1d_serial 100
+     echo "Run them all"
+     echo "Integral-basic tests"
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./integral_basic/7_montecarlo_integral1d_mpi 100 
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./integral_basic/7_montecarlo_integral1d_serial 100
      
-     echo "Run Pi tests"
-     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_pi_mpi 10 100 
+     echo "Pi tests"
+     smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./pi/7_montecarlo_pi_mpi 10 100 
 
-     echo "Run Prng tests"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./7_montecarlo_prng_mpi 10 100 --cfg=smpi/host-speed:10
+     echo "Prng tests"
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./prng/7_montecarlo_prng_mpi 10 100 --cfg=smpi/host-speed:10
 
  #+END_SRC
- 
+
 ** N-Body methods 
 *** Dynamic sparse data exchange
 #+BEGIN_SRC sh :tangle bin/CodeVault_DynSparse.sh
