@@ -1,0 +1,22 @@
+Index: src/Makefile
+===================================================================
+--- src.orig/Makefile
++++ src/Makefile
+@@ -14,14 +14,13 @@ CFLAGS = -O3 -g
+ CXXFLAGS = $(CFLAGS)
+ 
+ CPPFLAGS = -I. -I../utils -I../fem $(MINIFE_TYPES) $(MINIFE_MATRIX_TYPE) \
+-	-DHAVE_MPI -DMPICH_IGNORE_CXX_SEEK \
+-	-DMINIFE_REPORT_RUSAGE
++	  -DMINIFE_REPORT_RUSAGE -DHAVE_MPI
+ 
+ LDFLAGS=
+ LIBS=
+ 
+-CXX=mpicxx
+-CC=mpicc
++CXX=smpicxx
++CC=smpicc
+ 
+ #CXX=g++
+ #CC=gcc
