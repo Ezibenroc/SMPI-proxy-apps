@@ -39,9 +39,9 @@ HPCCG is a simple conjugate gradient benchmark code for a 3D chimney domain on a
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      echo "Clean up the place" 
      set -xeu
-     rm -rf Benchmarks/Mantevo/MiniAMR
-     mkdir -p Benchmarks/Mantevo/
-     cd Benchmarks/Mantevo/
+     rm -rf Benchmarks/ECP/MiniAMR
+     mkdir -p Benchmarks/ECP/
+     cd Benchmarks/ECP/
      echo "Download the source code"
      test -e MiniAMR-source.tgz || curl -o MiniAMR-source.tgz -Lk https://mantevo.org/downloads/releaseTarballs/miniapps/MiniAMR/miniAMR_1.0_ref.tgz
 
@@ -49,9 +49,10 @@ HPCCG is a simple conjugate gradient benchmark code for a 3D chimney domain on a
      tar -xvf MiniAMR-source.tgz && mv miniAMR_ref MiniAMR
  
      echo "Install the modified sources"
-     cp -f ../../src/Mantevo/MiniAMR/* MiniAMR/
-     cp -f ../../src/common/* MiniAMR/
      cd MiniAMR/
+     patch -p1 < ../../../src/ECP/MiniAMR/patch_MiniAMR.diff
+     mv Makefile.mpi Makefile 
+     cp -f ../../../src/common/* ./
 
      echo "Compile it"
      make

@@ -1,0 +1,18 @@
+Index: MiniAMR/Makefile.mpi
+===================================================================
+--- MiniAMR.orig/Makefile.mpi
++++ MiniAMR/Makefile.mpi
+@@ -1,9 +1,9 @@
+-CC   = mpicc
+-LD   = mpicc
++CC   = smpicc
++LD   = smpicc
+ CPPFLAGS = -I.
+ CFLAGS = -O3
+-LDFLAGS =
+-LDLIBS = 
++LDFLAGS = 
++LDLIBS = -lm
+ 
+ EXEC = miniAMR.x
+ 

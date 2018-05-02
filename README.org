@@ -121,7 +121,7 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: | :black_small_square: |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]] | 1,548 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]] | 1,548 | MPI, OMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/HPCCG/patch_HPCCG.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#kriple][Kripke]] | 109,477 | MPI, OpenMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/kripke/patch_kripke.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minitri][MINITRI (linearAlgebra)]] | 1,534 | MPI, OMP | C++ | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniaero][MiniAero]] | 4,645 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/miniAero/patch_makefile.diff][:ticket:]] |
@@ -131,7 +131,7 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#minixyce][MiniXyce]] | 2,020 | MPI | C++ | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#pennant][PENNANT]] | 3,464 | MPI, OMP | C++ | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#quicksilver][Quicksilver]] | 9,821 | MPI, OMP | C++ | :gear: :sunny: | |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/SimpleMOC/patch_SimpleMOC.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#sw4lite][Sw4lite]] | 48,436 | MPI, OMP | C | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/TeaLeaf/patch_tealeaf.diff][:ticket:]] |
