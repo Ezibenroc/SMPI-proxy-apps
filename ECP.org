@@ -883,7 +883,8 @@ The code is incompressible Navier-Stokes flow solver.
   patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2D_Makefile.diff
   patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2DInit.diff
   patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2Din.diff
-
+  cp -f ../../../src/ECP/MiniSMAC2D/initiaF.f ./
+  cp -f ../../../src/ECP/MiniSMAC2D/smac2d.f ./
   cp ../../../src/common/* ./
 
   echo "Compile it"
