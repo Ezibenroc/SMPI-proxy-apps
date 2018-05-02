@@ -1,0 +1,36 @@
+Index: HPCCG/Makefile
+===================================================================
+--- HPCCG.orig/Makefile
++++ HPCCG/Makefile
+@@ -34,18 +34,18 @@
+ #
+ # 0) Specify compiler and linker:
+ 
+-CXX=/usr/local/bin/g++
+-LINKER=/usr/local/bin/g++
+-#CXX=mpicxx
+-#LINKER=mpicxx
++# CXX=/usr/local/bin/g++
++# LINKER=/usr/local/bin/g++
++CXX=smpicxx
++LINKER=smpicxx
+ 
+ 
+ # 1) Build with MPI or not?
+ #    If you want to run the program with MPI, make sure USE_MPI is set 
+ #    to -DUSING_MPI
+ 
+-USE_MPI =
+-#USE_MPI = -DUSING_MPI
++#USE_MPI =
++USE_MPI = -DUSING_MPI
+ 
+ 
+ # 2) MPI headers:  
+@@ -122,4 +122,4 @@ test:
+ 	@echo "Not implemented yet..."
+ 
+ clean:
+-	@rm -f *.o  *~ $(TARGET) $(TARGET).exe test_HPCPCG 
++	@rm -f *.o  *~ $(TARGET) $(TARGET).exe test_HPCPCG 
+\ No newline at end of file

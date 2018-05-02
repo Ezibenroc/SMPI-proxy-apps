@@ -119,8 +119,6 @@ This code demonstrate the basic usage of MPI parallel I/O.
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_io_basic_mpi_io
 #+END_SRC
 
-#+RESULTS:
-
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))

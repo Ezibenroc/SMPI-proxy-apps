@@ -117,8 +117,8 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/AMG/patch_AMG.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/CLAMR/patch_clamr][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | 4,658 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/CoMD/patch_CoMD.diff][:ticket:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/CoSP2/patch_CoSP2.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#ebmc][EBMC rget]] | 841 | MPI | C++, F90 | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#examinimd][ExaMiniMD]] | 6,184 | MPI, OMP | C++ | :gear: :sunny: | :black_small_square: |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#hpccg][HPCCG]] | 1,548 | MPI, OMP | C++ | :gear: :sunny: | |
