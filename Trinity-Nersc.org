@@ -474,6 +474,8 @@ MiniDFT also needs scalapack, so we are building an SMPI-based version of the li
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./mini_dft -in Si_333.in > Si_333.out
 #+END_SRC
 
+#+RESULTS:
+
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MILC]]
 **** Brief description  
 This code was developed for simulations of SU3 lattice gauge theory on MIMD parallel machines.

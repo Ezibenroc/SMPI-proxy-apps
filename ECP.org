@@ -299,9 +299,9 @@ CoSP2 is a reference implementation of typical linear algebra algorithms and wor
      fi
 
      echo "Install the modified sources"
-     cp ../../src/common/* ./CoSP2/src-mpi
-     cp -f ../../src/ECP/CoSP2/* ./CoSP2/src-mpi
      cd CoSP2/src-mpi
+     cp ../../../../src/common/* ./
+     patch -p1 < ../../../../src/ECP/CoSP2/patch_CoSP2.diff
 
      echo "Compile it"
      smpicc *.c -o CoSP2 -lm

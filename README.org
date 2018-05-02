@@ -114,8 +114,8 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 * [[https://proxyapps.exascaleproject.org/app/][ECP]] Proxy Applications 
 | Benchmark  | Lines | paral | Lang | SMPI | Patch |
 |------------+-------+-------+------+------|-------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: | |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#amg][AMG]] | 4,658 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/AMG/patch_AMG.diff][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#clamr][CLAMR]] | 109,477 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/CLAMR/patch_clamr][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#comd][CoMD]] | 4,658 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/CoMD/patch_CoMD.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#cosp2][CoSP2]] | 2,199 | MPI | C | :gear: :sunny: | |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/Mantevo.org#cloverleaf][CloverLeaf]] | 37,477  | MPI, OMP | C,F90 | :gear: :sunny: | |
