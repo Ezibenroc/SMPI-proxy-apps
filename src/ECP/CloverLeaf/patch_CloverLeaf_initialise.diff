@@ -1,0 +1,62 @@
+Index: CloverLeaf_MPI/initialise.f90
+===================================================================
+--- CloverLeaf_MPI.orig/initialise.f90
++++ CloverLeaf_MPI/initialise.f90
+@@ -30,7 +30,7 @@ SUBROUTINE initialise
+ 
+   IMPLICIT NONE
+ 
+-  INTEGER :: ios
++  INTEGER :: ios,i
+   INTEGER :: get_unit,stat,uin,out_unit
+   CHARACTER(LEN=g_len_max) :: ltmp
+ 
+@@ -87,22 +87,24 @@ SUBROUTINE initialise
+       OPEN(FILE='clover.in',ACTION='READ',STATUS='OLD',UNIT=uin,IOSTAT=ios)
+     ENDIF
+ 
++    do i=0,parallel%max_task 
+     out_unit=get_unit(dummy)
+-    OPEN(FILE='clover.in.tmp',UNIT=out_unit,STATUS='REPLACE',ACTION='WRITE',IOSTAT=ios)
+-    IF(ios.NE.0) CALL  report_error('initialise','Error opening clover.in.tmp file')
+-    stat=parse_init(uin,'')
+-    DO
+-       stat=parse_getline(-1_4)
+-       IF(stat.NE.0)EXIT
+-       WRITE(out_unit,'(A)') line
+-    ENDDO
+-    CLOSE(out_unit)
++      OPEN(FILE='clover.in.tmp'//trim(str(i)),UNIT=out_unit,STATUS='REPLACE',ACTION='WRITE',IOSTAT=ios)
++      IF(ios.NE.0) CALL  report_error('initialise','Error opening clover.in.tmp file')
++      stat=parse_init(uin,'')
++      DO
++         stat=parse_getline(-1_4)
++         IF(stat.NE.0)EXIT
++         WRITE(out_unit,'(A)') line
++      ENDDO
++      CLOSE(out_unit)
++    end do
+   ENDIF
+ 
+   CALL clover_barrier
+ 
+   g_in=get_unit(dummy)
+-  OPEN(FILE='clover.in.tmp',ACTION='READ',STATUS='OLD',UNIT=g_in,IOSTAT=ios)
++  OPEN(FILE='clover.in.tmp'//trim(str(parallel%task)),ACTION='READ',STATUS='OLD',UNIT=g_in,IOSTAT=ios)
+ 
+   IF(ios.NE.0) CALL report_error('initialise','Error opening clover.in.tmp file')
+ 
+@@ -139,6 +141,13 @@ SUBROUTINE initialise
+ 
+   CLOSE(g_in)
+ 
++  contains
++    character(len=20) function str(k)
++      !   "Convert an integer to string."
++      integer, intent(in) :: k
++      write (str, *) k
++      str = adjustl(str)
++    end function str
+ END SUBROUTINE initialise
+ 
+ FUNCTION get_unit(dummy)
