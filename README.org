@@ -127,9 +127,9 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniaero][MiniAero]] | 4,645 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/miniAero/patch_makefile.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#miniamr][MiniAMR]] | 8,329 | MPI | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/MiniAMR/patch_MiniAMR.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minief][MiniFE-evo]] | 19,907 | MPI | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/MiniEF-evo/patch_MiniFE.diff][:ticket:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minismac2d][MiniSMAC2D]] | 8,329  | MPI, OMP | F90 | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minismac2d][MiniSMAC2D]] | 8,329  | MPI, OMP | F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/MiniSMAC2D][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minixyce][MiniXyce]] | 2,020 | MPI | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/MiniXyce/patch_MiniXyce.diff][:ticket:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#pennant][PENNANT]] | 3,464 | MPI, OMP | C++ | :gear: :sunny: | |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#pennant][PENNANT]] | 3,464 | MPI, OMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/PENNANT][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#quicksilver][Quicksilver]] | 9,821 | MPI, OMP | C++ | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/Quicksilver][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#simplemoc][SimpleMOC]] | 2,864 | MPI, OMP | C | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/SimpleMOC/patch_SimpleMOC.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#swfft][SWFFT]] | 3,827 | MPI, OMP | C++,C,F90 | :gear: :sunny: | :black_small_square: |
@@ -156,9 +156,6 @@ Because of other dependencies
 
 Code source not available: AMR_Exp_Parabolic.
 
-Using unsupported MPI primitives: EBMC (iallgather).
+Using unsupported MPI primitives: EBMC (iallgather), RajaPerformanecesuite.
 
 (*) FleCSALE (ProjectLists.txt)
-
-TODO 
-RajaPerformanecesuite.
