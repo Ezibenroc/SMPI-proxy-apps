@@ -1,0 +1,16 @@
+Index: PENNANT/src/main.cc
+===================================================================
+--- PENNANT.orig/src/main.cc
++++ PENNANT/src/main.cc
+@@ -21,9 +21,9 @@
+ using namespace std;
+ 
+ 
+-int main(const int argc, const char** argv)
++int main(int argc, char** argv)
+ {
+-    Parallel::init();
++    Parallel::init(&argc, &argv);
+ 
+     if (argc != 2) {
+         if (Parallel::mype == 0)

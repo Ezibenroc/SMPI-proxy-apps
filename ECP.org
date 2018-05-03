@@ -196,11 +196,14 @@ finite element meshes containing arbitrary polygons.
      else
         git clone --depth=1 https://github.com/lanl/PENNANT.git
      fi
-
-     echo "Install the modified sources"
-     cp ../../src/common/* ./PENNANT/
-     cp -r ../../src/ECP/PENNANT/* ./PENNANT/
+     
      cd PENNANT/
+     echo "Install the modified sources"
+     cp ../../../src/common/* ./
+     patch -p1 < ../../../src/ECP/PENNANT/patch_PennantMakefile.diff
+     patch -p1 < ../../../src/ECP/PENNANT/patch_PennantMain.diff
+     patch -p1 < ../../../src/ECP/PENNANT/patch_PennantParalC.diff
+     patch -p1 < ../../../src/ECP/PENNANT/patch_PennantParalH.diff
 
      echo "Compile it"
      make
