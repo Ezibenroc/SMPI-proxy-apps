@@ -883,7 +883,10 @@ The code is incompressible Navier-Stokes flow solver.
   cd ..
 
   echo "Install the modified sources"
-  cp ../../../src/ECP/MiniSMAC2D/* ./
+  patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2D_Makefile.diff
+  patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2D_intiaf.diff
+  patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2Din.diff
+  cp ../../../src/ECP/MiniSMAC2D/initiaF.f ./
   cp ../../../src/common/* ./
 
   echo "Compile it"

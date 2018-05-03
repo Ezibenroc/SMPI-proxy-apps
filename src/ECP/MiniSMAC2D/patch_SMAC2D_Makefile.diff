@@ -1,0 +1,69 @@
+Index: miniSMAC2D/Makefile
+===================================================================
+--- miniSMAC2D.orig/Makefile
++++ miniSMAC2D/Makefile
+@@ -1,47 +1,47 @@
+ EXE = smac2d_mpi_and_threads_with_AVX
+ 
+-FC=mpif90
++FC=smpiff
+ #FC=ifort
+ 
+ # for MPI only, double precision
+-#FFLAGS=-O3 -c -g -DD_PRECISION -check bounds -traceback
++FFLAGS=-O3 -c -g -DD_PRECISION #-check bounds -traceback
+ # for MPI + OpenMP, double precision
+-FFLAGS=-O3 -xAVX -c -g -DD_PRECISION -check bounds -traceback -openmp \
+-      -I/opt/intel-12.1/compiler/include
++# FFLAGS=-O3 -xAVX -c -g -DD_PRECISION -check bounds -traceback -openmp \
++#       -I/opt/intel-12.1/compiler/include
+ 
+-# for linux machines
+-#CPP=/lib/cpp
++# Preprocessor for linux machines
++CPP=cpp
+ # for Mac OSX
+ #CPP=/opt/local/bin/cpp
+ # for TLCC2 linux clusters like glory, chama
+-CPP=/usr/bin/cpp
++
+ 
+ # preprocessor flags, with double precision
+ # ... for MPI only
+-#CPPFLAGS=-P -traditional -DD_PRECISION
++CPPFLAGS=-P -traditional -DD_PRECISION
+ # ... for MPI + OpenMP, double precision
+-CPPFLAGS=-P -traditional -DD_PRECISION -D_OPENMP \
+-      -I/opt/intel-12.1/compiler/include
++# CPPFLAGS=-P -traditional -DD_PRECISION -D_OPENMP \
++#       -I/opt/intel-12.1/compiler/include
+ 
+ # linker
+-LD=mpif90
++LD=smpiff
+ 
+ # for MPI only
+-#LDFLAGS=-O3
++LDFLAGS=-O3
+ # for MPI + OpenMP
+-LDFLAGS=-O3 -openmp \
+-      -I/opt/intel-12.1/compiler/include
++# LDFLAGS=-O3 -openmp \
++#       -I/opt/intel-12.1/compiler/include
+ 
+ INCDIR=./include
+ 
+-# for linux machines
+-#MPIDIR=-I/home/projects/openmpi/1.7.3/gnu/4.7.2/include
++# for SimGrid install
++MPIDIR=-I${SIMGRID_PATH}/include/smpi
+ # for Mac OSX
+ #MPIDIR=-I/Users/dwbarne/local/packages/OpenMPI-1.7.2/include
+ # for redsky
+ #MPIDIR=-I/apps/x86_64/mpi/openmpi/intel-12.1-2011.13.367/openmpi-1.4.3_oobpr/include
+ # for glory, chama
+-MPIDIR=-I/apps/x86_64/mpi/openmpi/intel-12.1-2011.13.367/openmpi-1.4.3/include
++# MPIDIR=-I/apps/x86_64/mpi/openmpi/intel-12.1-2011.13.367/openmpi-1.4.3/include
+ 
+ # delete all previous suffixes
+ .SUFFIXES:
