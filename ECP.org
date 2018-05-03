@@ -854,9 +854,9 @@ CloverLeaf is a mini-app that solves the compressible Euler equations on a Carte
  #+END_SRC
 
 ** MiniSMAC2D
-*** Brief description 
+**** Brief description 
 The code is incompressible Navier-Stokes flow solver.
-*** Build and run
+**** Build and run
 #+BEGIN_SRC shell :tangle bin/Mantevo_MiniSMAC2D.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
@@ -864,9 +864,9 @@ The code is incompressible Navier-Stokes flow solver.
 
   echo "Clean up the place" 
   set -xe
-  rm -rf Benchmarks/Mantevo/miniSMAC2D
-  mkdir -p Benchmarks/Mantevo/miniSMAC2D
-  cd Benchmarks/Mantevo/
+  rm -rf Benchmarks/ECP/miniSMAC2D
+  mkdir -p Benchmarks/ECP/miniSMAC2D
+  cd Benchmarks/ECP/
   echo "Download the source code and data on need"
   test -e miniSMAC2D-source.tgz || curl -o miniSMAC2D-source.tgz -Lk http://mantevo.org/downloads/releaseTarballs/miniapps/MiniSMAC2D/miniSMAC2D-2.0.tgz
   test -r miniSMAC2D-data-7k.tgz || curl -o miniSMAC2D-data-7k.tgz -Lk http://mantevo.org/downloads/Test_case_7kx7k.tar.gz
@@ -880,11 +880,7 @@ The code is incompressible Navier-Stokes flow solver.
   cd ..
 
   echo "Install the modified sources"
-  patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2D_Makefile.diff
-  patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2DInit.diff
-  patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2Din.diff
-  cp -f ../../../src/ECP/MiniSMAC2D/initiaF.f ./
-  cp -f ../../../src/ECP/MiniSMAC2D/smac2d.f ./
+  cp ../../../src/ECP/MiniSMAC2D/* ./
   cp ../../../src/common/* ./
 
   echo "Compile it"
