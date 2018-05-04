@@ -139,16 +139,14 @@ Using unsupported MPI primitives : Unstructed_grid (halo exchange).
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#snbone][SNBONE]] | 5,897 | MPI | F90 | :gear: :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/SNbone][:ticket:]] |
 
 *** Disabled Apps
-MPI not used: PathFinder, CoHMM, NuT, LCALS, RSBench. 
+MPI not used: PathFinder, CoHMM, NuT, LCALS, RSBench, CoGL, ASPA.
 
 Using OpenMP: XSBench, Tycho2, MiniGMG, MiniMD, SNAP, Nekbone, Clover3D.
 
 Because of other dependencies
 | Benchmark | Dependency |
 |-----------|------------|
-| ASPA | HDF5 |
 | Laghos  | HYPRE, METIS, MFEM |
-| CoGL | CUDA |
 | FleCSALE | Exodus, FleCSI, ParMETIS *|
 | HPGMG | PETSc, OpenMP |
 | MiniGhost | HDF5, H5Part |
