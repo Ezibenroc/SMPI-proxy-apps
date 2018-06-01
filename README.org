@@ -21,12 +21,10 @@ This repository gathers several collections of proxy apps, and reports
 their support by the SMPI implementation. This is tested nightly on a
 [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/][dedicated jenkins server]].
 
-The following graph shows the amount of passed and failed tests when
-running these proxy apps with smpi.
+[[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/test/trend?failureOnly=false|This
+graph]] shows the results (passing tests) during the recent nightly
+tests.
 
-#+BEGIN_EXPORT html
-<img src="https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/test/trend?failureOnly=false"/>
-#+END_EXPORT
 
 ** Legend 
 | Symbol  | Meaning | Symbol | Meaning |
