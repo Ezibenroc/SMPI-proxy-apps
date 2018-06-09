@@ -6,10 +6,8 @@ Index: src/Makefile
  # User Options
  #===============================================================================
  
--COMPILER    = intel
 -MPI         = no
 -OPENMP      = yes
-+COMPILER    = gnu 
 +SMPI        = yes
 +OPENMP      = no
  OPTIMIZE    = yes
