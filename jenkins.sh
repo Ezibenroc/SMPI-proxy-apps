@@ -6,6 +6,7 @@ export CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE=1000000
 set -exu
 rm -rf bin
 mkdir -p bin
+rm -rf Testing
 for org in CodeVault.org  Coral.org ECP.org Mantevo.org  Trinity-Nersc.org ; do 
   emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "'${org}'")'
 done
