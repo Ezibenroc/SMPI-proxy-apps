@@ -6,6 +6,7 @@ Index: src/Makefile
  # User Options
  #===============================================================================
  
+ COMPILER    = gnu
 -MPI         = no
 -OPENMP      = yes
 +SMPI        = yes
