@@ -51,12 +51,12 @@ tests.
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#tealeaf][TeaLeaf]] | 5,729 | MPI, OMP | F90 | :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/TeaLeaf/patch_tealeaf.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#vpfft][VPFFT]] | 3,384 | MPI, OMP | C++ | :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/VPFFT/patch_vpfft.diff][:ticket:]] |
 | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#snbone][SNBONE]] | 5,897 | MPI | F90 | :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/SNbone][:ticket:]] |
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minimd][MiniMD]] | 9,344 | MPI | C++ | :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/MiniMD][:ticket:]] |
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/ECP.org#minimd][MiniMD]] | 9,344 | MPI | C++ | :sunny: | [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/src/ECP/MiniMD/patch_miniMD_Makefile.diff][:ticket:]] |
 
 *** Disabled Apps
 MPI not used: PathFinder, CoHMM, NuT, LCALS, RSBench, CoGL, ASPA.
 
-Using OpenMP: XSBench, Tycho2, MiniGMG, MiniMD, SNAP, Nekbone, Clover3D.
+Using OpenMP: XSBench, Tycho2, MiniGMG, SNAP, Nekbone, Clover3D.
 
 Because of other dependencies
 | Benchmark | Dependency |
