@@ -525,13 +525,14 @@ MiniAero is a mini-application for the evaulation of programming models and hard
      echo "Install the modified sources"
      patch -p1 < ../../../../src/ECP/miniAero/patch_makefile.diff
      
-     cp ../../../../src/common/* .
-
      echo "Compile it"
      make KOKKOS_PATH=$PWD/../../kokkos KOKKOS_ARCH=SNB KOKKOS_DEVICES=Serial
      
      echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniAero
+     cd tests/3D_Sod_Parallel
+     cp ../../../../../../src/common/* .
+
+     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ../../miniAero
 
  #+END_SRC
 
