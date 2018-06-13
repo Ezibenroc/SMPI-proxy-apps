@@ -440,7 +440,7 @@ The CLAMR code is a cell-based adaptive mesh refinement (AMR) mini-app developed
      cp ../../../../src/common/* .
 
      echo "Compile it"
-     SMPI_PRETEND_CC=1 cmake -DCMAKE_C_COMPILER=smpicc -DCMAKE_CXX_COMPILER=smpicxx -DMPI_C_COMPILER=smpicc -DMPI_CXX_COMPILER=smpicxx -DMPI_C_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_CXX_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so  -DMPI_C_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_CXX_INCLUDE_PATH=$SIMGRID_PATH/include/smpi ..
+     SMPI_PRETEND_CC=1 cmake -DCMAKE_C_COMPILER=smpicc -DCMAKE_CXX_COMPILER=smpicxx -DCMAKE_FORTRAN_COMPILER=smpif90 -DMPI_C_COMPILER=smpicc -DMPI_CXX_COMPILER=smpicxx -DMPI_C_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_CXX_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so -DMPI_FORTRAN_LIBRARIES=$SIMGRID_PATH/lib/libsimgrid.so  -DMPI_C_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_CXX_INCLUDE_PATH=$SIMGRID_PATH/include/smpi -DMPI_FORTRAN_INCLUDE_PATH=$SIMGRID_PATH/include/smpi ..
      make clamr_mpionly
      
      echo "Run it"
