@@ -31,6 +31,8 @@ CoMD is a reference implementation of typical classical molecular dynamics algor
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../bin/CoMD-mpi -e -i 4 -j 2 -k 1 -x 40 -y 40 -z 40
+     cd ../src-mpi/
+     make clean
 
  #+END_SRC
 
@@ -68,6 +70,9 @@ systems for various 3-dimensional problems.
 
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./amg
+     
+     cd ..
+     make veryclean
 
  #+END_SRC
 
@@ -104,6 +109,8 @@ Sw4lite is a bare bone version of SW4 (Github) intended for testing performance 
      cd optimize/
      
      smpirun -np 16 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./sw4lite ../tests/pointsource/pointsource.in
+     cd ..
+     make clean
 
  #+END_SRC
 
@@ -138,6 +145,7 @@ Quicksilver is a proxy application that represents some elements of the Mercury 
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./qs
+     make clean
 
  #+END_SRC
 
@@ -173,6 +181,7 @@ for 3D neutron transport calculations in the context of full scale light water r
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./SimpleMOC -i input.in
+     make clean
 
  #+END_SRC
  
@@ -210,6 +219,7 @@ finite element meshes containing arbitrary polygons.
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./build/pennant ./test/leblanc/leblanc.pnt
+     make clean
 
  #+END_SRC
 
@@ -245,6 +255,7 @@ Fast Fourier transform which distributes data between ranks in a 3D cartesian gr
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./build/TestDfft 2 128
+     make clean
 
  #+END_SRC
 
@@ -278,6 +289,7 @@ This is a miniapp for the Energy Banding Monte Carlo (EBMC) neutron transportati
 
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./ebmc-rget ./inputs/params.small
+     make clean
 
  #+END_SRC
 
@@ -311,6 +323,7 @@ CoSP2 is a reference implementation of typical linear algebra algorithms and wor
 
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./CoSP2 
+     rm CoSP2
 
  #+END_SRC
 
@@ -352,6 +365,7 @@ previous MD proxy apps (MiniMD, COMD), its design is significantly more modular 
 
      echo "Run it"
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./ExaMiniMD -il ../input/in.lj --comm-type MPI --kokkos-threads=12 
+     make clean
 
  #+END_SRC
 
@@ -398,10 +412,12 @@ implementations.
      if [ ! -e ca-GrQc ] ; then
        wget https://sparse.tamu.edu/MM/SNAP/ca-GrQc.tar.gz
        tar xzf ca-GrQc.tar.gz
+       rm ca-GrQc.tar.gz
      fi
      
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniTri.exe ./ca-GrQc/ca-GrQc.mtx
+     make clean
 
  #+END_SRC
 
@@ -445,6 +461,8 @@ The CLAMR code is a cell-based adaptive mesh refinement (AMR) mini-app developed
      
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clamr_mpionly -n 256 -l 2 -i 10 -t 100
+     cd ..
+     rm -rf build
 
  #+END_SRC
 
@@ -490,6 +508,8 @@ Kripke is a simple, scalable, 3D Sn deterministic particle transport code.  Its 
      
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./kripke --procs 2,2,2
+     cd ..
+     rm -rf build
 
  #+END_SRC
 
@@ -533,6 +553,8 @@ MiniAero is a mini-application for the evaulation of programming models and hard
      cp ../../../../../../src/common/* .
 
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ../../miniAero
+     cd ../..
+     make clean
 
  #+END_SRC
 
@@ -569,6 +591,7 @@ TeaLeaf is a mini-app that solves the linear heat conduction equation on a spati
      
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./tea_leaf
+     make clean
 
  #+END_SRC
 
@@ -639,6 +662,7 @@ VPFFT is an implementation of a mesoscale micromechanical materials model. By so
      
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./VPFFT++
+     make clean
 
  #+END_SRC
 
@@ -678,8 +702,9 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
      cd ../src_processmesh/
      patch -p1 < ../../../../src/ECP/SNbone/patch_procmesh.diff
      make COMPILER=gfortran 
-     cp ../src_makemesh/grid_tet_mesh.ascii inputmesh.ascii
+     mv ../src_makemesh/grid_tet_mesh.ascii inputmesh.ascii
      ./processmesh.x 1  1
+     rm inputmesh.ascii
 
      cd ..
      patch -p1 < ../../../src/ECP/SNbone/patch_SNboneff.diff
@@ -689,10 +714,11 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
 
      echo "Compile it"
      make USEMETIS=yes COMPILER=smpi
-     cp ../src_processmesh/pmesh.ascii .
+     mv ../src_processmesh/pmesh.ascii .
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./SNaCFE.x 0  100 30 2 2
+     make clean     
 
  #+END_SRC
 
@@ -726,6 +752,8 @@ This code is a simple linear circuit simulator with a basic parser that performs
 
      echo "Run it"
      smpirun -np 3 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniXyce.x --circuit tests/cir1.net --t_start 1e-6 --pf params.txt
+     make clean
+
  #+END_SRC
 
 ** HPCCG
@@ -757,6 +785,8 @@ HPCCG is a simple conjugate gradient benchmark code for a 3D chimney domain on a
 
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./test_HPCCG 3 5 2
+     make clean
+     
  #+END_SRC
 
 ** MiniAMR
@@ -789,6 +819,8 @@ HPCCG is a simple conjugate gradient benchmark code for a 3D chimney domain on a
 
      echo "Run it"
      smpirun -np 16 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniAMR.x --init_x 1 --init_y 1 --init_z 1 --npx 4 --npy 2 --npz 2 --nx 4 --ny 4 --nz 4
+     make clean
+
  #+END_SRC
 
 ** MiniEF
@@ -823,6 +855,8 @@ miniFE is a Finite Element mini-application which implements a couple of kernels
 
      echo "Run it"
      smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./miniFE.x
+     make clean
+
  #+END_SRC
 
 ** CloverLeaf
@@ -855,6 +889,8 @@ CloverLeaf is a mini-app that solves the compressible Euler equations on a Carte
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clover_leaf
+     make clean
+
  #+END_SRC
 
 ** MiniSMAC2D
@@ -887,7 +923,6 @@ The code is incompressible Navier-Stokes flow solver.
   patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2D_Makefile.diff
   patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2D_intiaf.diff
   patch -p1 < ../../../src/ECP/MiniSMAC2D/patch_SMAC2Din.diff
-  cp ../../../src/ECP/MiniSMAC2D/initiaF.f ./
   cp ../../../src/common/* ./
 
   echo "Compile it"
@@ -895,6 +930,10 @@ The code is incompressible Navier-Stokes flow solver.
 
   echo "Run it"
   smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./smac2d_mpi_and_threads_with_AVX
+  rm bcmain.dat_original_7kx7k
+  rm xy.dat_original_7kx7k
+  make clean
+
 #+END_SRC
 
 ** MiniMD
@@ -930,6 +969,7 @@ miniMD is a simple, parallel molecular dynamics (MD) code.
      
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniMD
+     make clean
 
  #+END_SRC
 
