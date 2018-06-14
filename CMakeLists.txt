@@ -8,6 +8,9 @@ ENABLE_TESTING()
 set(CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE 30720000)
 set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 
+# MeteoFrance benchmarks 
+ADD_TEST(ECP_MeteoFrance  bin/MeteoFrance_gcr.sh)
+
 # ECP benchmarks 
 ADD_TEST(ECP_MiniMD  bin/ECP_MiniMD.sh)
 ADD_TEST(ECP_SNbone  bin/ECP_SNbone.sh)

@@ -1,0 +1,45 @@
+** GCR
+*** Brief description  
+*** Build and run  
+#+BEGIN_SRC sh :tangle bin/MeteoFrance_gcr.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+
+     echo "Clean up the place" 
+     set -xeu
+     rm -rf Benchmarks/MeteoFrance
+     mkdir -p Benchmarks/MeteoFrance/
+     cd Benchmarks/MeteoFrance/
+     echo "Download the source code"
+     test -e code-source.tar.gz || curl -o code-source.tar.gz -Lk https://zenodo.org/record/1066934/files/code.tgz?download=1
+          
+     echo "Unpack the code"
+     mkdir code && tar -xvf code-source.tar.gz -C code --strip-components 1
+ 
+     echo "Install the modified sources"
+     cd code/
+     cp -f ../../../src/common/* ./
+     cd gcr/
+
+     smpicxx allreduce.cc -o allreduce
+     
+     echo "Run it"
+     smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml ./allreduce 2 3 
+#+END_SRC
+
+* Emacs settings
+# Local Variables:
+# eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
+# eval:    (setq org-confirm-babel-evaluate nil)
+# eval:    (setq org-alphabetical-lists t)
+# eval:    (setq org-src-fontify-natively t)
+# eval:    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
+# eval:    (add-hook 'org-mode-hook 'org-display-inline-images)
+# eval:    (add-hook 'org-mode-hook 'org-babel-result-hide-all)
+# eval:    (setq org-babel-default-header-args:R '((:session . "org-R")))
+# eval:    (setq org-export-babel-evaluate nil)
+# eval:    (setq ispell-local-dictionary "american")
+# eval:    (setq org-export-latex-table-caption-above nil)
+# eval:    (eval (flyspell-mode t))
+# End:
