@@ -11,7 +11,7 @@ set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 # MeteoFrance benchmarks 
 ADD_TEST(MeteoFrance_GCR  bin/MeteoFrance_GCR.sh)
 
-ECP benchmarks 
+#ECP benchmarks 
 ADD_TEST(ECP_MiniMD  bin/ECP_MiniMD.sh)
 ADD_TEST(ECP_SNbone  bin/ECP_SNbone.sh)
 ADD_TEST(FFTW       bin/FFTW.sh)
