@@ -695,6 +695,7 @@ This program emulates the inversion of A in A*x=S on a single node arch, and it 
      cd SNbone/src_makemesh
      ls
      echo "Create an unstructured mesh"
+     patch -p0 < ../../../../src/ECP/SNbone/patch_makemesh.diff
      make COMPILER=gfortran
      ./makemesh.x    10 10 10 0
 
@@ -930,8 +931,7 @@ The code is incompressible Navier-Stokes flow solver.
 
   echo "Run it"
   smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./smac2d_mpi_and_threads_with_AVX
-  rm bcmain.dat_original_7kx7k
-  rm xy.dat_original_7kx7k
+  rm -rf data
   make clean
 
 #+END_SRC
