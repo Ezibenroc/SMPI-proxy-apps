@@ -226,7 +226,7 @@ It includes traditional benchmarks and performance measures such as latency, ban
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_multi_lat
     
      echo "Run osu_latency"
-     smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_latencyi
+     smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_latency
 
      make clean
 
@@ -539,6 +539,7 @@ This code was developed for simulations of SU3 lattice gauge theory on MIMD para
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../ks_imp_dyn/su3_rmd < test.in
 
+     cd ../ks_imp_dyn/
      make clean
 
 #+END_SRC
