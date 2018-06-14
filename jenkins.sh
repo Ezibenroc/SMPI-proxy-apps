@@ -7,7 +7,7 @@ set -exu
 rm -rf bin
 mkdir -p bin
 rm -rf Testing
-for org in CodeVault.org  Coral.org ECP.org Mantevo.org  Trinity-Nersc.org ; do 
+for org in CodeVault.org  Coral.org ECP.org Mantevo.org  Trinity-Nersc.org MeteoFrance.org ; do 
   emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "'${org}'")'
 done
 
