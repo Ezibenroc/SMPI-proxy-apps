@@ -62,7 +62,10 @@
 
      echo "Prng tests"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./prng/7_montecarlo_prng_mpi 10 100 --cfg=smpi/host-speed:10
-
+     
+     cd ..
+     rm -rf build
+     
  #+END_SRC
 
 ** N-Body methods 
@@ -87,6 +90,9 @@
 
      echo "Run it"
      smpirun -np 6 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./4_nbody_dsde 
+
+     cd ..
+     rm -rf build
 
  #+END_SRC
 
@@ -117,6 +123,10 @@ This code demonstrate the basic usage of MPI parallel I/O.
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./8_io_basic_mpi_io
+
+     cd ..
+     rm -rf build
+
 #+END_SRC
 
 * Emacs settings

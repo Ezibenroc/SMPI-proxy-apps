@@ -31,6 +31,9 @@ It include two benchmarks :
 
      echo "Run it"
      ./run_script 
+
+     make clean
+
 #+END_SRC
 
 **** Msgrate :
@@ -60,6 +63,8 @@ It include two benchmarks :
 
      echo "Run it"
      smpirun -n 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./msgrate -n 1 -p 2 -i 100 -s 8
+
+     make clean
 
 #+END_SRC
 
@@ -94,6 +99,9 @@ both launch and wireup requirements. Accordingly, it exercises both the launch s
 
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./ziaprobe 4 4 2 
+
+     make clean
+
  #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mdtest/][MDTest]]
@@ -128,6 +136,9 @@ The execution should done with 2 proc.
 
      echo "Run it"
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./mdtest --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes
+
+     make clean
+
  #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mpimemu/][MPIMemu]]
@@ -221,6 +232,9 @@ It includes traditional benchmarks and performance measures such as latency, ban
     
      echo "Run osu_latency"
      smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_latency
+
+     make clean
+
  #+END_SRC
 
  #+RESULTS:
@@ -283,6 +297,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
 
       echo "Run osu_put_latency"
       smpirun -np 2 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 --cfg=smpi/privatization:yes ./osu_put_latency
+
+      make clean
 
  #+END_SRC
 
@@ -351,6 +367,8 @@ It includes traditional benchmarks and performance measures such as latency, ban
      echo "Run osu_scatter"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./osu_scatterv
 
+     make clean
+
  #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/gtc/][GTC]]
@@ -392,6 +410,10 @@ GTC is used for Gyrokinetic Particle Simulation of Turbulent Transport in Burnin
 
      echo "Run it"
      smpirun -np 64 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../source/gtcmpi gtc.input
+
+     cd ../source
+     make clean
+
 #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minife/][MiniFE]]
@@ -425,6 +447,9 @@ It assembles a sparse linear-system from the steady-state conduction equation on
 
      echo "Run it"
      smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniFE.x -nx 32 -ny 51 -nz 18
+
+     make clean
+
 #+END_SRC
 
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/minidft/][MiniDFT]]
@@ -477,6 +502,9 @@ MiniDFT also needs scalapack, so we are building an SMPI-based version of the li
  
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./mini_dft -in Si_333.in > Si_333.out
+
+     make clean
+
 #+END_SRC
 
 #+RESULTS:
@@ -515,6 +543,10 @@ This code was developed for simulations of SU3 lattice gauge theory on MIMD para
  
      echo "Run it"
      smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ../ks_imp_dyn/su3_rmd < test.in
+
+     cd ../ks_imp_dyn/
+     make clean
+
 #+END_SRC
 
 * Emacs settings
