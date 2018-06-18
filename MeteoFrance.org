@@ -1,7 +1,5 @@
-** GCR
-*** Brief description  
 *** Build and run  
-#+BEGIN_SRC sh :tangle bin/MeteoFrance_GCR.sh
+#+BEGIN_SRC sh :tangle bin/MeteoFrance_code.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
@@ -16,16 +14,45 @@
           
      echo "Unpack the code"
      mkdir code && tar -xvf code-source.tar.gz -C code --strip-components 1
- 
      echo "Install the modified sources"
      cd code/
      cp -f ../../../src/common/* ./
-     cd gcr/
+
+#+END_SRC
+    
+** GCR
+*** Brief description  
+*** Build and run  
+#+BEGIN_SRC sh :tangle bin/MeteoFrance_GCR.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+ 
+     echo "Install the modified sources"
+     cd Benchmarks/MeteoFrance/code/gcr/
 
      smpicxx allreduce.cc -o allreduce
      
      echo "Run it"
      smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml ./allreduce 2 3 
+#+END_SRC
+
+#+RESULTS:
+
+** Halo
+*** Brief description  
+*** Build and run  
+#+BEGIN_SRC sh :tangle bin/MeteoFrance_Halo.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+ 
+     echo "Install the modified sources"
+     cd Benchmarks/MeteoFrance/code/halo/
+     
+
+     echo "Run it"
+    #  smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml
 #+END_SRC
 
 * Emacs settings

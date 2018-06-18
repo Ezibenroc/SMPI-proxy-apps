@@ -135,38 +135,43 @@ The execution should done with 2 proc.
 The code is a simple tool that helps approximate MPI library memory usage as a function of scale.  It takes samples of /proc/meminfo (node level)
  and /proc/self/status (process level) and outputs the min, max and avg values for a specified period of time.
 **** Build and run
-#+BEGIN_SRC sh sh :tangle bin/Trinity_MPIMemu.sh
+#+BEGIN_SRC sh :tangle bin/Trinity_MPIMemu.sh
      export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
      export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
      export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
      export MPIMEMU_START_INDEX=1
-     export MPIMEMU_NUMPE_FUN="X + 1"
+     export MPIMEMU_NUMPE_FUN="X +1"
      export MPIMEMU_MAX_PES=4
      
      echo "Clean up the place" 
-     set -xeu
-     rm -rf Benchmarks/Trinity-Nersc/mpimemu
-     mkdir -p Benchmarks/Trinity-Nersc/
+     set -exu
+     mkdir -p Benchmarks/Trinity-Nersc/ 
      cd Benchmarks/Trinity-Nersc/
-     echo "Download the source code"
-     test -e mpimemu-source.tar.gz || curl -o mpimemu-source.tar.gz -Lk http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/July5/mpimemu-1.0-rc6July5.tar
-
-     echo "Unpack the code"
-     mkdir mpimemu && tar -xf mpimemu-source.tar.gz -C mpimemu --strip-components 1
-
-     echo "Configure it"
-     cd mpimemu/
-     SMPI_PRETEND_CC=1 ./configure CC=smpicc 
+     
+     echo "Checkout or update the git containing the source code"
+     if [ -e mpimemu ] ; then
+        cd mpimemu ; git reset --hard master ; git clean -dfx ; git pull ; cd ..
+     else
+        git clone --depth=1 https://github.com/hpc/mpimemu.git
+     fi
 
      echo "Install the modified sources"
-     cp -f ../../../src/common/* src/
+     cd mpimemu/
+     ./autogen
+     sed -i -e "s/\mpicc/\smpicc/g" configure.ac
+     ./configure --host CC=smpicc
+
+     echo "Install the modified sources"
+     cp -f ../../../src/common/* ./
+
+
+     echo "Compile it" 
+     make
      cd src/
 
-     echo "Compile it"
-     make 
-
      echo "Run it"
-     
+     smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml --cfg=smpi/host-speed:100 ./mpimemu -t 2 -s 10 -w 
+
  #+END_SRC
  
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/omb-mpi-tests/][OMB_MPI]]
