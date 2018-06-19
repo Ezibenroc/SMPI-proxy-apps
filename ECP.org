@@ -588,9 +588,10 @@ TeaLeaf is a mini-app that solves the linear heat conduction equation on a spati
 
      echo "Compile it"
      make -j4
-     
+     echo "Find libgfortran"
+     GFORTRAN=$(find /usr/lib/ -name libgfortran.so)
      echo "Run it"
-     smpirun -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./tea_leaf
+     smpirun --cfg=smpi/privatize-libs:$GFORTRAN -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./tea_leaf
      make clean
 
  #+END_SRC
@@ -882,14 +883,14 @@ CloverLeaf is a mini-app that solves the compressible Euler equations on a Carte
      echo "Install the modified sources"
      cd CloverLeaf/CloverLeaf_MPI/
      patch -p1 < ../../../../src/ECP/CloverLeaf/patch_CloverLeaf.diff
-     patch -p1 < ../../../../src/ECP/CloverLeaf/patch_CloverLeaf_initialise.diff
      cp -f ../../../../src/common/* ./
 
      echo "Compile it"
      make COMPILER=GNU
-
-     echo "Run it"
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clover_leaf
+     echo "Find libgfortran"
+     GFORTRAN=$(find /usr/lib/ -name libgfortran.so)
+     echo "Run it" 
+     smpirun --cfg=smpi/privatize-libs:$GFORTRAN -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clover_leaf
      make clean
 
  #+END_SRC
