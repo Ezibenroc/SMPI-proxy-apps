@@ -171,7 +171,7 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
      ./autogen
      sed -i -e "s/\mpicc/\smpicc/g" configure.ac
      patch -p0 < ../../../src/Trinity-Nersc/mpimemu/patch_mpimemu.diff
-     SMPI_PRETEND_CC=1 ./configure --host CC=smpicc
+     SMPI_PRETEND_CC=1 ./configure CC=smpicc
 
      echo "Install the modified sources"
      cp -f ../../../src/common/* ./
