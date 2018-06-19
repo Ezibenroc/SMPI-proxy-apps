@@ -589,7 +589,7 @@ TeaLeaf is a mini-app that solves the linear heat conduction equation on a spati
      echo "Compile it"
      make -j4
      echo "Find libgfortran"
-     GFORTRAN=$(find /usr/lib/ -name libgfortran.so)
+     GFORTRAN=$(find /usr/lib/ -name libgfortran.so.?)
      echo "Run it"
      smpirun --cfg=smpi/privatize-libs:$GFORTRAN -np 4 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./tea_leaf
      make clean
@@ -888,7 +888,7 @@ CloverLeaf is a mini-app that solves the compressible Euler equations on a Carte
      echo "Compile it"
      make COMPILER=GNU
      echo "Find libgfortran"
-     GFORTRAN=$(find /usr/lib/ -name libgfortran.so)
+     GFORTRAN=$(find /usr/lib/ -name libgfortran.so.?)
      echo "Run it" 
      smpirun --cfg=smpi/privatize-libs:$GFORTRAN -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml ./clover_leaf
      make clean
