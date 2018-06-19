@@ -1,0 +1,41 @@
+diff --git src/mmu_args.c src/mmu_args.c
+index d321696..8f17b9b 100644
+--- src/mmu_args.c
++++ src/mmu_args.c
+@@ -345,7 +345,7 @@ mmu_args_process_user_input(mmu_args_t *a,
+                 tmp_argv[optind]);
+         goto show_usage;
+     }
+-
++    optind=0;    
+     /* all is well */
+     rc = MMU_SUCCESS;
+     goto cleanup;
+diff --git src/mmu_mpi.c src/mmu_mpi.c
+index 4110390..815456b 100644
+--- src/mmu_mpi.c
++++ src/mmu_mpi.c
+@@ -90,7 +90,7 @@ get_herr_str(int h_err)
+     return err_str;
+ }
+ 
+-#if MPI_VERSION < 3
++#if MPI_VERSION > 3
+ /* ////////////////////////////////////////////////////////////////////////// */
+ static int
+ get_netnum(mmu_mpi_t *m,
+diff --git src/mpimemu.c src/mpimemu.c
+index a981005..c1a2272 100644
+--- src/mpimemu.c
++++ src/mpimemu.c
+@@ -138,8 +138,8 @@ main(int argc,
+      * into all the processes in the job spewing error messages if the user's
+      * input isn't valid (or some other exception occurred during
+      * mmu_args_process_user_input). sad face... */
+-    if (MMU_SUCCESS != (rc = mmu_args_process_user_input(app_settings, argc,
+-                                                         argv))) {
++    if (MMU_SUCCESS != (rc = mmu_args_process_user_input(app_settings, argc-2,
++                                                         argv+2))) {
+         /* do not set bad_func here because mmu_args_process_user_input will
+          * supply all the output.  we don't want to complain about this type of
+          * error. */

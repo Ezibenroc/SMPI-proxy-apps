@@ -170,6 +170,7 @@ The code is a simple tool that helps approximate MPI library memory usage as a f
      cd mpimemu/
      ./autogen
      sed -i -e "s/\mpicc/\smpicc/g" configure.ac
+     patch -p1 < ../../../src/Trinity-Nersc/mpimemu/patch_mpimemu.diff
      ./configure --host CC=smpicc
 
      echo "Install the modified sources"
