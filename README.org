@@ -25,11 +25,6 @@ their support by the SMPI implementation. This is tested nightly on a
 graph]] shows the results (passing tests) during the recent nightly
 tests.
 
-* [[https://zenodo.org/record/1066934#.WyImghyxU5l][MeteoFrance]] Proxy Applications 
-| Benchmark  | Lines | paral | Lang | SMPI | Patch |
-|------------+-------+-------+------+------|-------|
-| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/MeteoFrance.org#gcr][GCR]] | 217,367 | MPI | C++ | :sunny: | :black_small_square: |
-
 * [[https://proxyapps.exascaleproject.org/app/][ECP]] Proxy Applications 
 | Benchmark  | Lines | paral | Lang | SMPI | Patch |
 |------------+-------+-------+------+------|-------|
@@ -77,6 +72,11 @@ Code source not available: AMR_Exp_Parabolic.
 Using unsupported MPI primitives: EBMC (iallgather), RajaPerformanecesuite.
 
 (*) FleCSALE (ProjectLists.txt)
+
+* [[https://zenodo.org/record/1066934#.WyImghyxU5l][MeteoFrance]] Proxy Applications
+| Benchmark  | Lines | paral | Lang | SMPI | Patch |
+|------------+-------+-------+------+------|-------|
+| [[https://github.com/simgrid/SMPI-proxy-apps/blob/master/MeteoFrance.org#gcr][GCR]] | 217,367 | MPI | C++ | :sunny: | :black_small_square: |
 
 * [[https://asc.llnl.gov/CORAL-benchmarks/][CORAL]] benchmark codes 
 | Benchmark  | Ref | Lines | paral | Lang | SMPI | Patch |
