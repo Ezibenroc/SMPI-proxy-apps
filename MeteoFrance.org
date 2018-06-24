@@ -1,5 +1,5 @@
 *** Build and run  
-#+BEGIN_SRC sh :tangle bin/MeteoFrance_code.sh
+#+BEGIN_SRC sh :tangle bin/MeteoFrance_getcode.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
   export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
   export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
@@ -22,6 +22,7 @@
     
 ** GCR
 *** Brief description  
+See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
 *** Build and run  
 #+BEGIN_SRC sh :tangle bin/MeteoFrance_GCR.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -41,6 +42,7 @@
 
 ** Halo
 *** Brief description  
+See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
 *** Build and run  
 #+BEGIN_SRC sh :tangle bin/MeteoFrance_Halo.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"

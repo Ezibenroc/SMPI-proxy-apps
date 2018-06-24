@@ -1,7 +1,8 @@
 * Apps
 ** [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/AMG2013_Summary_v2.3.pdf][AMG2013]]
 *** Brief description 
-AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids.
+AMG is a parallel algebraic multigrid solver for linear systems
+arising from problems on unstructured grids. [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/AMG2013_Summary_v2.3.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/amg20130624.tgz][:package:]]
 *** Build and run  
 #+BEGIN_SRC sh :tangle bin/Coral_AMG2013.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -34,7 +35,8 @@ AMG is a parallel algebraic multigrid solver for linear systems arising from pro
 
 ** [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][HACC_IO]]
 *** Brief description  
-The HACC I/O benchmark capture the I/O patterns of the HACC simulation code.
+The HACC I/O benchmark capture the I/O patterns of the HACC simulation
+code. [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/HACC_IO_Summary_v1.0.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Skeleton/HACC_IO.tar.gz][:package:]] 
 *** Build and run  
 #+BEGIN_SRC sh :tangle bin/Coral_HACC_IO.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -66,7 +68,10 @@ The HACC I/O benchmark capture the I/O patterns of the HACC simulation code.
 
 ** [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][KMI_HASH]]
 *** Brief description 
-KMI_HASH evaluate the performance of the architecture integer operations, specifically for hashing, and for memory-intensive genomics applications. 
+KMI_HASH evaluate the performance of the architecture integer
+operations, specifically for hashing, and for memory-intensive
+genomics applications. 
+ [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/KMI_Summary_v1.1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Datacentric/KMI_HASH_CORAL.tar.gz][:package:]]
 *** Build and run  
 #+BEGIN_SRC sh :tangle bin/Coral_KMI_HASH.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
@@ -102,7 +107,8 @@ KMI_HASH evaluate the performance of the architecture integer operations, specif
 
 ** [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][Lulesh]]
 *** Brief description 
-LULESH performs a hydrodynamics stencil calculation using both MPI and OpenMP to achieve parallelism.     
+LULESH performs a hydrodynamics stencil calculation using both MPI and
+OpenMP to achieve parallelism. [[https://asc.llnl.gov/CORAL-benchmarks/Summaries/LULESH_Summary_v1.pdf][:book:]] [[https://asc.llnl.gov/CORAL-benchmarks/Throughput/lulesh2.0.3.tgz][:package:]]
 *** Build and run  
 #+BEGIN_SRC sh :tangle bin/Coral_Lulesh.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"

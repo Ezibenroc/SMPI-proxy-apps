@@ -1,8 +1,11 @@
 *** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/smb/][SMB]]
 **** Brief description  
-It include two benchmarks :  
-- The msg_rate test measures the sustained MPI message rate using a communication pattern found in many real applications.
-- The mpi_overhead test uses a post-work-wait method using MPI non-blocking send and receive calls to measure the user level overhead of the respective MPI calls. 
+It includes two benchmarks:  
+- The msg_rate test measures the sustained MPI message rate using a
+  communication pattern found in many real applications. 
+- The mpi_overhead test uses a post-work-wait method using MPI
+  non-blocking send and receive calls to measure the user level
+  overhead of the respective MPI calls. 
 **** mpi_overhead : 
 #+BEGIN_SRC sh :tangle bin/Trinity_SMB_mpiHeader.sh
   export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"

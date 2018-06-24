@@ -15,51 +15,58 @@ the SimGrid simulator. This allows to study the application behavior
 in many details that would be hard to observe if not in a simulator,
 or on platforms that do not exist yet. The predictive power of SMPI
 was shown to be very good, provided that you correctly model the
-target platform.
+target platform
+[[&#128462;](https://hal.inria.fr/hal-01415484/file/smpi_article.pdf),
+[&#128462;](https://hal.inria.fr/hal-01523608/file/predicting-energy-consumption-of-mpi-applications-with-a-single-node.pdf)]
+while very scalable [[&#128462;](https://hal.inria.fr/hal-01544827/document)].
 
 This repository gathers several collections of proxy apps, and reports
 their support by the SMPI implementation. This is tested nightly on a
-[dedicated jenkins server](https://ci.inria.fr/simgrid/job/SMPI-proxy-apps-multi/build_mode=SMPI,label=proxy-apps/test/?width=800&height=600).
+[dedicated jenkins server](https://ci.inria.fr/simgrid/job/SMPI-proxy-apps-multi/build_mode=SMPI,label=proxy-apps/).
+
+[![Build Status](https://ci.inria.fr/simgrid/job/SMPI-proxy-apps-multi/build_mode=SMPI,label=proxy-apps/test/trend/png?width=400&height=300)](https://ci.inria.fr/simgrid/job/SMPI-proxy-apps-multi/build_mode=SMPI,label=proxy-apps/lastCompletedBuild/testReport/(root)/projectroot/)
+
+# Full Scale Applications
 
 In addition to the proxy apps testing presented here, some real-scale
 HPC projects directly use SMPI as a basis for their regression and
 integration tests:
 
-  - [BigDFT](http://bigdft.org>BigDFT) is a DFT massively parallel
-    electronic structure code using a wavelet basis set.
-    [![Build Status](https://ci.inria.fr/simgrid/buildStatus/icon?job=SimGrid-BigDFT)](https://ci.inria.fr/simgrid/job/SimGrid-BigDFT/)
-  - [StarPU](http://starpu.gforge.inria.fr/) is an unified runtime
-    system for heterogeneous multicore architectures.
-    [![Build Status](https://ci.inria.fr/simgrid/buildStatus/icon?job=SimGrid-StarPU)](https://ci.inria.fr/simgrid/job/SimGrid-StarPU/)
+| Application                                                                                                         | Build status                                                                                                                        |
+|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| [BigDFT](http://bigdft.org) is a DFT massively parallel electronic structure code using a wavelet basis set. | [![Build Status](https://ci.inria.fr/simgrid/buildStatus/icon?job=SimGrid-BigDFT)](https://ci.inria.fr/simgrid/job/SimGrid-BigDFT/) |
+| [StarPU](http://starpu.gforge.inria.fr/) is an unified runtime system for heterogeneous multicore architectures.    | [![Build Status](https://ci.inria.fr/simgrid/buildStatus/icon?job=SimGrid-StarPU)](https://ci.inria.fr/simgrid/job/SimGrid-StarPU/) |
+|                                                                                                                     |                                                                                                                                     |
+
 
 # [ECP Proxy Application](https://proxyapps.exascaleproject.org/app/)
 
-| Benchmark                          | Lines   | Lang        | SMPI    | Patch                                                                                  |
-|------------------------------------|--------:|-------------|---------|----------------------------------------------------------------------------------------|
-| [AMG](ECP.org#amg)                 | 4,658   | C           | :sunny: | [:ticket:](src/ECP/AMG/patch_AMG.diff)                                                 |
-| [CLAMR](ECP.org#clamr)             | 109,477 | C++         | :sunny: | [:ticket:](src/ECP/CLAMR/patch_clamr)                                                  |
-| [CoMD](ECP.org#comd)               | 4,658   | C           | :sunny: | [:ticket:](src/ECP/CoMD/patch_CoMD.diff)                                               |
-| [CoSP2](ECP.org#cosp2)             | 2,199   | C           | :sunny: | [:ticket:](src/ECP/CoSP2/patch_CoSP2.diff)                                             |
-| [CloverLeaf](ECP.org#cloverleaf)   | 37,477  | C, F90      | :sunny: | [:ticket:](Mantevo.org#cloverleaf)                                                     |
-| [EBMC rget](ECP.org#ebmc)          | 841     | C++, F90    | :sunny: | :black_small_square:                                                                   |
-| [ExaMiniMD](ECP.org#examinimd)     | 6,184   | C++         | :sunny: | :black_small_square:                                                                   |
-| [HPCCG](ECP.org#hpccg)             | 1,548   | C++         | :sunny: | [:ticket:](src/ECP/HPCCG/patch_HPCCG.diff)                                             |
-| [Kripke](ECP.org#kriple)           | 109,477 | C++         | :sunny: | [:ticket:](src/ECP/kripke/patch_kripke.diff)                                           |
-| [MINITRI](ECP.org#minitri)         | 1,534   | C++         | :sunny: | :black_small_square:                                                                   |
-| [MiniAero](ECP.org#miniaero)       | 4,645   | C++         | :sunny: | [:ticket:](src/ECP/miniAero/patch_makefile.diff)                                       |
-| [MiniAMR](ECP.org#miniamr)         | 8,329   | C           | :sunny: | [:ticket:](src/ECP/MiniAMR/patch_MiniAMR.diff)                                         |
-| [MiniFE-evo](ECP.org#minief)       | 19,907  | C           | :sunny: | [:ticket:](src/ECP/MiniEF-evo/patch_MiniFE.diff)                                       |
-| [MiniSMAC2D](ECP.org#minismac2d)   | 8,329   | F90         | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/MiniSMAC2D)  |
-| [MiniXyce](ECP.org#minixyce)       | 2,020   | C++         | :sunny: | [:ticket:](src/ECP/MiniXyce/patch_MiniXyce.diff)                                       |
-| [PENNANT](ECP.org#pennant)         | 3,464   | C++         | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/PENNANT)     |
-| [Quicksilver](ECP.org#quicksilver) | 9,821   | C++         | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/Quicksilver) |
-| [SimpleMOC](ECP.org#simplemoc)     | 2,864   | C           | :sunny: | [:ticket:](src/ECP/SimpleMOC/patch_SimpleMOC.diff)                                     |
-| [SWFFT](ECP.org#swfft)             | 3,827   | C++, C, F90 | :sunny: | :black_small_square:                                                                   |
-| [Sw4lite](ECP.org#sw4lite)         | 48,436  | C           | :sunny: | :black_small_square:                                                                   |
-| [TeaLeaf](ECP.org#tealeaf)         | 5,729   | F90         | :sunny: | [:ticket:](src/ECP/TeaLeaf/patch_tealeaf.diff)                                         |
-| [VPFFT](ECP.org#vpfft)             | 3,384   | C++         | :sunny: | [:ticket:](src/ECP/VPFFT/patch_vpfft.diff)                                             |
-| [SNBONE](ECP.org#snbone)           | 5,897   | F90         | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/ECP/SNbone)      |
-| [MiniMD](ECP.org#minimd)           | 9,344   | C++         | :sunny: | [:ticket:](src/ECP/MiniMD/patch_miniMD_Makefile.diff)                                  |
+| Benchmark                          |   Lines | Lang        | SMPI    | Patch                                                 |
+|------------------------------------|--------:|-------------|---------|-------------------------------------------------------|
+| [AMG](ECP.org#amg)                 |   4,658 | C           | :sunny: | [:ticket:](src/ECP/AMG/patch_AMG.diff)                |
+| [CLAMR](ECP.org#clamr)             | 109,477 | C++         | :sunny: | [:ticket:](src/ECP/CLAMR/patch_clamr)                 |
+| [CoMD](ECP.org#comd)               |   4,658 | C           | :sunny: | [:ticket:](src/ECP/CoMD/patch_CoMD.diff)              |
+| [CoSP2](ECP.org#cosp2)             |   2,199 | C           | :sunny: | [:ticket:](src/ECP/CoSP2/patch_CoSP2.diff)            |
+| [CloverLeaf](ECP.org#cloverleaf)   |  37,477 | C, F90      | :sunny: | [:ticket:](src/ECP/CloverLeaf/patch_CloverLeaf.diff)  |
+| [EBMC rget](ECP.org#ebmc)          |     841 | C++, F90    | :sunny: | :black_small_square:                                  |
+| [ExaMiniMD](ECP.org#examinimd)     |   6,184 | C++         | :sunny: | :black_small_square:                                  |
+| [HPCCG](ECP.org#hpccg)             |   1,548 | C++         | :sunny: | [:ticket:](src/ECP/HPCCG/patch_HPCCG.diff)            |
+| [Kripke](ECP.org#kriple)           | 109,477 | C++         | :sunny: | [:ticket:](src/ECP/kripke/patch_kripke.diff)          |
+| [MINITRI](ECP.org#minitri)         |   1,534 | C++         | :sunny: | :black_small_square:                                  |
+| [MiniAero](ECP.org#miniaero)       |   4,645 | C++         | :sunny: | [:ticket:](src/ECP/miniAero/patch_makefile.diff)      |
+| [MiniAMR](ECP.org#miniamr)         |   8,329 | C           | :sunny: | [:ticket:](src/ECP/MiniAMR/patch_MiniAMR.diff)        |
+| [MiniFE-evo](ECP.org#minief)       |  19,907 | C           | :sunny: | [:ticket:](src/ECP/MiniEF-evo/patch_MiniFE.diff)      |
+| [MiniMD](ECP.org#minimd)           |   9,344 | C++         | :sunny: | [:ticket:](src/ECP/MiniMD/patch_miniMD_Makefile.diff) |
+| [MiniSMAC2D](ECP.org#minismac2d)   |   8,329 | F90         | :sunny: | [:ticket:](src/ECP/MiniSMAC2D)                        |
+| [MiniXyce](ECP.org#minixyce)       |   2,020 | C++         | :sunny: | [:ticket:](src/ECP/MiniXyce/patch_MiniXyce.diff)      |
+| [PENNANT](ECP.org#pennant)         |   3,464 | C++         | :sunny: | [:ticket:](src/ECP/PENNANT)                           |
+| [Quicksilver](ECP.org#quicksilver) |   9,821 | C++         | :sunny: | [:ticket:](src/ECP/Quicksilver)                       |
+| [SimpleMOC](ECP.org#simplemoc)     |   2,864 | C           | :sunny: | [:ticket:](src/ECP/SimpleMOC/patch_SimpleMOC.diff)    |
+| [SNBONE](ECP.org#snbone)           |   5,897 | F90         | :sunny: | [:ticket:](src/ECP/SNbone)                            |
+| [SWFFT](ECP.org#swfft)             |   3,827 | C++, C, F90 | :sunny: | :black_small_square:                                  |
+| [Sw4lite](ECP.org#sw4lite)         |  48,436 | C           | :sunny: | :black_small_square:                                  |
+| [TeaLeaf](ECP.org#tealeaf)         |   5,729 | F90         | :sunny: | [:ticket:](src/ECP/TeaLeaf/patch_tealeaf.diff)        |
+| [VPFFT](ECP.org#vpfft)             |   3,384 | C++         | :sunny: | [:ticket:](src/ECP/VPFFT/patch_vpfft.diff)            |
 
 The following apps of this collection are not included:
   - Requiring OpenMP: PathFinder, CoHMM, NuT, LCALS, RSBench, CoGL, ASPA, XSBench, Tycho2, MiniGMG, SNAP, Nekbone, Clover3D
@@ -72,11 +79,6 @@ The following apps of this collection are not included:
   - EBMC (SMPI does not support iallgather)
   - RajaPerformanecesuite (requires MPI calls not supported by SMPI)
 
-# [MeteoFrance Proxy Applications](https://zenodo.org/record/1066934#.WyImghyxU5l)
-
-| Benchmark                  | Lines   | Lang | SMPI    | Patch                |
-|----------------------------|--------:|------|---------|----------------------|
-| [GCR](MeteoFrance.org#gcr) | 217,367 | C++  | :sunny: | :black_small_square: |
 
 # [CORAL benchmarks](https://asc.llnl.gov/CORAL-benchmarks/)
 
@@ -163,6 +165,14 @@ The following apps of this collection are not included:
 - Unstructured_grids ( depends on libmesh)
 
 Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
+
+# [MeteoFrance Proxy Applications](https://zenodo.org/record/1066934#.WyImghyxU5l)
+
+| Benchmark                         | Lines | Lang | SMPI    | Patch                |
+|-----------------------------------|------:|------|---------|----------------------|
+| [GCR](MeteoFrance.org#gcr)        |   504 | C++  | :sunny: | :black_small_square: |
+| [Halo](MeteoFrance.org#halo)      |  1910 | C++  | :x:     |                      |
+| [Transpose](MeteoFrance.org#halo) |  2554 | C++  | :x:     |                      |
 
 # Legend
 | Symbol         | Meaning                                  | Symbol               | Meaning              |
