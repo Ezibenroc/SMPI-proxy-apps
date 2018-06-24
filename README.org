@@ -19,11 +19,7 @@ target platform.
 
 This repository gathers several collections of proxy apps, and reports
 their support by the SMPI implementation. This is tested nightly on a
-[[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/][dedicated jenkins server]].
-
-[[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps/test/trend?failureOnly=false|This
-graph]] shows the results (passing tests) during the recent nightly
-tests.
+[[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps-multi/build_mode=SMPI,label=proxy-apps/test/?width=800&height=600][dedicated jenkins server]].
 
 * [[https://proxyapps.exascaleproject.org/app/][ECP]] Proxy Applications 
 | Benchmark  | Lines | paral | Lang | SMPI | Patch |
