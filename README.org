@@ -21,6 +21,22 @@ This repository gathers several collections of proxy apps, and reports
 their support by the SMPI implementation. This is tested nightly on a
 [[https://ci.inria.fr/simgrid/job/SMPI-proxy-apps-multi/build_mode=SMPI,label=proxy-apps/test/?width=800&height=600][dedicated jenkins server]].
 
+In addition to the proxy apps testing presented here, some real-scale
+HPC projects directly use SMPI as a basis for their regression and
+integration tests:
+
+#+BEGIN_EXPORT html
+<ul>
+  <li><a href="http://bigdft.org>BigDFT</a> is a DFT massively parallel
+   electronic structure code using a wavelet basis set.
+   <a href='https://ci.inria.fr/simgrid/job/SimGrid-BigDFT/'><img src='https://ci.inria.fr/simgrid/job/SimGrid-BigDFT/badge/icon'></a>
+  </li>
+</ul>
+#+END_EXPORT
+ - [[http://starpu.gforge.inria.fr/][StarPU]] is an unified runtime
+   system for heterogeneous multicore architectures.
+   [[https://ci.inria.fr/simgrid/job/SimGrid-StarPU/][SMPI-based nightly testing]]
+
 * [[https://proxyapps.exascaleproject.org/app/][ECP]] Proxy Applications 
 | Benchmark  | Lines | paral | Lang | SMPI | Patch |
 |------------+-------+-------+------+------|-------|
