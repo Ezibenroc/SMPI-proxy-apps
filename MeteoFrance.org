@@ -19,7 +19,7 @@
      cp -f ../../../src/common/* ./
 
 #+END_SRC
-    
+
 ** GCR
 *** Brief description  
 See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
@@ -38,8 +38,6 @@ See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
      smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml ./allreduce 2 3 
 #+END_SRC
 
-#+RESULTS:
-
 ** Halo
 *** Brief description  
 See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
@@ -51,10 +49,16 @@ See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
  
      echo "Install the modified sources"
      cd Benchmarks/MeteoFrance/code/halo/
+     patch -p1 < ../../../../src/MeteoFrance/patch_halomk.diff
+     patch -p1 < ../../../../src/MeteoFrance/patch_halocc.diff
+     patch -p1 < ../../../../src/MeteoFrance/patch_shm_mgrmk.diff
      
+     echo "Compile it"
+     make -f halo.mk
+     make -f shm_mgr.mk
 
      echo "Run it"
-    #  smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml
+     smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml --cfg=smpi/host-speed:100 ./halo.exe
 #+END_SRC
 
 * Emacs settings
