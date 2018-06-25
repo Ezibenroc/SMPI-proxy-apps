@@ -12,7 +12,7 @@ set(CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE 307200)
 ADD_TEST(MeteoFrance_download  bin/MeteoFrance_getcode.sh)
 ADD_TEST(MeteoFrance_GCR       bin/MeteoFrance_GCR.sh)
 ADD_TEST(MeteoFrance_Halo      bin/MeteoFrance_Halo.sh)
-# ADD_TEST(MeteoFrance_transpose bin/MeteoFrance_transpose.sh)
+ADD_TEST(MeteoFrance_transpose bin/MeteoFrance_transpose.sh)
 
 # ECP benchmarks 
 ADD_TEST(ECP_MiniMD  bin/ECP_MiniMD.sh)

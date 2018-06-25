@@ -61,6 +61,28 @@ See https://www.geosci-model-dev-discuss.net/gmd-2017-301/gmd-2017-301.pdf
      smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml --cfg=smpi/host-speed:100 ./halo.exe
 #+END_SRC
 
+** Transpose 
+*** Build and run  
+#+BEGIN_SRC sh :tangle bin/MeteoFrance_transpose.sh
+  export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+  export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+  export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+ 
+     echo "Install the modified sources"
+     cd Benchmarks/MeteoFrance/code/transpose/
+     patch -p1 < ../../../../src/MeteoFrance/transpose/patch_transposemk.diff
+     patch -p1 < ../../../../src/MeteoFrance/transpose/patch_transposecc.diff
+     patch -p1 < ../../../../src/MeteoFrance/patch_shm_mgrmk.diff
+
+     
+     echo "Compile it"
+     make -f transpose.mk
+     make -f shm_mgr.mk
+
+     echo "Run it"
+     smpirun -np 8 -hostfile ../cluster_hostfile.txt -platform ../cluster_crossbar.xml --cfg=smpi/host-speed:100 ./transpose.exe
+#+END_SRC
+
 * Emacs settings
 # Local Variables:
 # eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
