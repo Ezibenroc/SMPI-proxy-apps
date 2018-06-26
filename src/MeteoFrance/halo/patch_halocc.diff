@@ -31,3 +31,12 @@ Index: halo/halo.cc
  #endif
  	config = NULL;
  	dm_z = NULL;
+@@ -269,7 +269,7 @@ for (nx = 1800; nx <= 7200; nx += 1800)
+ #if defined(_SHM_)
+ 	//shm_free((void **)(&GO_MBLOCK));
+ #else
+-	shmd((void **)(&GO_MBLOCK), sizeof(struct t_config) + sizeof(struct t_domain) * ncpu + sizeof(struct t_stat) * ncpu, 0);
++	SMPI_SHARED_FREE((void **)(&GO_MBLOCK));
+ #endif
+ 
+ 
