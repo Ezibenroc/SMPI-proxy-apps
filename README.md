@@ -168,11 +168,11 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 
 # [MeteoFrance Proxy Applications](https://zenodo.org/record/1066934#.WyImghyxU5l)
 
-| Benchmark                         | Lines | Lang | SMPI    | Patch                |
-|-----------------------------------|------:|------|---------|----------------------|
-| [GCR](MeteoFrance.org#gcr)        |   504 | C++  | :sunny: | :black_small_square: |
-| [Halo](MeteoFrance.org#halo)      |  1910 | C++  | :x:     |                      |
-| [Transpose](MeteoFrance.org#halo) |  2554 | C++  | :x:     |                      |
+| Benchmark                              | Lines | Lang | SMPI    | Patch                                                                                        |
+|----------------------------------------|------:|------|---------|----------------------------------------------------------------------------------------------|
+| [GCR](MeteoFrance.org#gcr)             |   504 | C++  | :sunny: | :black_small_square:                                                                         |
+| [Halo](MeteoFrance.org#halo)           |  1910 | C++  | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/MeteoFrance/halo)      |
+| [Transpose](MeteoFrance.org#transpose) |  2554 | C++  | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/MeteoFrance/transpose) |
 
 # Legend
 | Symbol         | Meaning                                  | Symbol               | Meaning              |
