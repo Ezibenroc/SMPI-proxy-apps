@@ -144,7 +144,7 @@ The execution should done with 2 proc.
 
  #+END_SRC
 
-*** [[http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/mpimemu/][MPIMemu]]
+*** [[https://github.com/hpc/mpimemu][MPIMemu]]
 **** Brief description  
 The code is a simple tool that helps approximate MPI library memory usage as a function of scale.  It takes samples of /proc/meminfo (node level)
  and /proc/self/status (process level) and outputs the min, max and avg values for a specified period of time.
