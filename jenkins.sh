@@ -4,6 +4,9 @@ export SIMGRID_PATH=/builds/simgrid_install
 export CTEST_CUSTOM_MAXIMUM_FAILED_TEST_OUTPUT_SIZE=1000000
 
 set -exu
+build_mode="$1"
+echo "Build mode $build_mode on $(uname -np)" >&2
+
 rm -rf bin
 mkdir -p bin
 rm -rf Testing
@@ -19,7 +22,7 @@ EOF
 
 chmod +x bin/*.sh
 
-cmake .
+cmake -Dbuild_mode=${build_mode} .
 
 ctest -T test --output-on-failure --no-compress-output || true
 if [ -f Testing/TAG ] ; then
