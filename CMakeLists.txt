@@ -75,8 +75,8 @@ if (${build_mode} STREQUAL "SMPI")
   ADD_TEST(Mantevo_MiniAMR    bin/Mantevo_MiniAMR.sh)
   ADD_TEST(Mantevo_CloverLeaf    bin/Mantevo_CloverLeaf.sh)
   
-elseif (${build_mode} STREQUAL "ModelCheck")
-  message(STATUS "Build mode: ModelCheck")
+elseif (${build_mode} STREQUAL "ModelChecker")
+  message(STATUS "Build mode: ModelChecker")
 
 else()
   message(FATAL_ERROR "Invalid build mode: ${build_mode}. Either SMPI or ModelCheck")
