@@ -1,0 +1,58 @@
+* High Performance Linpack
+** Brief description 
+[[http://www.netlib.org/benchmark/hpl/][HPL]] is a software package that solves a (random) dense linear system in double precision (64 bits) arithmetic on
+distributed-memory computers.
+** Vanilla
+*** Brief description
+No modification was made to the source code of HPL, except for a basic Makefile.
+*** Build and run  
+#+BEGIN_SRC sh :tangle bin/HPL_vanilla.sh
+     export SIMGRID_PATH="${SIMGRID_PATH:=~/simgrid}"
+     export LD_LIBRARY_PATH=$SIMGRID_PATH/build/lib:$SIMGRID_PATH/lib:$LD_LIBRARY_PATH
+     export PATH=$SIMGRID_PATH/build/bin:$SIMGRID_PATH/bin:$PATH
+     
+     echo "Clean up the place" 
+     set -exu
+
+     rm -rf Benchmarks/HPL/Vanilla
+     mkdir -p Benchmarks/HPL/Vanilla
+     cd Benchmarks/HPL
+     echo "Download the source code"
+     test -e hpl-2.2.tar.gz || curl -o hpl-2.2.tar.gz -Lk http://www.netlib.org/benchmark/hpl/hpl-2.2.tar.gz
+
+     echo "Unpack the code"
+     tar -xvf hpl-2.2.tar.gz -C Vanilla
+     mv Vanilla/hpl-2.2/* Vanilla
+     rmdir Vanilla/hpl-2.2
+
+     echo "Install the modified sources"
+     cd Vanilla
+     cp ../../../src/HPL/Make.SMPI .
+     mkdir -p bin/SMPI
+     cp ../../../src/HPL/HPL.dat bin/SMPI
+     cp -f ../../../src/common/* bin/SMPI
+
+     echo "Compile it" 
+     sed -ri "s|TOPdir\s*=.+|TOPdir="`pwd`"|g" Make.SMPI
+     make startup arch=SMPI
+     make arch=SMPI
+
+     echo "Run it"
+     cd bin/SMPI
+     smpirun -np 16 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./xhpl
+ #+END_SRC
+* Emacs settings
+# Local Variables:
+# eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (shell . t) (R . t) (perl . t) (ditaa . t) ))
+# eval:    (setq org-confirm-babel-evaluate nil)
+# eval:    (setq org-alphabetical-lists t)
+# eval:    (setq org-src-fontify-natively t)
+# eval:    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
+# eval:    (add-hook 'org-mode-hook 'org-display-inline-images)
+# eval:    (add-hook 'org-mode-hook 'org-babel-result-hide-all)
+# eval:    (setq org-babel-default-header-args:R '((:session . "org-R")))
+# eval:    (setq org-export-babel-evaluate nil)
+# eval:    (setq ispell-local-dictionary "american")
+# eval:    (setq org-export-latex-table-caption-above nil)
+# eval:    (eval (flyspell-mode t))
+# End:

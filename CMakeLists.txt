@@ -74,6 +74,9 @@ if (${build_mode} STREQUAL "SMPI")
   ADD_TEST(Mantevo_HPCCG      bin/Mantevo_HPCCG.sh)
   ADD_TEST(Mantevo_MiniAMR    bin/Mantevo_MiniAMR.sh)
   ADD_TEST(Mantevo_CloverLeaf    bin/Mantevo_CloverLeaf.sh)
+
+  # HPL benchmark
+  ADD_TEST(HPL_vanilla bin/HPL_vanilla.sh)
   
 elseif (${build_mode} STREQUAL "ModelChecker")
   message(STATUS "Build mode: ModelChecker")
