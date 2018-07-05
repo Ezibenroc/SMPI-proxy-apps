@@ -67,6 +67,7 @@ integration tests:
 | [Sw4lite](ECP.org#sw4lite)         |  48,436 | C           | :sunny: | :black_small_square:                                  |
 | [TeaLeaf](ECP.org#tealeaf)         |   5,729 | F90         | :sunny: | [:ticket:](src/ECP/TeaLeaf/patch_tealeaf.diff)        |
 | [VPFFT](ECP.org#vpfft)             |   3,384 | C++         | :sunny: | [:ticket:](src/ECP/VPFFT/patch_vpfft.diff)            |
+| [MiniGhost](ECP.org#minighost)     |   8,962 | F90         | :x:     | [:ticket:](src/ECP/VPFFT/patch_miniGhost_mk.diff)     |
 
 The following apps of this collection are not included:
   - Requiring OpenMP: PathFinder, CoHMM, NuT, LCALS, RSBench, CoGL, ASPA, XSBench, Tycho2, MiniGMG, SNAP, Nekbone, Clover3D
