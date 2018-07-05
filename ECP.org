@@ -1007,7 +1007,7 @@ MiniGhost is not configured to solve any particular problem, allowing the user t
      
      echo "Run it"
 
-     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniGhost.exe
+     smpirun -np 8 -hostfile ./cluster_hostfile.txt -platform ./cluster_crossbar.xml --cfg=smpi/host-speed:100 ./miniGhost.x
      make clean
 
  #+END_SRC
