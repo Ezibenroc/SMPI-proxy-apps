@@ -10,7 +10,7 @@ echo "Build mode $build_mode on $(uname -np)" >&2
 rm -rf bin
 mkdir -p bin
 rm -rf Testing
-for org in CodeVault.org  Coral.org ECP.org Mantevo.org  Trinity-Nersc.org MeteoFrance.org ; do 
+for org in *.org ; do 
   emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "'${org}'")'
 done
 
