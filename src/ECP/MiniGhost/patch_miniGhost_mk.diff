@@ -19,7 +19,7 @@ Index: ref/makefile.mpi.gnu
  # Compilers
 -FC=$(MPI_LOC)/env/mpif90
 -CC=$(MPI_LOC)/env/mpicc
-+FC=smpif90
++FC=smpiff
 +CC=smpicc
  
  CFLAGS = $(PROTOCOL) $(REAL_PRECISION) $(INT_PRECISION)
