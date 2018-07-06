@@ -78,6 +78,7 @@ if (${build_mode} STREQUAL "SMPI")
 
   # HPL benchmark
   ADD_TEST(HPL_vanilla bin/HPL_vanilla.sh)
+  ADD_TEST(HPL_optimized bin/HPL_optimized.sh)
   
 elseif (${build_mode} STREQUAL "ModelChecker")
   message(STATUS "Build mode: ModelChecker")
