@@ -175,6 +175,12 @@ Issues : n-body_methods-bhtree_mpi (issue with Body.cpp)
 | [Halo](MeteoFrance.org#halo)           |  1910 | C++  | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/MeteoFrance/halo)      |
 | [Transpose](MeteoFrance.org#transpose) |  2554 | C++  | :sunny: | [:ticket:](https://github.com/simgrid/SMPI-proxy-apps/tree/master/src/MeteoFrance/transpose) |
 
+# [HPL](http://www.netlib.org/benchmark/)
+
+| Benchmark                     |  Lines | Lang | SMPI    | Patch                  |
+|-------------------------------|--------|------|---------|------------------------|
+| [Vanilla](HPL.org#vanilla)    | 15,807 | C    | :sunny: | :black_small_square:   |
+
 # Legend
 | Symbol         | Meaning                                  | Symbol               | Meaning              |
 |----------------|------------------------------------------|----------------------|----------------------|
